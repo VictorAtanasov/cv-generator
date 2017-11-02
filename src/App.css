@@ -1,2 +1,12 @@
 p {
   color: red; }
+
+.btn {
+  color: white;
+  font-weight: bold; }
+
+.btn-danger {
+  background: red; }
+
+.btn-primary {
+  background: blue; }
