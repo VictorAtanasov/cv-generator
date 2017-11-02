@@ -1,0 +1,25 @@
+{
+  "name": "cv-generator-react",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "firebase": "^4.6.0",
+    "node-sass-chokidar": "^0.0.3",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.0.16",
+    "redux": "^3.7.2",
+    "redux-devtools-extension": "^2.13.2",
+    "redux-thunk": "^2.2.0",
+    "thunk": "^0.0.1"
+  },
+  "scripts": {
+    "build-sass": "node-sass-chokidar src/sass/styles.sass src/App.css",
+    "w-sass": "npm run build-sass && node-sass-chokidar src/sass/styles.sass src/App.css --watch --recursive",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
