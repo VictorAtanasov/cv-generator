@@ -28,16 +28,23 @@ export function logOut(){
     }
 }
 
-export function signUp(email, password){
+export function signUp(email, password, name){
     return dispatch => {
         return auth.createUserWithEmailAndPassword(email, password)
             .then(function(user){
-                return user
-            })
-            .then((user) => {
-                cvs.child(user.uid).set({
-                    email: user.email
+                user.updateProfile({
+                    displayName: name
+                }).then(() => {
+                    return user
                 })
+                .then((user) => {
+                    cvs.child(user.uid).set({
+                        email: user.email,
+                        name: user.displayName
+                    })
+                    return user.uid
+                })
+
                 return user.uid
             })
     }

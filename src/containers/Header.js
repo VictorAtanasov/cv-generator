@@ -3,14 +3,50 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as userActions from '../actions/userActions';
+import AuthButton from '../components/AuthButton';
 
 class Header extends React.Component{
     constructor(props){
         super(props);
+        this.ifUser = this.ifUser.bind(this);
+        this.handleSignOut = this.handleSignOut.bind(this);
     }
 
     componentWillMount(){
-        this.props.getUser();
+        this.props.getUser()
+    }
+
+    handleSignOut(e){
+        this.props.logOut()
+            .then(() =>{
+                console.log('success');
+                this.props.history.replace('/');
+            })
+            .catch((err) =>{
+                console.log(err)
+            })
+    }
+
+    ifUser(){
+        if(this.props.user.displayName){
+            return(
+                <div>
+                    <span>{`Hi ${this.props.user.displayName}`}</span>
+                    <div>
+                        <AuthButton className="btn btn-danger" text="Sign Out" onClick={this.handleSignOut} />
+                    </div>
+                </div>
+            )
+        } else if(this.props.user.email){
+            return(
+                <div>
+                    <span>{`Hi ${this.props.user.email}`}</span>
+                    <div>
+                        <AuthButton className="btn btn-danger" text="Sign Out" onClick={this.handleSignOut} />
+                    </div>
+                </div>
+            )
+        }
     }
 
     render(){
@@ -20,7 +56,12 @@ class Header extends React.Component{
                     Header
                 </div>
                 <div>
-                    <ul>
+                    <ul>                        
+                        <Link to="/">
+                            <li>
+                                Home
+                            </li>
+                        </Link>
                         <Link to="/logIn">
                             <li>
                                 Log In
@@ -31,7 +72,13 @@ class Header extends React.Component{
                                 Sign Up
                             </li>
                         </Link>
+                        <Link to={`/cv/${this.props.user.uid}`}>
+                            <li>
+                                Your CV
+                            </li>
+                        </Link>
                     </ul>
+                    {this.ifUser()}
                 </div>
             </div>
         )

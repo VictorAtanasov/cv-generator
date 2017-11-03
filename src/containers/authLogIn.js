@@ -5,6 +5,7 @@ import * as userActions from '../actions/userActions';
 import InputField from '../components/InputField';
 import AuthButton from '../components/AuthButton';
 
+
 class authLogIn extends React.Component{
     constructor(props){
         super(props);
@@ -14,11 +15,6 @@ class authLogIn extends React.Component{
         }
 
         this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
-        this.handleSignOut = this.handleSignOut.bind(this);
-    }
-
-    componentWillMount(){
-        this.props.getUser()
     }
 
     handleLoginSubmit(e){
@@ -26,7 +22,8 @@ class authLogIn extends React.Component{
 
         this.props.logIn(this.state.email, this.state.password)
             .then((userUid) =>{
-                console.log(userUid)
+                console.log(userUid);
+                this.props.history.replace('/');
             })
             .catch((err) =>{
                 console.log(err)
@@ -34,10 +31,7 @@ class authLogIn extends React.Component{
         this.refs.logInForm.reset()
     }
 
-    handleSignOut(e){
-        console.log(42)
-        this.props.logOut()
-    }
+
 
     render(){
         return(
@@ -53,9 +47,6 @@ class authLogIn extends React.Component{
                             inputAction={(event) => this.setState({password: event.target.value})} />
                         <AuthButton className="btn btn-primary" type="submit" text="Log In" />
                     </form>
-                </div>
-                <div>
-                    <AuthButton className="btn btn-danger" text="Sign Out" onClick={this.handleSignOut} />
                 </div>
             </div>
         )
