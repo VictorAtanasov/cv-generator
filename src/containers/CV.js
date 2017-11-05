@@ -1,17 +1,44 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as userActions from '../actions/userActions';
+import * as cvActions from '../actions/cvActions';
+import { FontAwesomeSpinner } from '../components/FontAwesomeSpinner';
+
 
 class CV extends React.Component{
     constructor(props){
-        super(props)
+        super(props);
+        this.renderCVData = this.renderCVData.bind(this);
+    }
+
+    componentWillMount(){
+        this.props.getCV(this.props.match.params.id)
+    }
+
+    renderCVData(){
+        if(this.props.cv.email){
+            return(
+                <div>
+                    {this.props.cv.email}
+                </div>
+            )
+        } else {
+            return(
+                <div>
+                    <FontAwesomeSpinner />
+                </div>
+            )
+        }
     }
 
     render(){
         return(
             <div>
-                CV Page
+                <div>
+                     <div>
+                        {this.renderCVData()}
+                    </div>
+                </div>
             </div>
         )
     }
@@ -19,12 +46,12 @@ class CV extends React.Component{
 
 function mapStateToProps(state){
     return{
-        user: state.user
+        cv: state.cv
     }
 }
 
 function mapDispatchToProps(dispatch){
-    return bindActionCreators(userActions, dispatch)
+    return bindActionCreators(cvActions, dispatch)
 }
 
 

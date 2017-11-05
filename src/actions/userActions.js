@@ -1,5 +1,6 @@
-import { auth } from '../Firebase';
-import { cvs } from '../Firebase';
+import { auth } from '../Firebase/Firebase';
+import { cvs } from '../Firebase/Firebase';
+import preSetData from '../Firebase/data';
 export const GET_USER = 'get_user';
 
 export function getUser(){
@@ -40,11 +41,11 @@ export function signUp(email, password, name){
                 .then((user) => {
                     cvs.child(user.uid).set({
                         email: user.email,
-                        name: user.displayName
+                        name: user.displayName,
+                        cvData: preSetData
                     })
                     return user.uid
                 })
-
                 return user.uid
             })
     }

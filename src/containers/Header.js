@@ -20,7 +20,8 @@ class Header extends React.Component{
         this.props.logOut()
             .then(() =>{
                 console.log('success');
-                this.props.history.replace('/');
+                //this.props.history.replace('/');
+                window.location.href = '/';
             })
             .catch((err) =>{
                 console.log(err)

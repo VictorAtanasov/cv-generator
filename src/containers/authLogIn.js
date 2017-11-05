@@ -22,8 +22,7 @@ class authLogIn extends React.Component{
 
         this.props.logIn(this.state.email, this.state.password)
             .then((userUid) =>{
-                console.log(userUid);
-                this.props.history.replace('/');
+                this.props.history.replace(`/cv/${userUid}`);
             })
             .catch((err) =>{
                 console.log(err)
