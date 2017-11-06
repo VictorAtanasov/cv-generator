@@ -2,7 +2,7 @@ import React from 'react';
 
 const CVtextarea = (props) => {
     return(
-        <div>
+        <div className="cv-header-input-wrapper">
             <textarea type={props.type} 
                 className={props.className} 
                 placeholder={props.placeholder} 
