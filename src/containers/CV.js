@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as cvActions from '../actions/cvActions';
+import * as userActions from '../actions/userActions';
 import { FontAwesomeSpinner } from '../components/FontAwesomeSpinner';
 
 
@@ -16,18 +17,26 @@ class CV extends React.Component{
     }
 
     renderCVData(){
-        if(this.props.cv.email){
+        if(this.props.user.loading || this.props.cv.loading){
             return(
-                <div>
-                    {this.props.cv.email}
-                </div>
+                <FontAwesomeSpinner />
             )
-        } else {
-            return(
-                <div>
-                    <FontAwesomeSpinner />
-                </div>
-            )
+        }else{
+            if(!(this.props.user.loading) && this.props.user.email){
+                return(
+                    <div>
+                        {this.props.cv.email}
+                    </div>
+                )
+            } else{
+                return(
+                    <div>
+                        <p>
+                            Log in or register first fucker
+                        </p>
+                    </div>
+                )
+            }
         }
     }
 
@@ -46,12 +55,13 @@ class CV extends React.Component{
 
 function mapStateToProps(state){
     return{
+        user: state.user,
         cv: state.cv
     }
 }
 
 function mapDispatchToProps(dispatch){
-    return bindActionCreators(cvActions, dispatch)
+    return bindActionCreators({ ...userActions, ...cvActions }, dispatch)
 }
 
 
