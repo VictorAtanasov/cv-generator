@@ -1,17 +1,19 @@
 import React from 'react';
 
-const CVinput = (props) => {
+const CVtextarea = (props) => {
     return(
         <div>
-            <input type={props.type} 
+            <textarea type={props.type} 
                 className={props.className} 
                 placeholder={props.placeholder} 
                 id={props.id} 
                 onChange={props.inputAction}
                 onBlur={props.onBlur}
-                />
+                defaultValue={props.name}
+                spellCheck="false"
+            />
         </div>
     )
 }
 
-export default CVinput;
+export default CVtextarea;
