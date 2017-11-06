@@ -9,7 +9,7 @@ import { Home } from './components/Home';
 import Header from './containers/Header';
 import authLogIn from './containers/authLogIn';
 import authSignUp from './containers/authSignUp';
-import CV from './containers/CV';
+import CVpage from './containers/CVpage';
 
 
 export default class App extends React.Component {
@@ -22,7 +22,7 @@ export default class App extends React.Component {
             <Route exact path='/' component={ Home } />
             <Route path='/logIn' component={ authLogIn } />
             <Route path='/signUp' component={ authSignUp } />
-            <Route path='/cv/:id' component={ CV } />
+            <Route path='/cv/:id' component={ CVpage } />
           </Switch>
         </div>
       </BrowserRouter>
