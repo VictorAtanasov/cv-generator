@@ -13,6 +13,6 @@ export function getCV(userUid){
 }
 
 export function pushData(uid, key, data){
-    let database = cvs.child(uid).child('cvData').child(key);
+    let database = cvs.child(uid).child(key);
     return dispatch => database.set(data)
 }

@@ -17,7 +17,7 @@ class CVpage extends React.Component{
     }
 
     componentWillMount(){
-        this.props.getCV(this.state.userUid);
+        this.props.getCV(this.props.match.params.id);
         this.props.getUser();
     }
 
@@ -43,7 +43,6 @@ class CVpage extends React.Component{
                 )
             }
         }
-        
     }
 
     render(){

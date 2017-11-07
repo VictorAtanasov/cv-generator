@@ -40,7 +40,7 @@ export function signUp(email, password, name){
                 .then((user) => {
                     cvs.child(user.uid).set({
                         email: user.email,
-                        name: user.displayName
+                        name: user.displayName,
                     })
                     return user.uid
                 })

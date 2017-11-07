@@ -22,65 +22,67 @@ export default class CVheader extends React.Component{
         return(
             <div>
                 <h2>
-                    CVheader
+                    Header
                 </h2>
                 <div>
-                    <CVtextarea type="text"
-                            name={this.props.cv.cvData.fullName}
-                            placeholder="Your Name"
-                            onBlur={ this.pushData }
-                            className="cv-header-input"
-                            id="fullName"
-                    />
-                </div>
-                <div>
-                    <CVtextarea type="text"
-                            name={this.props.cv.cvData.role}
-                            placeholder="Your Next Desired Role?"
-                            onBlur={ this.pushData }
-                            className="cv-header-input"
-                            id="role"
-                    />
-                </div>
-                <div>
-                    <FontAwesomeCVPage font="phone" />
-                    <CVtextarea type="text"
-                            name={this.props.cv.cvData.phone}
-                            placeholder="Phone"
-                            onBlur={ this.pushData }
-                            className="cv-header-input"
-                            id="phone"
-                    />
-                </div>
-                <div>
-                    <FontAwesomeCVPage font="link" />
-                    <CVtextarea type="text"
-                            name={this.props.cv.cvData.website}
-                            placeholder="Website/Link"
-                            onBlur={ this.pushData }
-                            className="cv-header-input"
-                            id="website"
-                    />
-                </div>
-                <div>
-                    <FontAwesomeCVPage font="envelope-o" />
-                    <CVtextarea type="text"
-                            name={this.props.cv.cvData.email}
-                            placeholder="E-Mail"
-                            onBlur={ this.pushData }
-                            className="cv-header-input"
-                            id="email"
-                    />
-                </div>
-                <div>
-                    <FontAwesomeCVPage font="map-marker" />
-                    <CVtextarea type="text"
-                            name={this.props.cv.cvData.location}
-                            placeholder="Location"
-                            onBlur={ this.pushData }
-                            className="cv-header-input"
-                            id="location"
-                    />
+                    <div>
+                        <CVtextarea type="text"
+                                name={this.props.cv.name || "Your Name"}
+                                placeholder="Your Name"
+                                onBlur={ this.pushData }
+                                className="cv-header-input"
+                                id="name"
+                        />
+                    </div>
+                    <div>
+                        <CVtextarea type="text"
+                                name={this.props.cv.role || "Your Next Desired Role?"}
+                                placeholder="Your Next Desired Role?"
+                                onBlur={ this.pushData }
+                                className="cv-header-input"
+                                id="role"
+                        />
+                    </div>
+                    <div>
+                        <FontAwesomeCVPage font="phone" />
+                        <CVtextarea type="text"
+                                name={this.props.cv.phone || "Phone"}
+                                placeholder="Phone"
+                                onBlur={ this.pushData }
+                                className="cv-header-input"
+                                id="phone"
+                        />
+                    </div>
+                    <div>
+                        <FontAwesomeCVPage font="link" />
+                        <CVtextarea type="text"
+                                name={this.props.cv.website || "Website/Link"}
+                                placeholder="Website/Link"
+                                onBlur={ this.pushData }
+                                className="cv-header-input"
+                                id="website"
+                        />
+                    </div>
+                    <div>
+                        <FontAwesomeCVPage font="envelope-o" />
+                        <CVtextarea type="text"
+                                name={this.props.cv.email || "E-Mail"}
+                                placeholder="E-Mail"
+                                onBlur={ this.pushData }
+                                className="cv-header-input"
+                                id="email"
+                        />
+                    </div>
+                    <div>
+                        <FontAwesomeCVPage font="map-marker" />
+                        <CVtextarea type="text"
+                                name={this.props.cv.location || "Location"}
+                                placeholder="Location"
+                                onBlur={ this.pushData }
+                                className="cv-header-input"
+                                id="location"
+                        />
+                    </div>
                 </div>
             </div>
         )
