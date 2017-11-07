@@ -21,13 +21,10 @@ export default class CVexperience extends React.Component{
     render(){
         return(
             <div>
-                <h2>
-                    Experience
-                </h2>
                 <div className="test2">
                     <div className="test">
                         <CVtextarea type="text"
-                                name={ this.props.cv.experienceTitle || 'Title'}
+                                name={ this.props.cv[this.props.title] || 'Title'}
                                 placeholder="Title"
                                 onBlur={ this.pushData }
                                 className="cv-header-input"
@@ -36,7 +33,7 @@ export default class CVexperience extends React.Component{
                     </div>
                     <div>
                         <CVtextarea type="text"
-                                name={this.props.cv.companyName || "Company Name"}
+                                name={this.props.cv[this.props.company] || "Company Name"}
                                 placeholder="Company Name"
                                 onBlur={ this.pushData }
                                 className="cv-header-input"
@@ -45,7 +42,7 @@ export default class CVexperience extends React.Component{
                     </div>
                     <div>
                         <CVtextarea type="text"
-                                name={this.props.cv.companyDescription || "Company Description"}
+                                name={this.props.cv[this.props.desc] || "Company Description"}
                                 placeholder="Company Description"
                                 onBlur={ this.pushData }
                                 className="cv-header-input"

@@ -12,7 +12,7 @@ class CV extends React.Component{
         super(props);
 
         this.state = {
-            numChildren: 2
+            numChildren: this.props.cv.numberOfExperience || 1
         }
 
         this.append = this.append.bind(this);
@@ -22,6 +22,7 @@ class CV extends React.Component{
         this.setState({
             numChildren: this.state.numChildren + 1
         });
+        this.props.pushData(this.props.userInfo.userUid, 'numberOfExperience', this.state.numChildren + 1)
     }
     
     render(){
@@ -49,15 +50,20 @@ class CV extends React.Component{
                     </h2>
                     <div className="componentWarpper">
                         <CVheader {...this.props} userInfo={this.props.userInfo} />
-                        <CVexperience 
-                            {...this.props} 
-                            userInfo={this.props.userInfo} 
-                            title='experienceTitle' 
-                            company='companyName' 
-                            desc='companyDescription'
-                        />
-                        <button onClick={this.append}></button>
-                        {children}
+                        <div>
+                            <h2>
+                                Experience
+                            </h2>
+                            <button onClick={this.append}>Bahti</button>
+                            <CVexperience 
+                                {...this.props} 
+                                userInfo={this.props.userInfo} 
+                                title='experienceTitle' 
+                                company='companyName' 
+                                desc='companyDescription'
+                            />
+                            {children}
+                        </div>
                     </div>
                 </div>
             </div>
