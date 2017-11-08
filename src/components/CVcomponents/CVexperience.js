@@ -1,6 +1,7 @@
 import React from 'react';
 import CVtextarea from '../CVcomponents/CVtextarea';
 import FontAwesomeCVPage from '../FontAwesomeCVPage';
+import Test from './test'
 import '../../App.css';
 
 export default class CVexperience extends React.Component{
@@ -42,12 +43,39 @@ export default class CVexperience extends React.Component{
                         />
                     </div>
                     <div>
+                    <CVtextarea type="text"
+                                name={this.props.cv.experience[this.props.id].date || "Date Period"}
+                                placeholder="Date Period"
+                                onBlur={ this.pushData }
+                                className="cv-header-input"
+                                id="date"
+                        />
+                    </div>
+                    <div>
+                    <CVtextarea type="text"
+                                name={this.props.cv.experience[this.props.id].location || "location"}
+                                placeholder="location"
+                                onBlur={ this.pushData }
+                                className="cv-header-input"
+                                id="location"
+                        />
+                    </div>
+                    <div>
                         <CVtextarea type="text"
                                 name={this.props.cv.experience[this.props.id].description || "Company Description"}
                                 placeholder="Company Description"
                                 onBlur={ this.pushData }
                                 className="cv-header-input"
                                 id="description"
+                        />
+                    </div>
+                    <div>
+                        <Test type="text"
+                                name={this.props.cv.experience[this.props.id].achievments || "Your Achievments"}
+                                placeholder="Your Achievments"
+                                onBlur={ this.pushData }
+                                className="cv-header-input"
+                                id="achievments"
                         />
                     </div>
                 </div>

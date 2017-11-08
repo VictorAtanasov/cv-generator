@@ -45,7 +45,10 @@ export function signUp(email, password, name){
                             '-KyQi5jtW3WhuV8kdqNW': {
                                 company: 'company',
                                 description: 'description',
-                                title: 'title'
+                                title: 'title',
+                                date: 'Date period',
+                                location: 'location',
+                                achievments: 'achievments'
                             }
                         }
                     })
