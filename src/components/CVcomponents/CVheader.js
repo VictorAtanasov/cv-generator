@@ -15,7 +15,7 @@ export default class CVheader extends React.Component{
         let userUid = this.props.userInfo.userUid;
         let key = e.target.id;
         let data = e.target.value;
-        this.props.pushData(userUid, key, data)
+        this.props.setData(userUid, key, data)
     }
 
     render(){

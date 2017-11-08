@@ -12,7 +12,17 @@ export function getCV(userUid){
     }
 }
 
+export function setData(uid, key, data){
+    let db = cvs.child(uid).child(key);
+    return dispatch => db.set(data)
+}
+
+export function setMultipleComponentData(uid, component, componentId, key, data){
+    let db = cvs.child(uid).child(component).child(componentId).child(key);
+    return dispatch => db.set(data)
+}
+
 export function pushData(uid, key, data){
-    let database = cvs.child(uid).child(key);
-    return dispatch => database.set(data)
+    let db = cvs.child(uid).child(key);
+    return dispatch => db.push(data)
 }

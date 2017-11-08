@@ -14,7 +14,8 @@ export default class CVexperience extends React.Component{
         let userUid = this.props.userInfo.userUid;
         let key = e.target.id;
         let data = e.target.value;
-        this.props.pushData(userUid, key, data)
+        let componentId = this.props.id;
+        this.props.setMultipleComponentData(userUid, 'experience', componentId, key, data)
     }
 
 
@@ -24,29 +25,29 @@ export default class CVexperience extends React.Component{
                 <div className="test2">
                     <div className="test">
                         <CVtextarea type="text"
-                                name={ this.props.cv[this.props.title] || 'Title'}
+                                name={ this.props.cv.experience[this.props.id].title || 'Title'}
                                 placeholder="Title"
                                 onBlur={ this.pushData }
                                 className="cv-header-input"
-                                id={this.props.title}
+                                id="title"
                         />
                     </div>
                     <div>
                         <CVtextarea type="text"
-                                name={this.props.cv[this.props.company] || "Company Name"}
+                                name={this.props.cv.experience[this.props.id].company || "Company Name"}
                                 placeholder="Company Name"
                                 onBlur={ this.pushData }
                                 className="cv-header-input"
-                                id={this.props.company}
+                                id="company"
                         />
                     </div>
                     <div>
                         <CVtextarea type="text"
-                                name={this.props.cv[this.props.desc] || "Company Description"}
+                                name={this.props.cv.experience[this.props.id].description || "Company Description"}
                                 placeholder="Company Description"
                                 onBlur={ this.pushData }
                                 className="cv-header-input"
-                                id={this.props.desc}
+                                id="description"
                         />
                     </div>
                 </div>
