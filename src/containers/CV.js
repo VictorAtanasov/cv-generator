@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import * as cvActions from '../actions/cvActions';
 import CVheader from '../components/CVcomponents/CVheader';
 import CVexperienceContainer from '../containers/CVexperienceContainer';
+import CVphoto from '../components/CVcomponents/CVphoto';
 import '../App.css';
 
 class CV extends React.Component{
@@ -27,6 +28,7 @@ class CV extends React.Component{
                     </h2>
                     <div className="componentWarpper">
                         <CVheader {...this.props} userInfo={this.props.userInfo} />
+                        <CVphoto userInfo={this.props.userInfo.userUid} />
                         <CVexperienceContainer userInfo={this.props.userInfo} />
                     </div>
                 </div>

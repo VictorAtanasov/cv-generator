@@ -1,7 +1,7 @@
 import React from 'react';
 import CVtextarea from '../CVcomponents/CVtextarea';
-import FontAwesomeCVPage from '../FontAwesomeCVPage';
 import CVachievment from './CVachievment';
+import FontAwesomeCVPage from '../FontAwesomeCVPage';
 import _ from 'lodash';
 import '../../App.css';
 
@@ -9,10 +9,16 @@ export default class CVexperience extends React.Component{
     constructor(props){
         super(props);
 
+        this.state = {
+            buttonClass: 'hidden'
+        }
+
         this.pushData = this.pushData.bind(this);
         this.renderAchievments = this.renderAchievments.bind(this);
         this.pushAchievmentData = this.pushAchievmentData.bind(this);
         this.setAchievmentData = this.setAchievmentData.bind(this);
+        this.showDeleteButton = this.showDeleteButton.bind(this);
+        this.deleteExperience = this.deleteExperience.bind(this);
     }
 
     pushData(e){
@@ -20,7 +26,7 @@ export default class CVexperience extends React.Component{
         let key = e.target.id;
         let data = e.target.value;
         let componentId = this.props.id;
-        this.props.setMultipleComponentData(userUid, 'experience', componentId, key, data)
+        this.props.setMultipleComponentData(userUid, 'experience', componentId, key, data);
     }
 
     pushAchievmentData(e){
@@ -65,12 +71,26 @@ export default class CVexperience extends React.Component{
         })
     }
 
+    showDeleteButton(e){
+        this.setState({
+            buttonClass: 'active'
+        })
+    }
+
+    deleteExperience(e){
+        let userUid = this.props.userInfo.userUid;
+        this.props.deleteComponent(userUid, 'experience', this.props.id)
+    }
+
 
     render(){
         return(
-            <div>
-                <div className="test2">
-                    <div className="test">
+            <div className="experienceWarpper" onClick={this.showDeleteButton}>
+                <div className={this.state.buttonClass}>
+                    <button onClick={this.deleteExperience}><FontAwesomeCVPage font="trash" /></button>
+                </div>
+                <div>
+                    <div>
                         <CVtextarea 
                             type="text"
                             name={ this.props.cv.experience[this.props.id].title || 'Title'}

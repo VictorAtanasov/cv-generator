@@ -13,4 +13,5 @@ var config = {
 
 export const cvs = firebase.database().ref('cvs/');
 export const auth = firebase.auth();
+export const storage = firebase.storage().ref('userPhotos/')
   

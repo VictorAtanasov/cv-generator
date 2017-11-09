@@ -1,4 +1,5 @@
 import { cvs } from '../Firebase/Firebase';
+import { storage } from '../Firebase/Firebase';
 export const GET_CV = 'get_cv';
 
 export function getCV(userUid){
@@ -35,4 +36,21 @@ export function pushMultipleComponentData(uid, component, componentId, type, dat
 export function setMultipleComponentNestedData(uid, component, componentId, type, typeId, data){
     let db = cvs.child(uid).child(component).child(componentId).child(type).child(typeId);
     return dispatch => db.set(data)
+}
+
+export function deleteComponent(uid, component, componentId){
+    let db = cvs.child(uid).child(component).child(componentId);
+    return dispatch => db.remove();
+}
+
+export function uploadImage(uid, file){
+    let db = storage.child(uid);
+    let cvRef = cvs.child(uid).child('image');
+    return dispatch => 
+        db.put(file)
+            .then(db.getDownloadURL()
+                .then(url => {
+                    cvRef.set(url)
+                })
+            )
 }

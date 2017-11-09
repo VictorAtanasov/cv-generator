@@ -41,6 +41,7 @@ export function signUp(email, password, name){
                     cvs.child(user.uid).set({
                         email: user.email,
                         name: user.displayName,
+                        image: ' ',
                         experience: {
                             '-KyQi5jtW3WhuV8kdqNW': {
                                 company: 'company',
