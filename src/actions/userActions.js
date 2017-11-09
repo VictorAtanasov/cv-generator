@@ -48,7 +48,11 @@ export function signUp(email, password, name){
                                 title: 'title',
                                 date: 'Date period',
                                 location: 'location',
-                                achievments: 'achievments'
+                                achievments: {
+                                    '-KyQi5jtW3WhuV9kdqNW': {
+                                        achievment: 'achievment'
+                                    }
+                                }
                             }
                         }
                     })

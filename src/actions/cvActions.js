@@ -26,3 +26,13 @@ export function pushData(uid, key, data){
     let db = cvs.child(uid).child(key);
     return dispatch => db.push(data)
 }
+
+export function pushMultipleComponentData(uid, component, componentId, type, data){
+    let db = cvs.child(uid).child(component).child(componentId).child(type);
+    return dispatch => db.push(data)
+}
+
+export function setMultipleComponentNestedData(uid, component, componentId, type, typeId, data){
+    let db = cvs.child(uid).child(component).child(componentId).child(type).child(typeId);
+    return dispatch => db.set(data)
+}

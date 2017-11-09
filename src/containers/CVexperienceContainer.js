@@ -32,7 +32,11 @@ class CVexperienceContainer extends React.Component{
                 title: 'title',
                 date: 'Date period',
                 location: 'location',
-                achievments: 'achievments'
+                achievments: {
+                    '-KyQi5jtW3WhuV9kdqNW': {
+                        achievment: 'achievment'
+                    }
+                }
             };
             this.props.pushData(this.props.userInfo.userUid, 'experience', data)
         }

@@ -1,15 +1,16 @@
 import React from 'react';
 import FontAwesomeCVPage from '../FontAwesomeCVPage';
 
-const Test = (props) => {
+const CVachievment = (props) => {
     return(
         <div className="cv-header-input-wrapper">
-            <textarea type={props.type} 
+            <FontAwesomeCVPage font={props.font} />
+            <input type={props.type} 
                 className={props.className} 
                 placeholder={props.placeholder} 
                 id={props.id} 
-                onChange={props.inputAction}
                 onBlur={props.onBlur}
+                onKeyPress={props.onKeyPress}
                 defaultValue={props.name}
                 spellCheck="false"
             />
@@ -17,4 +18,4 @@ const Test = (props) => {
     )
 }
 
-export default Test;
+export default CVachievment;

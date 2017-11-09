@@ -1,7 +1,8 @@
 import React from 'react';
 import CVtextarea from '../CVcomponents/CVtextarea';
 import FontAwesomeCVPage from '../FontAwesomeCVPage';
-import Test from './test'
+import CVachievment from './CVachievment';
+import _ from 'lodash';
 import '../../App.css';
 
 export default class CVexperience extends React.Component{
@@ -9,6 +10,9 @@ export default class CVexperience extends React.Component{
         super(props);
 
         this.pushData = this.pushData.bind(this);
+        this.renderAchievments = this.renderAchievments.bind(this);
+        this.pushAchievmentData = this.pushAchievmentData.bind(this);
+        this.setAchievmentData = this.setAchievmentData.bind(this);
     }
 
     pushData(e){
@@ -19,64 +23,105 @@ export default class CVexperience extends React.Component{
         this.props.setMultipleComponentData(userUid, 'experience', componentId, key, data)
     }
 
+    pushAchievmentData(e){
+        if(e.key === 'Enter'){
+            let userUid = this.props.userInfo.userUid;
+            let data = {
+                achievment: 'achievment'
+            }
+            let targetValue = {
+                'achievment': e.target.value
+            }
+            let componentId = this.props.id;
+            let key = e.target.id;
+            this.props.pushMultipleComponentData(userUid, 'experience', componentId, 'achievments', data);
+            this.props.setMultipleComponentNestedData(userUid, 'experience', componentId, 'achievments', key, targetValue);
+        }
+    }
+
+    setAchievmentData(e){
+        let userUid = this.props.userInfo.userUid;
+        let targetValue = {
+            'achievment': e.target.value
+        }
+        let componentId = this.props.id;
+        let key = e.target.id;
+        this.props.setMultipleComponentNestedData(userUid, 'experience', componentId, 'achievments', key, targetValue);
+    }
+
+    renderAchievments(){
+        return _.map(this.props.cv.experience[this.props.id].achievments, (achievment, key) => {
+            return <CVachievment 
+                        type="text"
+                        name={achievment.achievment || "Your Achievment"}
+                        placeholder="Your Achievment"
+                        onBlur={this.setAchievmentData}
+                        onKeyPress={this.pushAchievmentData}
+                        className="cv-header-input"
+                        id={key}
+                        font="circle"
+                        key={key}
+                    />
+        })
+    }
+
 
     render(){
         return(
             <div>
                 <div className="test2">
                     <div className="test">
-                        <CVtextarea type="text"
-                                name={ this.props.cv.experience[this.props.id].title || 'Title'}
-                                placeholder="Title"
-                                onBlur={ this.pushData }
-                                className="cv-header-input"
-                                id="title"
+                        <CVtextarea 
+                            type="text"
+                            name={ this.props.cv.experience[this.props.id].title || 'Title'}
+                            placeholder="Title"
+                            onBlur={ this.pushData }
+                            className="cv-header-input"
+                            id="title"
                         />
                     </div>
                     <div>
-                        <CVtextarea type="text"
-                                name={this.props.cv.experience[this.props.id].company || "Company Name"}
-                                placeholder="Company Name"
-                                onBlur={ this.pushData }
-                                className="cv-header-input"
-                                id="company"
+                        <CVtextarea 
+                            type="text"
+                            name={this.props.cv.experience[this.props.id].company || "Company Name"}
+                            placeholder="Company Name"
+                            onBlur={ this.pushData }
+                            className="cv-header-input"
+                            id="company"
                         />
                     </div>
                     <div>
-                    <CVtextarea type="text"
-                                name={this.props.cv.experience[this.props.id].date || "Date Period"}
-                                placeholder="Date Period"
-                                onBlur={ this.pushData }
-                                className="cv-header-input"
-                                id="date"
+                        <CVtextarea 
+                            type="text"
+                            name={this.props.cv.experience[this.props.id].date || "Date Period"}
+                            placeholder="Date Period"
+                            onBlur={ this.pushData }
+                            className="cv-header-input"
+                            id="date"
                         />
                     </div>
                     <div>
-                    <CVtextarea type="text"
-                                name={this.props.cv.experience[this.props.id].location || "location"}
-                                placeholder="location"
-                                onBlur={ this.pushData }
-                                className="cv-header-input"
-                                id="location"
+                        <CVtextarea 
+                            type="text"
+                            name={this.props.cv.experience[this.props.id].location || "location"}
+                            placeholder="location"
+                            onBlur={ this.pushData }
+                            className="cv-header-input"
+                            id="location"
                         />
                     </div>
                     <div>
-                        <CVtextarea type="text"
-                                name={this.props.cv.experience[this.props.id].description || "Company Description"}
-                                placeholder="Company Description"
-                                onBlur={ this.pushData }
-                                className="cv-header-input"
-                                id="description"
+                        <CVtextarea 
+                            type="text"
+                            name={this.props.cv.experience[this.props.id].description || "Company Description"}
+                            placeholder="Company Description"
+                            onBlur={ this.pushData }
+                            className="cv-header-input"
+                            id="description"
                         />
                     </div>
                     <div>
-                        <Test type="text"
-                                name={this.props.cv.experience[this.props.id].achievments || "Your Achievments"}
-                                placeholder="Your Achievments"
-                                onBlur={ this.pushData }
-                                className="cv-header-input"
-                                id="achievments"
-                        />
+                        {this.renderAchievments()}
                     </div>
                 </div>
             </div>

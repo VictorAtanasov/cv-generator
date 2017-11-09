@@ -7,7 +7,6 @@ const CVtextarea = (props) => {
                 className={props.className} 
                 placeholder={props.placeholder} 
                 id={props.id} 
-                onChange={props.inputAction}
                 onBlur={props.onBlur}
                 defaultValue={props.name}
                 spellCheck="false"
