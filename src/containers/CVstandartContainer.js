@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as cvActions from '../actions/cvActions';
-import CVexperience from '../components/CVcomponents/CVexperience';
+import CVstandartContainer from '../components/CVcomponents/CVstandartContainer';
 import _ from 'lodash';
 import '../App.css';
 
@@ -15,8 +15,8 @@ class CVexperienceContainer extends React.Component{
         }
     
         experienceComps(){
-            return _.map(this.props.cv.experience, (experience, key) => {
-                return <CVexperience
+            return _.map(this.props.cv.cvData.experience, (experience, key) => {
+                return <CVstandartContainer
                             {...this.props}
                             userInfo={this.props.userInfo} 
                             key = { key }

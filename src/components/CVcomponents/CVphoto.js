@@ -20,7 +20,7 @@ class Photo extends React.Component{
         return(
             <div>
                 <div>
-                    <img src={this.props.cv.image} alt="user"/>
+                    <img src={this.props.cv.cvData.image} alt="user"/>
                 </div>
                 <div>
                     <input type="file" onChange={this.pushImage}/>

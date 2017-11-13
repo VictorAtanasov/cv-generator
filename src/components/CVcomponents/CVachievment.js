@@ -10,7 +10,7 @@ const CVachievment = (props) => {
                 placeholder={props.placeholder} 
                 id={props.id} 
                 onBlur={props.onBlur}
-                onKeyPress={props.onKeyPress}
+                onKeyDown={props.onKeyDown}
                 defaultValue={props.name}
                 spellCheck="false"
             />

@@ -1,5 +1,6 @@
 import { auth } from '../Firebase/Firebase';
 import { cvs } from '../Firebase/Firebase';
+import cvData from '../Firebase/data';
 export const GET_USER = 'get_user';
 
 export function getUser(){
@@ -41,21 +42,7 @@ export function signUp(email, password, name){
                     cvs.child(user.uid).set({
                         email: user.email,
                         name: user.displayName,
-                        image: ' ',
-                        experience: {
-                            '-KyQi5jtW3WhuV8kdqNW': {
-                                company: 'company',
-                                description: 'description',
-                                title: 'title',
-                                date: 'Date period',
-                                location: 'location',
-                                achievments: {
-                                    '-KyQi5jtW3WhuV9kdqNW': {
-                                        achievment: 'achievment'
-                                    }
-                                }
-                            }
-                        }
+                        cvData
                     })
                     return user.uid
                 })
