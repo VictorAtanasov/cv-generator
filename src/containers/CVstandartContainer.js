@@ -2,11 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as cvActions from '../actions/cvActions';
-import CVstandartContainer from '../components/CVcomponents/CVstandartContainer';
+import CVstandartComponent from '../components/CVcomponents/CVstandartComponent';
 import _ from 'lodash';
 import '../App.css';
 
-class CVexperienceContainer extends React.Component{
+class CVstandartContainer extends React.Component{
     
         constructor(props){
             super(props);
@@ -14,13 +14,14 @@ class CVexperienceContainer extends React.Component{
             this.addNewComp = this.addNewComp.bind(this);
         }
     
-        experienceComps(){
-            return _.map(this.props.cv.cvData.experience, (experience, key) => {
-                return <CVstandartContainer
+        renderComponents(){
+            return _.map(this.props.cv.cvData[this.props.type], (comp, key) => {
+                return <CVstandartComponent
                             {...this.props}
                             userInfo={this.props.userInfo} 
                             key = { key }
                             id = { key }
+                            type = {this.props.type}
                         />
             })
         }
@@ -38,7 +39,7 @@ class CVexperienceContainer extends React.Component{
                     }
                 }
             };
-            this.props.pushData(this.props.userInfo.userUid, 'experience', data)
+            this.props.pushData(this.props.userInfo.userUid, this.props.type, data)
         }
         
         render(){
@@ -47,8 +48,8 @@ class CVexperienceContainer extends React.Component{
                     <h2>
                         Experience
                     </h2>
-                    <button onClick={this.addNewComp}>Add Experience</button>
-                    {this.experienceComps()}
+                    <button onClick={this.addNewComp}>Add new</button>
+                    {this.renderComponents()}
                 </div>
             )
         }
@@ -65,4 +66,4 @@ function mapDispatchToProps(dispatch){
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(CVexperienceContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(CVstandartContainer)

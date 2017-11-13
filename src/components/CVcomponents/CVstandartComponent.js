@@ -5,7 +5,7 @@ import FontAwesomeCVPage from '../FontAwesomeCVPage';
 import _ from 'lodash';
 import '../../App.css';
 
-export default class CVexperience extends React.Component{
+export default class CVstandartComponent extends React.Component{
     constructor(props){
         super(props);
 
@@ -26,7 +26,7 @@ export default class CVexperience extends React.Component{
         let key = e.target.id;
         let data = e.target.value;
         let componentId = this.props.id;
-        this.props.setMultipleComponentData(userUid, 'experience', componentId, key, data);
+        this.props.setMultipleComponentData(userUid, this.props.type, componentId, key, data);
     }
 
     pushAchievmentData(e){
@@ -40,11 +40,11 @@ export default class CVexperience extends React.Component{
         let componentId = this.props.id;
         let key = e.target.id;
         if(e.key === 'Enter'){
-            this.props.pushMultipleComponentData(userUid, 'experience', componentId, 'achievments', data);
-            this.props.setMultipleComponentNestedData(userUid, 'experience', componentId, 'achievments', key, targetValue);
+            this.props.pushMultipleComponentData(userUid, this.props.type, componentId, 'achievments', data);
+            this.props.setMultipleComponentNestedData(userUid, this.props.type, componentId, 'achievments', key, targetValue);
         } else if (e.key === 'Backspace'){
             if(e.target.value === ''){
-                this.props.deleteMultipleComponentNestedData(userUid, 'experience', componentId, 'achievments', key, targetValue);
+                this.props.deleteMultipleComponentNestedData(userUid, this.props.type, componentId, 'achievments', key, targetValue);
             }
         }
     }
@@ -56,12 +56,12 @@ export default class CVexperience extends React.Component{
         }
         let componentId = this.props.id;
         let key = e.target.id;
-        this.props.setMultipleComponentNestedData(userUid, 'experience', componentId, 'achievments', key, targetValue);
+        this.props.setMultipleComponentNestedData(userUid, this.props.type, componentId, 'achievments', key, targetValue);
     }
 
 
     renderAchievments(){
-        return _.map(this.props.cv.cvData.experience[this.props.id].achievments, (achievment, key) => {
+        return _.map(this.props.cv.cvData[this.props.type][this.props.id].achievments, (achievment, key) => {
             return <CVachievment 
                         type="text"
                         name={achievment.achievment || "Your Achievment"}
@@ -84,7 +84,7 @@ export default class CVexperience extends React.Component{
 
     deleteExperience(e){
         let userUid = this.props.userInfo.userUid;
-        this.props.deleteComponent(userUid, 'experience', this.props.id)
+        this.props.deleteComponent(userUid, this.props.type, this.props.id)
     }
 
 
@@ -98,7 +98,7 @@ export default class CVexperience extends React.Component{
                     <div>
                         <CVtextarea 
                             type="text"
-                            name={ this.props.cv.cvData.experience[this.props.id].title || 'Title'}
+                            name={this.props.cv.cvData[this.props.type][this.props.id].title || 'Title'}
                             placeholder="Title"
                             onBlur={ this.pushData }
                             className="cv-header-input"
@@ -108,7 +108,7 @@ export default class CVexperience extends React.Component{
                     <div>
                         <CVtextarea 
                             type="text"
-                            name={this.props.cv.cvData.experience[this.props.id].company || "Company Name"}
+                            name={this.props.cv.cvData[this.props.type][this.props.id].company || "Company Name"}
                             placeholder="Company Name"
                             onBlur={ this.pushData }
                             className="cv-header-input"
@@ -118,7 +118,7 @@ export default class CVexperience extends React.Component{
                     <div>
                         <CVtextarea 
                             type="text"
-                            name={this.props.cv.cvData.experience[this.props.id].date || "Date Period"}
+                            name={this.props.cv.cvData[this.props.type][this.props.id].date || "Date Period"}
                             placeholder="Date Period"
                             onBlur={ this.pushData }
                             className="cv-header-input"
@@ -128,7 +128,7 @@ export default class CVexperience extends React.Component{
                     <div>
                         <CVtextarea 
                             type="text"
-                            name={this.props.cv.cvData.experience[this.props.id].location || "location"}
+                            name={this.props.cv.cvData[this.props.type][this.props.id].location || "location"}
                             placeholder="location"
                             onBlur={ this.pushData }
                             className="cv-header-input"
@@ -138,7 +138,7 @@ export default class CVexperience extends React.Component{
                     <div>
                         <CVtextarea 
                             type="text"
-                            name={this.props.cv.cvData.experience[this.props.id].description || "Company Description"}
+                            name={this.props.cv.cvData[this.props.type][this.props.id].description || "Company Description"}
                             placeholder="Company Description"
                             onBlur={ this.pushData }
                             className="cv-header-input"

@@ -33,6 +33,10 @@ class CV extends React.Component{
                             userInfo={this.props.userInfo}
                             type='experience'
                         />
+                        <CVstandartContainer 
+                            userInfo={this.props.userInfo}
+                            type='projects'
+                        />
                     </div>
                 </div>
             </div>
