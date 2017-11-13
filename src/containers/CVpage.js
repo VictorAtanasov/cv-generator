@@ -22,7 +22,7 @@ class CVpage extends React.Component{
     }
 
     renderCVData(){
-        if(this.props.user.loading || this.props.cv.loading){
+        if(this.props.user.loading || !(this.props.cv.cvData)){
             return(
                 <FontAwesomeSpinner />
             )

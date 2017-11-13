@@ -45,9 +45,6 @@ class CVstandartContainer extends React.Component{
         render(){
             return(
                 <div>
-                    <h2>
-                        Experience
-                    </h2>
                     <button onClick={this.addNewComp}>Add new</button>
                     {this.renderComponents()}
                 </div>

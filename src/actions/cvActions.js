@@ -53,9 +53,10 @@ export function uploadImage(uid, file){
     let cvRef = cvs.child(uid).child('cvData').child('image');
     return dispatch => 
         db.put(file)
-            .then(db.getDownloadURL()
-                .then(url => {
-                    cvRef.set(url)
-                })
-            )
+            .then( snapshot => {
+                db.getDownloadURL()
+                    .then(url => {
+                        cvRef.set(url)
+                    })
+            });
 }
