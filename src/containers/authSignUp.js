@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as userActions from '../actions/userActions';
-import InputField from '../components/InputField';
+import InputField from '../components/forms/InputField';
 import AuthButton from '../components/AuthButton';
 
 

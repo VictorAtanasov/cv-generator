@@ -9,10 +9,6 @@ import CVshortContainer from '../containers/CVshortContainer';
 import '../App.css';
 
 class CV extends React.Component{
-
-    constructor(props){
-        super(props);
-    }
     
     render(){
         return(
@@ -44,9 +40,21 @@ class CV extends React.Component{
                         </div>
                         <div>
                             <h2>
-                                Mpost Proud of
+                                Education
                             </h2>
-                            <CVshortContainer />
+                            <CVstandartContainer 
+                                userInfo={this.props.userInfo}
+                                type='education'
+                            />
+                        </div>
+                        <div>
+                            <h2>
+                                Most Proud of
+                            </h2>
+                            <CVshortContainer
+                                userInfo={this.props.userInfo}
+                                type='proud' 
+                            />
                         </div>
                     </div>
                 </div>

@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as cvActions from '../../actions/cvActions';
-import FontAweosomeCVPage from '../FontAwesomeCVPage';
 import '../../App.css';
 
 class Photo extends React.Component{

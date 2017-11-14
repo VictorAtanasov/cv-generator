@@ -19,8 +19,8 @@ class CVstandartContainer extends React.Component{
                 return <CVstandartComponent
                             {...this.props}
                             userInfo={this.props.userInfo} 
-                            key = { key }
-                            id = { key }
+                            key = {key}
+                            id = {key}
                             type = {this.props.type}
                         />
             })

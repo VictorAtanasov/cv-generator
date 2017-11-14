@@ -1,5 +1,5 @@
 import React from 'react';
-import CVtextarea from '../CVcomponents/CVtextarea';
+import CVtextarea from '../forms/CVtextarea';
 import FontAwesomeCVPage from '../FontAwesomeCVPage';
 import '../../App.css';
 
