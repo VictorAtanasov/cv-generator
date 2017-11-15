@@ -14,9 +14,11 @@ export default class CVstandartComponent extends React.Component{
 
         this.pushData = this.pushData.bind(this);
         this.deleteExperience = this.deleteExperience.bind(this);
-        this.showDeleteButton = this.showDeleteButton.bind(this);
+        this.showOptions = this.showOptions.bind(this);
         this.showIcons = this.showIcons.bind(this);
-        this.chooseIcon = this.chooseIcon.bind(this);    
+        this.chooseIcon = this.chooseIcon.bind(this);
+        this.addNewComp = this.addNewComp.bind(this);
+        this.test = this.test.bind(this);
     }
 
     pushData(e){
@@ -27,15 +29,21 @@ export default class CVstandartComponent extends React.Component{
         this.props.setMultipleComponentData(userUid, this.props.type, componentId, key, data);
     }
 
-    deleteExperience(e){
-        let userUid = this.props.userInfo.userUid;
-        this.props.deleteComponent(userUid, this.props.type, this.props.id)
+    test(){
+        this.setState({
+            buttonClass: 'hidden'
+        })
     }
 
-    showDeleteButton(e){
+    showOptions(e){
         this.setState({
             buttonClass: 'active'
         })
+    }
+
+    deleteExperience(e){
+        let userUid = this.props.userInfo.userUid;
+        this.props.deleteComponent(userUid, this.props.type, this.props.id)
     }
 
     showIcons(e){
@@ -50,12 +58,22 @@ export default class CVstandartComponent extends React.Component{
         this.props.setMultipleComponentData(this.props.userInfo.userUid, this.props.type, componentId, 'font', font);
     }
 
+    addNewComp(){
+        let data = {
+            font: 'diamond',
+            achievment: 'What are you most proud of?',
+            description: 'Why are you proud of this achievment?'
+        };
+        this.props.pushData(this.props.userInfo.userUid, this.props.type, data)
+    }
+
     render(){
         return(
-            <div className="experienceWarpper" onClick={this.showDeleteButton}>
+            <div className="experienceWarpper" onClick={this.showOptions}>
                 <div className={this.state.buttonClass}>
                     <button onClick={this.deleteExperience}><FontAwesomeCVPage font="trash" /></button>
                     <button onClick={this.showIcons}><FontAwesomeCVPage font="cog" /></button>
+                    <button onClick={this.addNewComp}><FontAwesomeCVPage font="plus" /></button>
                     <div className={this.state.chooceIconButton}>
                         <span onClick={this.chooseIcon}>
                             <FontAwesomeCVPage font={'envelope'} />

@@ -12,7 +12,6 @@ class CVshortContainer extends React.Component{
             super(props);
             
             this.renderComponents = this.renderComponents.bind(this);
-            this.addNewComp = this.addNewComp.bind(this);
         }
 
         renderComponents(){
@@ -25,21 +24,11 @@ class CVshortContainer extends React.Component{
                         />
             })
         }
-
-        addNewComp(){
-            let data = {
-                font: 'diamond',
-                achievment: 'What are you most proud of?',
-                description: 'Why are you proud of this achievment?'
-            };
-            this.props.pushData(this.props.userInfo.userUid, this.props.type, data)
-        }
         
         render(){
             return(
                 <div>
                     <div>
-                        <button onClick={this.addNewComp}>Add new</button>
                         {this.renderComponents()}
                     </div>
                 </div>
