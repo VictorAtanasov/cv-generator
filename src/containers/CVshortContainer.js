@@ -22,15 +22,14 @@ class CVshortContainer extends React.Component{
                             id={key}
                             type={this.props.type}
                         />
+                        
             })
         }
         
         render(){
             return(
                 <div>
-                    <div>
-                        {this.renderComponents()}
-                    </div>
+                    {this.renderComponents()}
                 </div>
             )
         }

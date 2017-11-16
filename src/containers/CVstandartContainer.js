@@ -8,12 +8,6 @@ import '../App.css';
 
 class CVstandartContainer extends React.Component{
     
-        constructor(props){
-            super(props);
-    
-            this.addNewComp = this.addNewComp.bind(this);
-        }
-    
         renderComponents(){
             return _.map(this.props.cv.cvData[this.props.type], (comp, key) => {
                 return <CVstandartComponent
@@ -26,26 +20,11 @@ class CVstandartContainer extends React.Component{
             })
         }
     
-        addNewComp(){
-            let data = {
-                company: 'company',
-                description: 'description',
-                title: 'title',
-                date: 'Date period',
-                location: 'location',
-                achievments: {
-                    '-KyQi5jtW3WhuV9kdqNW': {
-                        achievment: 'achievment'
-                    }
-                }
-            };
-            this.props.pushData(this.props.userInfo.userUid, this.props.type, data)
-        }
+
         
         render(){
             return(
                 <div>
-                    <button onClick={this.addNewComp}>Add new</button>
                     {this.renderComponents()}
                 </div>
             )

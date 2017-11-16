@@ -26,7 +26,9 @@ p {
   margin-bottom: 10px; }
 
 .active {
-  display: block; }
+  display: block;
+  position: absolute;
+  margin-top: -11px; }
 
 .hidden {
   display: none; }
@@ -34,3 +36,12 @@ p {
 img {
   width: 200px;
   height: 200px; }
+
+.inputsContainer {
+  margin-top: 15px; }
+
+.icons-wrapper {
+  background: antiquewhite;
+  padding: 10px;
+  margin-top: -20px;
+  margin-left: 81px; }

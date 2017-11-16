@@ -9,7 +9,7 @@ export default class CVstandartComponent extends React.Component{
 
         this.state = {
             buttonClass: 'hidden',
-            chooceIconButton: 'hidden'
+            chooceIconButton: 'hidden',
         }
 
         this.pushData = this.pushData.bind(this);
@@ -18,7 +18,7 @@ export default class CVstandartComponent extends React.Component{
         this.showIcons = this.showIcons.bind(this);
         this.chooseIcon = this.chooseIcon.bind(this);
         this.addNewComp = this.addNewComp.bind(this);
-        this.test = this.test.bind(this);
+        this.hideOptions = this.hideOptions.bind(this);
     }
 
     pushData(e){
@@ -29,27 +29,21 @@ export default class CVstandartComponent extends React.Component{
         this.props.setMultipleComponentData(userUid, this.props.type, componentId, key, data);
     }
 
-    test(){
-        this.setState({
-            buttonClass: 'hidden'
-        })
-    }
-
-    showOptions(e){
-        this.setState({
-            buttonClass: 'active'
-        })
-    }
-
     deleteExperience(e){
         let userUid = this.props.userInfo.userUid;
         this.props.deleteComponent(userUid, this.props.type, this.props.id)
     }
 
     showIcons(e){
-        this.setState({
-            chooceIconButton: 'active'
-        })
+        if(this.state.chooceIconButton === 'active'){
+            this.setState({
+                chooceIconButton: 'hidden'
+            })
+        }else{
+            this.setState({
+                chooceIconButton: 'active'
+            })
+        }
     }
 
     chooseIcon(e){
@@ -67,14 +61,27 @@ export default class CVstandartComponent extends React.Component{
         this.props.pushData(this.props.userInfo.userUid, this.props.type, data)
     }
 
+    showOptions(e){
+        this.setState({
+            buttonClass: 'active'
+        })
+    }
+
+    hideOptions(e){
+        this.setState({
+            buttonClass: 'hidden',
+            chooceIconButton: 'hidden'
+        })
+    }
+
     render(){
         return(
-            <div className="experienceWarpper" onClick={this.showOptions}>
+            <div className="experienceWarpper" onMouseEnter={this.showOptions} onMouseLeave={this.hideOptions}>
                 <div className={this.state.buttonClass}>
                     <button onClick={this.deleteExperience}><FontAwesomeCVPage font="trash" /></button>
                     <button onClick={this.showIcons}><FontAwesomeCVPage font="cog" /></button>
                     <button onClick={this.addNewComp}><FontAwesomeCVPage font="plus" /></button>
-                    <div className={this.state.chooceIconButton}>
+                    <div className={`${this.state.chooceIconButton} icons-wrapper`}>
                         <span onClick={this.chooseIcon}>
                             <FontAwesomeCVPage font={'envelope'} />
                         </span>
@@ -86,7 +93,7 @@ export default class CVstandartComponent extends React.Component{
                         </span>
                     </div>
                 </div>
-                <div>
+                <div className="inputsContainer">
                     <FontAwesomeCVPage font={this.props.cv.cvData[this.props.type][this.props.id].font} />
                     <CVtextarea 
                         type="text"

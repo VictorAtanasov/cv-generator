@@ -17,8 +17,10 @@ export default class CVstandartComponent extends React.Component{
         this.renderAchievments = this.renderAchievments.bind(this);
         this.pushAchievmentData = this.pushAchievmentData.bind(this);
         this.setAchievmentData = this.setAchievmentData.bind(this);
-        this.showDeleteButton = this.showDeleteButton.bind(this);
         this.deleteExperience = this.deleteExperience.bind(this);
+        this.addNewComp = this.addNewComp.bind(this);
+        this.hideOptions = this.hideOptions.bind(this);
+        this.showOptions = this.showOptions.bind(this);
     }
 
     pushData(e){
@@ -76,23 +78,46 @@ export default class CVstandartComponent extends React.Component{
         })
     }
 
-    showDeleteButton(e){
-        this.setState({
-            buttonClass: 'active'
-        })
-    }
-
     deleteExperience(e){
         let userUid = this.props.userInfo.userUid;
         this.props.deleteComponent(userUid, this.props.type, this.props.id)
     }
 
+    addNewComp(){
+        let data = {
+            company: 'company',
+            description: 'description',
+            title: 'title',
+            date: 'Date period',
+            location: 'location',
+            achievments: {
+                '-KyQi5jtW3WhuV9kdqNW': {
+                    achievment: 'achievment'
+                }
+            }
+        };
+        this.props.pushData(this.props.userInfo.userUid, this.props.type, data)
+    }
+
+    showOptions(e){
+        this.setState({
+            buttonClass: 'active'
+        })
+    }
+
+    hideOptions(e){
+        this.setState({
+            buttonClass: 'hidden',
+            chooceIconButton: 'hidden'
+        })
+    }
 
     render(){
         return(
-            <div className="experienceWarpper" onClick={this.showDeleteButton}>
+            <div className="experienceWarpper" onMouseEnter={this.showOptions} onMouseLeave={this.hideOptions}>
                 <div className={this.state.buttonClass}>
                     <button onClick={this.deleteExperience}><FontAwesomeCVPage font="trash" /></button>
+                    <button onClick={this.addNewComp}><FontAwesomeCVPage font="plus" /></button>
                 </div>
                 <div>
                     <div>
