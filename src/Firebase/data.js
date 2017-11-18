@@ -7,6 +7,8 @@ const cvData = {
             title: 'title',
             date: 'Date period',
             location: 'location',
+            link: 'link',
+            linkAreaClass: 'hidden',
             achievments: {
                 '-KyQi5jtW3WhuV9kdqNW': {
                     achievment: 'achievment'
@@ -21,6 +23,8 @@ const cvData = {
             title: 'title',
             date: 'Date period',
             location: 'location',
+            link: 'link',
+            linkAreaClass: 'hidden',
             achievments: {
                 '-KyQi5jtW4WhoV9kdqNZ': {
                     achievment: 'achievment'
@@ -35,6 +39,8 @@ const cvData = {
             title: 'title',
             date: 'Date period',
             location: 'location',
+            link: 'link',
+            linkAreaClass: 'hidden',
             achievments: {
                 '-KyQi5jtW4WhoV9kdqNZ': {
                     achievment: 'achievment'
@@ -72,14 +78,14 @@ const cvData = {
     },
     awards: {
         '-KyQi5jtW3WhaV9kdqNW': {
-            font: 'diamond',
+            font: 'trophy',
             achievment: 'Award Name',
             description: 'Award description'
         }
     },
     achievments: {
         '-KyQi5jtA2WhaV9kdqNW': {
-            font: 'diamond',
+            font: 'globe',
             achievment: 'What are you most proud of?',
             description: 'Why are you prod of this achievment?'
         }

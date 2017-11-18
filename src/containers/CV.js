@@ -6,6 +6,7 @@ import CVheader from '../components/CVcomponents/CVheader';
 import CVstandartContainer from '../containers/CVstandartContainer';
 import CVphoto from '../components/CVcomponents/CVphoto';
 import CVshortContainer from '../containers/CVshortContainer';
+import CVcertificationComponent from '../containers/CVcertificationContainer';
 import '../App.css';
 
 class CV extends React.Component{
@@ -54,6 +55,51 @@ class CV extends React.Component{
                             <CVshortContainer
                                 userInfo={this.props.userInfo}
                                 type='proud' 
+                            />
+                        </div>
+                        <div>
+                            <h2>
+                                Strengths
+                            </h2>
+                            <CVshortContainer
+                                userInfo={this.props.userInfo}
+                                type='strengths'
+                            />
+                        </div>
+                        <div>
+                            <h2>
+                                Awards
+                            </h2>
+                            <CVshortContainer
+                                userInfo={this.props.userInfo}
+                                type='awards'
+                            />
+                        </div>
+                        <div>
+                            <h2>
+                                Achievments
+                            </h2>
+                            <CVshortContainer
+                                userInfo={this.props.userInfo}
+                                type='achievments'
+                            />
+                        </div>
+                        <div>
+                            <h2>
+                                Certificates
+                            </h2>
+                            <CVcertificationComponent 
+                                userInfo={this.props.userInfo}
+                                type='certification'
+                            />
+                        </div>
+                        <div>
+                            <h2>
+                                Courses
+                            </h2>
+                            <CVcertificationComponent 
+                                userInfo={this.props.userInfo}
+                                type='courses'
                             />
                         </div>
                     </div>

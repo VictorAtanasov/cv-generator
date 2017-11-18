@@ -53,11 +53,35 @@ export default class CVstandartComponent extends React.Component{
     }
 
     addNewComp(){
-        let data = {
-            font: 'diamond',
-            achievment: 'What are you most proud of?',
-            description: 'Why are you proud of this achievment?'
-        };
+        var data = {};
+        switch(this.props.type){
+            case 'proud':
+                data.font = 'diamond';
+                data.achievment = 'What are you most proud of?';
+                data.description = 'Why are you proud of this achievment?';
+                break;
+            case 'strengths':
+                data.font = 'line-chart';
+                data.achievment = 'Your Unique Talent';
+                data.description = 'How did you acquire it? What did it result in?';
+                break;
+            case 'awards':
+                data.font = 'trophy';
+                data.achievment = 'Your award';
+                data.description = 'Award description';
+                break;
+            case 'achievments':
+                data.font = 'globe';
+                data.achievment = 'What are you most proud of?';
+                data.description = 'Why are you prod of this achievment?';
+                break;
+            default:
+                data.font = 'trophy';
+                data.achievment = 'greshka';
+                data.description = 'greshka';
+                break;
+        }
+
         this.props.pushData(this.props.userInfo.userUid, this.props.type, data)
     }
 
@@ -75,6 +99,7 @@ export default class CVstandartComponent extends React.Component{
     }
 
     render(){
+        const data = this.props.cv.cvData[this.props.type][this.props.id];
         return(
             <div className="experienceWarpper" onMouseEnter={this.showOptions} onMouseLeave={this.hideOptions}>
                 <div className={this.state.buttonClass}>
@@ -94,10 +119,10 @@ export default class CVstandartComponent extends React.Component{
                     </div>
                 </div>
                 <div className="inputsContainer">
-                    <FontAwesomeCVPage font={this.props.cv.cvData[this.props.type][this.props.id].font} />
+                    <FontAwesomeCVPage font={data.font} />
                     <CVtextarea 
                         type="text"
-                        name={this.props.cv.cvData[this.props.type][this.props.id].achievment}
+                        name={data.achievment}
                         placeholder="Title"
                         className="cv-header-input"
                         id="achievment"
@@ -107,7 +132,7 @@ export default class CVstandartComponent extends React.Component{
                 <div>
                     <CVtextarea 
                         type="text"
-                        name={this.props.cv.cvData[this.props.type][this.props.id].description}
+                        name={data.description}
                         placeholder="Description"
                         className="cv-header-input"
                         id="description"

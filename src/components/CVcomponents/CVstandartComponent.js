@@ -21,6 +21,10 @@ export default class CVstandartComponent extends React.Component{
         this.addNewComp = this.addNewComp.bind(this);
         this.hideOptions = this.hideOptions.bind(this);
         this.showOptions = this.showOptions.bind(this);
+        this.descriptionAreaClassName = this.descriptionAreaClassName.bind(this);
+        this.companyAreaClassName = this.companyAreaClassName.bind(this);
+        this.addAchievment = this.addAchievment.bind(this);
+        this.addLinkArea = this.addLinkArea.bind(this);
     }
 
     pushData(e){
@@ -51,6 +55,13 @@ export default class CVstandartComponent extends React.Component{
         }
     }
 
+    addAchievment(){
+        let data = {
+            achievment: 'achievment'
+        };
+        this.props.pushMultipleComponentData(this.props.userInfo.userUid, this.props.type, this.props.id, 'achievments', data);
+    }
+
     setAchievmentData(e){
         let userUid = this.props.userInfo.userUid;
         let targetValue = {
@@ -60,7 +71,6 @@ export default class CVstandartComponent extends React.Component{
         let key = e.target.id;
         this.props.setMultipleComponentNestedData(userUid, this.props.type, componentId, 'achievments', key, targetValue);
     }
-
 
     renderAchievments(){
         return _.map(this.props.cv.cvData[this.props.type][this.props.id].achievments, (achievment, key) => {
@@ -90,6 +100,8 @@ export default class CVstandartComponent extends React.Component{
             title: 'title',
             date: 'Date period',
             location: 'location',
+            link: 'link',
+            linkAreaClass: 'hidden',
             achievments: {
                 '-KyQi5jtW3WhuV9kdqNW': {
                     achievment: 'achievment'
@@ -112,30 +124,57 @@ export default class CVstandartComponent extends React.Component{
         })
     }
 
+    descriptionAreaClassName(){
+        if(this.props.type === 'education'){
+            return 'hidden'
+        } else {
+            return 'block'
+        }
+    }
+
+    companyAreaClassName(){
+        if(this.props.type === 'projects'){
+            return 'hidden'
+        } else {
+            return 'block'
+        }
+    }
+
+    addLinkArea(){
+        if(this.props.cv.cvData[this.props.type][this.props.id].linkAreaClass === 'hidden'){
+            this.props.setMultipleComponentData(this.props.userInfo.userUid, this.props.type, this.props.id, 'linkAreaClass', 'block');
+        } else{
+            this.props.setMultipleComponentData(this.props.userInfo.userUid, this.props.type, this.props.id, 'linkAreaClass', 'hidden');
+        }
+    }
+
     render(){
+        const data = this.props.cv.cvData[this.props.type][this.props.id];
         return(
             <div className="experienceWarpper" onMouseEnter={this.showOptions} onMouseLeave={this.hideOptions}>
                 <div className={this.state.buttonClass}>
                     <button onClick={this.deleteExperience}><FontAwesomeCVPage font="trash" /></button>
                     <button onClick={this.addNewComp}><FontAwesomeCVPage font="plus" /></button>
+                    <button onClick={this.addLinkArea}><FontAwesomeCVPage font="link" /></button>
+                    <button onClick={this.addAchievment}><FontAwesomeCVPage font="plus-circle" /></button>
                 </div>
                 <div>
                     <div>
                         <CVtextarea 
                             type="text"
-                            name={this.props.cv.cvData[this.props.type][this.props.id].title || 'Title'}
+                            name={data.title}
                             placeholder="Title"
-                            onBlur={ this.pushData }
+                            onBlur={this.pushData}
                             className="cv-header-input"
                             id="title"
                         />
                     </div>
-                    <div>
+                    <div className={this.companyAreaClassName()}>
                         <CVtextarea 
                             type="text"
-                            name={this.props.cv.cvData[this.props.type][this.props.id].company || "Company Name"}
+                            name={data.company}
                             placeholder="Company Name"
-                            onBlur={ this.pushData }
+                            onBlur={this.pushData}
                             className="cv-header-input"
                             id="company"
                         />
@@ -143,9 +182,9 @@ export default class CVstandartComponent extends React.Component{
                     <div>
                         <CVtextarea 
                             type="text"
-                            name={this.props.cv.cvData[this.props.type][this.props.id].date || "Date Period"}
+                            name={data.date}
                             placeholder="Date Period"
-                            onBlur={ this.pushData }
+                            onBlur={this.pushData}
                             className="cv-header-input"
                             id="date"
                         />
@@ -153,19 +192,29 @@ export default class CVstandartComponent extends React.Component{
                     <div>
                         <CVtextarea 
                             type="text"
-                            name={this.props.cv.cvData[this.props.type][this.props.id].location || "location"}
+                            name={data.location}
                             placeholder="location"
-                            onBlur={ this.pushData }
+                            onBlur={this.pushData}
                             className="cv-header-input"
                             id="location"
                         />
                     </div>
-                    <div>
+                    <div className={data.linkAreaClass}>
                         <CVtextarea 
                             type="text"
-                            name={this.props.cv.cvData[this.props.type][this.props.id].description || "Company Description"}
+                            name={data.link}
+                            placeholder="link"
+                            onBlur={this.pushData}
+                            className="cv-header-input"
+                            id="link"
+                        />
+                    </div>
+                    <div className={this.descriptionAreaClassName()}>
+                        <CVtextarea 
+                            type="text"
+                            name={data.description}
                             placeholder="Company Description"
-                            onBlur={ this.pushData }
+                            onBlur={this.pushData}
                             className="cv-header-input"
                             id="description"
                         />
