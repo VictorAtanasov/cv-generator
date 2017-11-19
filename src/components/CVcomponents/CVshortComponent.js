@@ -1,6 +1,7 @@
 import React from 'react';
 import FontAwesomeCVPage from '../FontAwesomeCVPage';
 import CVtextarea from '../forms/CVtextarea';
+import registrationData from '../../Firebase/data';
 import '../../App.css';
 
 export default class CVstandartComponent extends React.Component{
@@ -56,29 +57,21 @@ export default class CVstandartComponent extends React.Component{
         var data = {};
         switch(this.props.type){
             case 'proud':
-                data.font = 'diamond';
-                data.achievment = 'What are you most proud of?';
-                data.description = 'Why are you proud of this achievment?';
+                data = {...registrationData.proud['-KyQi5jtW3WhaV9kdqNW']};
                 break;
             case 'strengths':
-                data.font = 'line-chart';
-                data.achievment = 'Your Unique Talent';
-                data.description = 'How did you acquire it? What did it result in?';
+                data = {...registrationData.strengths['-KyQi5jtW3WhaV9kdqNW']};
                 break;
             case 'awards':
-                data.font = 'trophy';
-                data.achievment = 'Your award';
-                data.description = 'Award description';
+                data = {...registrationData.awards['-KyQi5jtW3WhaV9kdqNW']};
                 break;
             case 'achievments':
-                data.font = 'globe';
-                data.achievment = 'What are you most proud of?';
-                data.description = 'Why are you prod of this achievment?';
+                data = {...registrationData.achievments['-KyQi5jtA2WhaV9kdqNW']};
+                break;
+            case 'motivation':
+                data = {...registrationData.motivation['-KyQy1jtWdWhqV9kdqNW']};
                 break;
             default:
-                data.font = 'trophy';
-                data.achievment = 'greshka';
-                data.description = 'greshka';
                 break;
         }
 

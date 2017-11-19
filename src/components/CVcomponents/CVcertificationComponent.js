@@ -1,6 +1,7 @@
 import React from 'react';
 import FontAwesomeCVPage from '../FontAwesomeCVPage';
 import CVtextarea from '../forms/CVtextarea';
+import registrationData from '../../Firebase/data';
 import '../../App.css';
 
 export default class CVcertificationComponent extends React.Component{
@@ -36,19 +37,12 @@ export default class CVcertificationComponent extends React.Component{
         var data = {};
         switch(this.props.type){
             case 'certification':
-                data.certificate = 'Name of the certificate';
-                data.organization = 'Organization';
-                data.description = 'Description';
+                data = {...registrationData.certification['-KyQi5jtW3WhaV9kdqNA']};
                 break;
             case 'courses':
-                data.certificate = 'Name of the course';
-                data.organization = 'Organization';
-                data.description = 'Description';
+                data = {...registrationData.courses['-KyQi5jtW3WhaV9kdqNA']};
                 break;
             default:
-                data.certificate = 'greshka';
-                data.organization = 'greshka';
-                data.description = 'greshka';
                 break;
         }
 

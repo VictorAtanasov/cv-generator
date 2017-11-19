@@ -2,6 +2,7 @@ import React from 'react';
 import CVtextarea from '../forms/CVtextarea';
 import CVachievment from './CVachievment';
 import FontAwesomeCVPage from '../FontAwesomeCVPage';
+import registrationData from '../../Firebase/data';
 import _ from 'lodash';
 import '../../App.css';
 
@@ -94,20 +95,20 @@ export default class CVstandartComponent extends React.Component{
     }
 
     addNewComp(){
-        let data = {
-            company: 'company',
-            description: 'description',
-            title: 'title',
-            date: 'Date period',
-            location: 'location',
-            link: 'link',
-            linkAreaClass: 'hidden',
-            achievments: {
-                '-KyQi5jtW3WhuV9kdqNW': {
-                    achievment: 'achievment'
-                }
-            }
-        };
+        var data = {};
+        switch(this.props.type){
+            case 'experience':
+                data = {...registrationData.experience['-KyQi5jtW3WhuV8kdqNW']};
+                break;
+            case 'projects':
+                data = {...registrationData.projects['-KyQi5jtW3WhoV9kdqNZ']};
+                break;
+            case 'education':
+                data = {...registrationData.education['-KyQa2jtW3KhoV9kdqNZ']};
+                break;
+            default:
+                break;
+        }
         this.props.pushData(this.props.userInfo.userUid, this.props.type, data)
     }
 

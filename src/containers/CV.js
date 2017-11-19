@@ -6,7 +6,9 @@ import CVheader from '../components/CVcomponents/CVheader';
 import CVstandartContainer from '../containers/CVstandartContainer';
 import CVphoto from '../components/CVcomponents/CVphoto';
 import CVshortContainer from '../containers/CVshortContainer';
-import CVcertificationComponent from '../containers/CVcertificationContainer';
+import CVcertificationContainer from '../containers/CVcertificationContainer';
+import CVsummaryContainer from '../containers/CVsummaryContainer';
+import CVtechnologiesContainer from '../containers/CVtechnologiesContainer';
 import '../App.css';
 
 class CV extends React.Component{
@@ -86,9 +88,18 @@ class CV extends React.Component{
                         </div>
                         <div>
                             <h2>
+                                Motivation
+                            </h2>
+                            <CVshortContainer
+                                userInfo={this.props.userInfo}
+                                type='motivation'
+                            />
+                        </div>
+                        <div>
+                            <h2>
                                 Certificates
                             </h2>
-                            <CVcertificationComponent 
+                            <CVcertificationContainer 
                                 userInfo={this.props.userInfo}
                                 type='certification'
                             />
@@ -97,9 +108,26 @@ class CV extends React.Component{
                             <h2>
                                 Courses
                             </h2>
-                            <CVcertificationComponent 
+                            <CVcertificationContainer 
                                 userInfo={this.props.userInfo}
                                 type='courses'
+                            />
+                        </div>
+                        <div>
+                            <h2>
+                                Summary
+                            </h2>
+                            <CVsummaryContainer
+                                userInfo={this.props.userInfo}
+                            />
+                        </div>
+                        <div>
+                            <h2>
+                                Technolgies
+                            </h2>
+                            <CVtechnologiesContainer 
+                                userInfo={this.props.userInfo}
+                                type='technologies'
                             />
                         </div>
                     </div>

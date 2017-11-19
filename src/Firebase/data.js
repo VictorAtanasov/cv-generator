@@ -48,20 +48,6 @@ const cvData = {
             }
         }
     },
-    volunteer: {
-        '-KyQa2jtW3KhoV9kdqNZ': {
-            company: 'Company',
-            description: 'Description',
-            title: 'Title',
-            date: 'Date period',
-            location: 'location',
-            achievments: {
-                '-KyQi5jtW4WhoV9kdqNZ': {
-                    achievment: 'achievment'
-                }
-            }
-        }
-    },
     proud: {
         '-KyQi5jtW3WhaV9kdqNW': {
             font: 'diamond',
@@ -83,6 +69,13 @@ const cvData = {
             description: 'Award description'
         }
     },
+    motivation: {
+        '-KyQy1jtWdWhqV9kdqNW': {
+            font: 'heart',
+            achievment: 'Motivation Title',
+            description: 'Motivation description'
+        }
+    },
     achievments: {
         '-KyQi5jtA2WhaV9kdqNW': {
             font: 'globe',
@@ -102,6 +95,23 @@ const cvData = {
             certificate: 'Name of the course',
             organization: 'Organization',
             description: 'Description'
+        }
+    },
+    summary: {
+        '-KiQi5jtW3WheV2kdqNA': {
+            summary: 'What is the one thing you want someone to remember after reading your resume?' 
+        }
+    },
+    technologies: {
+        '-KiQi5jtW3WheV2kdqNA': {
+            title:{
+                'group-title': 'group-title'
+            },
+            technologies:{
+                '-KiQ9xjtW3eheV2ksqNA': {
+                    technology: 'technology'
+                }
+            }
         }
     }
 }
