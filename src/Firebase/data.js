@@ -113,6 +113,12 @@ const cvData = {
                 }
             }
         }
+    },
+    expertise: {
+        '-KiQi5jtW3koeV2erqNA': {
+            title: 'expertise-title',
+            range: '10'
+        }
     }
 }
 

@@ -9,6 +9,7 @@ import CVshortContainer from '../containers/CVshortContainer';
 import CVcertificationContainer from '../containers/CVcertificationContainer';
 import CVsummaryContainer from '../containers/CVsummaryContainer';
 import CVtechnologiesContainer from '../containers/CVtechnologiesContainer';
+import CVinputRangeInputContainer from '../containers/CVinputRangeInputContainer';
 import '../App.css';
 
 class CV extends React.Component{
@@ -128,6 +129,15 @@ class CV extends React.Component{
                             <CVtechnologiesContainer 
                                 userInfo={this.props.userInfo}
                                 type='technologies'
+                            />
+                        </div>
+                        <div>
+                            <h2>
+                                Input Range
+                            </h2>
+                            <CVinputRangeInputContainer 
+                                userInfo={this.props.userInfo}
+                                type='expertise'
                             />
                         </div>
                     </div>
