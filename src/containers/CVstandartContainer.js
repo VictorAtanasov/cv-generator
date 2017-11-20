@@ -1,16 +1,16 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 import * as cvActions from '../actions/cvActions';
-import CVstandartComponent from '../components/CVcomponents/CVstandartComponent';
+import CvStandartComponent from '../components/CVcomponents/CvStandartComponent';
 import _ from 'lodash';
 import '../App.css';
 
-class CVstandartContainer extends React.Component{
+class CvStandartContainer extends React.Component{
     
         renderComponents(){
             return _.map(this.props.cv.cvData[this.props.type], (comp, key) => {
-                return <CVstandartComponent
+                return <CvStandartComponent
                             {...this.props}
                             userInfo={this.props.userInfo} 
                             key = {key}
@@ -42,4 +42,4 @@ function mapDispatchToProps(dispatch){
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(CVstandartContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(CvStandartContainer)

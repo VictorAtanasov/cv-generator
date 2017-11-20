@@ -37,7 +37,6 @@ class Photo extends React.Component{
         return(
             <div>
                 <div>
-                    {/* <img src={this.props.cv.cvData.image} alt="user"/> */}
                     {this.renderImage()}
                 </div>
                 <div>

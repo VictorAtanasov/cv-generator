@@ -2,11 +2,11 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as cvActions from '../actions/cvActions';
-import CVcertificationComponent from '../components/CVcomponents/CVcertificationComponent';
+import CvCertificationComponent from '../components/CVcomponents/CvCertificationComponent';
 import _ from 'lodash';
 import '../App.css';
 
-class CVcertificationContainer extends React.Component{
+class CvCertificationContainer extends React.Component{
     
         constructor(props){
             super(props);
@@ -16,7 +16,7 @@ class CVcertificationContainer extends React.Component{
 
         renderComponents(){
             return _.map(this.props.cv.cvData[this.props.type], (comp, key) => {
-                return <CVcertificationComponent 
+                return <CvCertificationComponent 
                             {...this.props}
                             key={key}
                             id={key}
@@ -46,4 +46,4 @@ function mapDispatchToProps(dispatch){
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(CVcertificationContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(CvCertificationContainer)

@@ -1,7 +1,7 @@
 import React from 'react';
 import FontAwesome from 'react-fontawesome';
 
-const FontAwesomeCVPage = (props) => {
+const FontAwesomeCvPage = (props) => {
     return(
         <FontAwesome
             name={props.font}
@@ -9,4 +9,4 @@ const FontAwesomeCVPage = (props) => {
     )
 }
 
-export default FontAwesomeCVPage
+export default FontAwesomeCvPage

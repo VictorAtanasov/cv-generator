@@ -2,14 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as cvActions from '../actions/cvActions';
-import CVheader from '../components/CVcomponents/CVheader';
-import CVstandartContainer from '../containers/CVstandartContainer';
-import CVphoto from '../components/CVcomponents/CVphoto';
-import CVshortContainer from '../containers/CVshortContainer';
-import CVcertificationContainer from '../containers/CVcertificationContainer';
-import CVsummaryContainer from '../containers/CVsummaryContainer';
-import CVtechnologiesContainer from '../containers/CVtechnologiesContainer';
-import CVinputRangeInputContainer from '../containers/CVinputRangeInputContainer';
+import CvHeader from '../components/CVcomponents/CvHeader';
+import CvStandartContainer from '../containers/CvStandartContainer';
+import CvPhoto from '../components/CVcomponents/CvPhoto';
+import CvShortContainer from '../containers/CvShortContainer';
+import CvCertificationContainer from '../containers/CvCertificationContainer';
+import CvSummaryContainer from '../containers/CvSummaryContainer';
+import CvTechnologiesContainer from '../containers/CvTechnologiesContainer';
+import CvInputRangeInputContainer from '../containers/CvInputRangeInputContainer';
 import '../App.css';
 
 class CV extends React.Component{
@@ -22,13 +22,13 @@ class CV extends React.Component{
                         CV Container
                     </h2>
                     <div className="componentWarpper">
-                        <CVheader {...this.props} userInfo={this.props.userInfo} />
-                        <CVphoto userInfo={this.props.userInfo.userUid} />
+                        <CvHeader {...this.props} userInfo={this.props.userInfo} />
+                        <CvPhoto userInfo={this.props.userInfo.userUid} />
                         <div>
                             <h2>
                                 Experience
                             </h2>
-                            <CVstandartContainer 
+                            <CvStandartContainer 
                                 userInfo={this.props.userInfo}
                                 type='experience'
                             />
@@ -37,7 +37,7 @@ class CV extends React.Component{
                             <h2>
                                 Projects
                             </h2>
-                            <CVstandartContainer 
+                            <CvStandartContainer 
                                 userInfo={this.props.userInfo}
                                 type='projects'
                             />
@@ -46,7 +46,7 @@ class CV extends React.Component{
                             <h2>
                                 Education
                             </h2>
-                            <CVstandartContainer 
+                            <CvStandartContainer 
                                 userInfo={this.props.userInfo}
                                 type='education'
                             />
@@ -55,7 +55,7 @@ class CV extends React.Component{
                             <h2>
                                 Most Proud of
                             </h2>
-                            <CVshortContainer
+                            <CvShortContainer
                                 userInfo={this.props.userInfo}
                                 type='proud' 
                             />
@@ -64,7 +64,7 @@ class CV extends React.Component{
                             <h2>
                                 Strengths
                             </h2>
-                            <CVshortContainer
+                            <CvShortContainer
                                 userInfo={this.props.userInfo}
                                 type='strengths'
                             />
@@ -73,7 +73,7 @@ class CV extends React.Component{
                             <h2>
                                 Awards
                             </h2>
-                            <CVshortContainer
+                            <CvShortContainer
                                 userInfo={this.props.userInfo}
                                 type='awards'
                             />
@@ -82,7 +82,7 @@ class CV extends React.Component{
                             <h2>
                                 Achievments
                             </h2>
-                            <CVshortContainer
+                            <CvShortContainer
                                 userInfo={this.props.userInfo}
                                 type='achievments'
                             />
@@ -91,7 +91,7 @@ class CV extends React.Component{
                             <h2>
                                 Motivation
                             </h2>
-                            <CVshortContainer
+                            <CvShortContainer
                                 userInfo={this.props.userInfo}
                                 type='motivation'
                             />
@@ -100,7 +100,7 @@ class CV extends React.Component{
                             <h2>
                                 Certificates
                             </h2>
-                            <CVcertificationContainer 
+                            <CvCertificationContainer 
                                 userInfo={this.props.userInfo}
                                 type='certification'
                             />
@@ -109,7 +109,7 @@ class CV extends React.Component{
                             <h2>
                                 Courses
                             </h2>
-                            <CVcertificationContainer 
+                            <CvCertificationContainer 
                                 userInfo={this.props.userInfo}
                                 type='courses'
                             />
@@ -118,7 +118,7 @@ class CV extends React.Component{
                             <h2>
                                 Summary
                             </h2>
-                            <CVsummaryContainer
+                            <CvSummaryContainer
                                 userInfo={this.props.userInfo}
                             />
                         </div>
@@ -126,18 +126,27 @@ class CV extends React.Component{
                             <h2>
                                 Technolgies
                             </h2>
-                            <CVtechnologiesContainer 
+                            <CvTechnologiesContainer 
                                 userInfo={this.props.userInfo}
                                 type='technologies'
                             />
                         </div>
                         <div>
                             <h2>
-                                Input Range
+                                Expertise
                             </h2>
-                            <CVinputRangeInputContainer 
+                            <CvInputRangeInputContainer 
                                 userInfo={this.props.userInfo}
                                 type='expertise'
+                            />
+                        </div>
+                        <div>
+                            <h2>
+                                Languages
+                            </h2>
+                            <CvInputRangeInputContainer 
+                                userInfo={this.props.userInfo}
+                                type='languages'
                             />
                         </div>
                     </div>

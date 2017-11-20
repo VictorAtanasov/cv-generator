@@ -1,13 +1,13 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 import * as cvActions from '../actions/cvActions';
 import * as userActions from '../actions/userActions';
-import { FontAwesomeSpinner } from '../components/FontAwesomeSpinner';
+import {FontAwesomeSpinner} from '../components/FontAwesomeSpinner';
 import CV from './CV';
 
 
-class CVpage extends React.Component{
+class CvPage extends React.Component{
     constructor(props){
         super(props);
         this.renderCVData = this.renderCVData.bind(this);
@@ -68,4 +68,4 @@ function mapDispatchToProps(dispatch){
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(CVpage)
+export default connect(mapStateToProps, mapDispatchToProps)(CvPage)

@@ -1,12 +1,12 @@
 import React from 'react';
-import CVtextarea from '../forms/CVtextarea';
-import CVachievment from './CVachievment';
-import FontAwesomeCVPage from '../FontAwesomeCVPage';
+import CvTextarea from '../forms/CvTextarea';
+import CvAchievment from './CvAchievment';
+import FontAwesomeCvPage from '../FontAwesomeCvPage';
 import registrationData from '../../Firebase/data';
 import _ from 'lodash';
 import '../../App.css';
 
-export default class CVstandartComponent extends React.Component{
+export default class CvStandartComponent extends React.Component{
     constructor(props){
         super(props);
 
@@ -75,9 +75,9 @@ export default class CVstandartComponent extends React.Component{
 
     renderAchievments(){
         return _.map(this.props.cv.cvData[this.props.type][this.props.id].achievments, (achievment, key) => {
-            return <CVachievment 
+            return <CvAchievment 
                         type="text"
-                        name={achievment.achievment || "Your Achievment"}
+                        name={achievment.achievment}
                         placeholder="Your Achievment"
                         onBlur={this.setAchievmentData}
                         onKeyDown={this.pushAchievmentData}
@@ -154,14 +154,14 @@ export default class CVstandartComponent extends React.Component{
         return(
             <div className="experienceWarpper" onMouseEnter={this.showOptions} onMouseLeave={this.hideOptions}>
                 <div className={this.state.buttonClass}>
-                    <button onClick={this.deleteExperience}><FontAwesomeCVPage font="trash" /></button>
-                    <button onClick={this.addNewComp}><FontAwesomeCVPage font="plus" /></button>
-                    <button onClick={this.addLinkArea}><FontAwesomeCVPage font="link" /></button>
-                    <button onClick={this.addAchievment}><FontAwesomeCVPage font="plus-circle" /></button>
+                    <button onClick={this.deleteExperience}><FontAwesomeCvPage font="trash" /></button>
+                    <button onClick={this.addNewComp}><FontAwesomeCvPage font="plus" /></button>
+                    <button onClick={this.addLinkArea}><FontAwesomeCvPage font="link" /></button>
+                    <button onClick={this.addAchievment}><FontAwesomeCvPage font="plus-circle" /></button>
                 </div>
                 <div>
                     <div>
-                        <CVtextarea 
+                        <CvTextarea 
                             type="text"
                             name={data.title}
                             placeholder="Title"
@@ -171,7 +171,7 @@ export default class CVstandartComponent extends React.Component{
                         />
                     </div>
                     <div className={this.companyAreaClassName()}>
-                        <CVtextarea 
+                        <CvTextarea 
                             type="text"
                             name={data.company}
                             placeholder="Company Name"
@@ -181,7 +181,7 @@ export default class CVstandartComponent extends React.Component{
                         />
                     </div>
                     <div>
-                        <CVtextarea 
+                        <CvTextarea 
                             type="text"
                             name={data.date}
                             placeholder="Date Period"
@@ -191,7 +191,7 @@ export default class CVstandartComponent extends React.Component{
                         />
                     </div>
                     <div>
-                        <CVtextarea 
+                        <CvTextarea 
                             type="text"
                             name={data.location}
                             placeholder="location"
@@ -201,7 +201,7 @@ export default class CVstandartComponent extends React.Component{
                         />
                     </div>
                     <div className={data.linkAreaClass}>
-                        <CVtextarea 
+                        <CvTextarea 
                             type="text"
                             name={data.link}
                             placeholder="link"
@@ -211,7 +211,7 @@ export default class CVstandartComponent extends React.Component{
                         />
                     </div>
                     <div className={this.descriptionAreaClassName()}>
-                        <CVtextarea 
+                        <CvTextarea 
                             type="text"
                             name={data.description}
                             placeholder="Company Description"

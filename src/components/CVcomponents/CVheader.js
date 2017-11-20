@@ -1,10 +1,10 @@
 import React from 'react';
-import CVtextarea from '../forms/CVtextarea';
-import FontAwesomeCVPage from '../FontAwesomeCVPage';
+import CvTextarea from '../forms/CvTextarea';
+import FontAwesomeCvPage from '../FontAwesomeCvPage';
 import '../../App.css';
 
 
-export default class CVheader extends React.Component{
+export default class CvHeader extends React.Component{
     constructor(props){
         super(props);
 
@@ -26,7 +26,7 @@ export default class CVheader extends React.Component{
                 </h2>
                 <div>
                     <div>
-                        <CVtextarea 
+                        <CvTextarea 
                             type="text"
                             name={this.props.cv.name || "Your Name"}
                             placeholder="Your Name"
@@ -36,7 +36,7 @@ export default class CVheader extends React.Component{
                         />
                     </div>
                     <div>
-                        <CVtextarea 
+                        <CvTextarea 
                             type="text"
                             name={this.props.cv.role || "Your Next Desired Role?"}
                             placeholder="Your Next Desired Role?"
@@ -46,8 +46,8 @@ export default class CVheader extends React.Component{
                         />
                     </div>
                     <div>
-                        <FontAwesomeCVPage font="phone" />
-                        <CVtextarea 
+                        <FontAwesomeCvPage font="phone" />
+                        <CvTextarea 
                             type="text"
                             name={this.props.cv.phone || "Phone"}
                             placeholder="Phone"
@@ -57,8 +57,8 @@ export default class CVheader extends React.Component{
                         />
                     </div>
                     <div>
-                        <FontAwesomeCVPage font="link" />
-                        <CVtextarea 
+                        <FontAwesomeCvPage font="link" />
+                        <CvTextarea 
                             type="text"
                             name={this.props.cv.website || "Website/Link"}
                             placeholder="Website/Link"
@@ -68,8 +68,8 @@ export default class CVheader extends React.Component{
                         />
                     </div>
                     <div>
-                        <FontAwesomeCVPage font="envelope-o" />
-                        <CVtextarea 
+                        <FontAwesomeCvPage font="envelope-o" />
+                        <CvTextarea 
                             type="text"
                             name={this.props.cv.email || "E-Mail"}
                             placeholder="E-Mail"
@@ -79,8 +79,8 @@ export default class CVheader extends React.Component{
                         />
                     </div>
                     <div>
-                        <FontAwesomeCVPage font="map-marker" />
-                        <CVtextarea 
+                        <FontAwesomeCvPage font="map-marker" />
+                        <CvTextarea 
                             type="text"
                             name={this.props.cv.location || "Location"}
                             placeholder="Location"

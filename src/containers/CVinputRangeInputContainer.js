@@ -2,11 +2,11 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as cvActions from '../actions/cvActions';
-import CVinputRangeComponent from '../components/CVcomponents/CVinputRangeComponent';
+import CvInputRangeComponent from '../components/CVcomponents/CvInputRangeComponent';
 import _ from 'lodash';
 import '../App.css';
 
-class CVinputRangeInputContainer extends React.Component{
+class CvInputRangeInputContainer extends React.Component{
     
         constructor(props){
             super(props);
@@ -16,7 +16,7 @@ class CVinputRangeInputContainer extends React.Component{
 
         renderComponents(){
             return _.map(this.props.cv.cvData[this.props.type], (comp, key) => {
-                return <CVinputRangeComponent 
+                return <CvInputRangeComponent 
                             {...this.props}
                             key={key}
                             id={key}
@@ -46,4 +46,4 @@ function mapDispatchToProps(dispatch){
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(CVinputRangeInputContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(CvInputRangeInputContainer)

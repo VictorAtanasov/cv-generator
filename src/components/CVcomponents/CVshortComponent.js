@@ -1,10 +1,10 @@
 import React from 'react';
-import FontAwesomeCVPage from '../FontAwesomeCVPage';
-import CVtextarea from '../forms/CVtextarea';
+import FontAwesomeCvPage from '../FontAwesomeCvPage';
+import CvTextarea from '../forms/CvTextarea';
 import registrationData from '../../Firebase/data';
 import '../../App.css';
 
-export default class CVstandartComponent extends React.Component{
+export default class CvShortComponent extends React.Component{
     constructor(props){
         super(props);
 
@@ -96,24 +96,24 @@ export default class CVstandartComponent extends React.Component{
         return(
             <div className="experienceWarpper" onMouseEnter={this.showOptions} onMouseLeave={this.hideOptions}>
                 <div className={this.state.buttonClass}>
-                    <button onClick={this.deleteExperience}><FontAwesomeCVPage font="trash" /></button>
-                    <button onClick={this.showIcons}><FontAwesomeCVPage font="cog" /></button>
-                    <button onClick={this.addNewComp}><FontAwesomeCVPage font="plus" /></button>
+                    <button onClick={this.deleteExperience}><FontAwesomeCvPage font="trash" /></button>
+                    <button onClick={this.showIcons}><FontAwesomeCvPage font="cog" /></button>
+                    <button onClick={this.addNewComp}><FontAwesomeCvPage font="plus" /></button>
                     <div className={`${this.state.chooceIconButton} icons-wrapper`}>
                         <span onClick={this.chooseIcon}>
-                            <FontAwesomeCVPage font={'envelope'} />
+                            <FontAwesomeCvPage font={'envelope'} />
                         </span>
                         <span onClick={this.chooseIcon}>
-                            <FontAwesomeCVPage font={'film'} />
+                            <FontAwesomeCvPage font={'film'} />
                         </span>
                         <span onClick={this.chooseIcon}>
-                            <FontAwesomeCVPage font={'diamond'} />
+                            <FontAwesomeCvPage font={'diamond'} />
                         </span>
                     </div>
                 </div>
                 <div className="inputsContainer">
-                    <FontAwesomeCVPage font={data.font} />
-                    <CVtextarea 
+                    <FontAwesomeCvPage font={data.font} />
+                    <CvTextarea 
                         type="text"
                         name={data.achievment}
                         placeholder="Title"
@@ -123,7 +123,7 @@ export default class CVstandartComponent extends React.Component{
                     />
                 </div>
                 <div>
-                    <CVtextarea 
+                    <CvTextarea 
                         type="text"
                         name={data.description}
                         placeholder="Description"

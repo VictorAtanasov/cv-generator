@@ -1,16 +1,16 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 import * as cvActions from '../actions/cvActions';
-import CVsummaryComponent from '../components/CVcomponents/CVsummaryComponent';
+import CvSummaryComponent from '../components/CVcomponents/CvSummaryComponent';
 import '../App.css';
 
-class CVsummaryContainer extends React.Component{
+class CvSummaryContainer extends React.Component{
         
         render(){
             return(
                 <div>
-                    <CVsummaryComponent {...this.props} />
+                    <CvSummaryComponent {...this.props} />
                 </div>
             )
         }
@@ -27,4 +27,4 @@ function mapDispatchToProps(dispatch){
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(CVsummaryContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(CvSummaryContainer)

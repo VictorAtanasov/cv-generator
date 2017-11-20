@@ -1,12 +1,12 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 import * as cvActions from '../actions/cvActions';
-import CVshortComponent from '../components/CVcomponents/CVshortComponent';
+import CvShortComponent from '../components/CVcomponents/CvShortComponent';
 import _ from 'lodash';
 import '../App.css';
 
-class CVshortContainer extends React.Component{
+class CvShortContainer extends React.Component{
     
         constructor(props){
             super(props);
@@ -16,7 +16,7 @@ class CVshortContainer extends React.Component{
 
         renderComponents(){
             return _.map(this.props.cv.cvData[this.props.type], (comp, key) => {
-                return <CVshortComponent 
+                return <CvShortComponent 
                             {...this.props}
                             key={key}
                             id={key}
@@ -46,4 +46,4 @@ function mapDispatchToProps(dispatch){
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(CVshortContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(CvShortContainer)

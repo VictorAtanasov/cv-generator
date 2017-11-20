@@ -1,10 +1,10 @@
 import React from 'react';
-import FontAwesomeCVPage from '../FontAwesomeCVPage';
+import FontAwesomeCvPage from '../FontAwesomeCvPage';
 
-const CVachievment = (props) => {
+const CvAchievment = (props) => {
     return(
         <div className="cv-header-input-wrapper">
-            <FontAwesomeCVPage font={props.font} />
+            <FontAwesomeCvPage font={props.font} />
             <input type={props.type} 
                 className={props.className} 
                 placeholder={props.placeholder} 
@@ -18,4 +18,4 @@ const CVachievment = (props) => {
     )
 }
 
-export default CVachievment;
+export default CvAchievment;

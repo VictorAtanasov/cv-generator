@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 import * as userActions from '../actions/userActions';
 import AuthButton from '../components/AuthButton';
 
@@ -20,7 +20,6 @@ class Header extends React.Component{
         this.props.logOut()
             .then(() =>{
                 console.log('success');
-                //this.props.history.replace('/');
                 window.location.href = '/';
             })
             .catch((err) =>{

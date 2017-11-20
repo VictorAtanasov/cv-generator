@@ -1,10 +1,10 @@
 import React from 'react';
-import FontAwesomeCVPage from '../FontAwesomeCVPage';
-import CVtextarea from '../forms/CVtextarea';
+import FontAwesomeCvPage from '../FontAwesomeCvPage';
+import CvTextarea from '../forms/CvTextarea';
 import registrationData from '../../Firebase/data';
 import '../../App.css';
 
-export default class CVcertificationComponent extends React.Component{
+export default class CvCertificationComponent extends React.Component{
     constructor(props){
         super(props);
 
@@ -62,16 +62,17 @@ export default class CVcertificationComponent extends React.Component{
     }
 
     render(){
+        const data = this.props.cv.cvData[this.props.type][this.props.id];
         return(
             <div className="experienceWarpper" onMouseEnter={this.showOptions} onMouseLeave={this.hideOptions}>
                 <div className={this.state.buttonClass}>
-                    <button onClick={this.deleteExperience}><FontAwesomeCVPage font="trash" /></button>
-                    <button onClick={this.addNewComp}><FontAwesomeCVPage font="plus" /></button>
+                    <button onClick={this.deleteExperience}><FontAwesomeCvPage font="trash" /></button>
+                    <button onClick={this.addNewComp}><FontAwesomeCvPage font="plus" /></button>
                 </div>
                 <div className="inputsContainer">
-                    <CVtextarea 
+                    <CvTextarea 
                         type="text"
-                        name={this.props.cv.cvData[this.props.type][this.props.id].certificate}
+                        name={data.certificate}
                         placeholder="Certificate"
                         className="cv-header-input"
                         id="certificate"
@@ -79,9 +80,9 @@ export default class CVcertificationComponent extends React.Component{
                     />
                 </div>
                 <div>
-                    <CVtextarea 
+                    <CvTextarea 
                         type="text"
-                        name={this.props.cv.cvData[this.props.type][this.props.id].organization}
+                        name={data.organization}
                         placeholder="Description"
                         className="cv-header-input"
                         id="organization"
@@ -89,9 +90,9 @@ export default class CVcertificationComponent extends React.Component{
                     />
                 </div>
                 <div>
-                    <CVtextarea 
+                    <CvTextarea 
                         type="text"
-                        name={this.props.cv.cvData[this.props.type][this.props.id].description}
+                        name={data.description}
                         placeholder="Description"
                         className="cv-header-input"
                         id="description"

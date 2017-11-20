@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CVtextarea = (props) => {
+const CvTextarea = (props) => {
     return(
         <div className="cv-header-input-wrapper">
             <textarea type={props.type} 
@@ -15,4 +15,4 @@ const CVtextarea = (props) => {
     )
 }
 
-export default CVtextarea;
+export default CvTextarea;

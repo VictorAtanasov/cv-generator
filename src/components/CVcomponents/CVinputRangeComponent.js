@@ -1,11 +1,11 @@
 import React from 'react';
-import CVtextarea from '../forms/CVtextarea';
+import CvTextarea from '../forms/CvTextarea';
 import InputRange from 'react-input-range';
-import FontAwesomeCVPage from '../FontAwesomeCVPage';
+import FontAwesomeCvPage from '../FontAwesomeCvPage';
 import '../../App.css';
 import '../../../node_modules/react-input-range/lib/css/index.css';
 
-export default class CVinputRangeComponent extends React.Component{
+export default class CvInputRangeComponent extends React.Component{
     constructor(props){
         super(props);
 
@@ -20,6 +20,7 @@ export default class CVinputRangeComponent extends React.Component{
         this.addNewRange = this.addNewRange.bind(this);
         this.showOptions = this.showOptions.bind(this);
         this.hideOptions = this.hideOptions.bind(this);
+        this.checkComponentType = this.checkComponentType.bind(this);
     }
 
     pushData(e){
@@ -39,9 +40,10 @@ export default class CVinputRangeComponent extends React.Component{
         let userUid = this.props.userInfo.userUid;
         let data = {
             title: 'expertise-title',
-            range: '10'
+            range: '10',
+            description: 'description'
         }
-        this.props.pushData(userUid, 'expertise', data);
+        this.props.pushData(userUid, this.props.type, data);
     }
 
     deleteComponent(e){
@@ -61,16 +63,24 @@ export default class CVinputRangeComponent extends React.Component{
         })
     }
 
+    checkComponentType(){
+        if(this.props.type === 'expertise'){
+            return 'hidden'
+        } else {
+            return 'block'
+        }
+    }
+
     render(){
         const data = this.props.cv.cvData[this.props.type][this.props.id];
         return(
             <div onMouseEnter={this.showOptions} onMouseLeave={this.hideOptions}>
                 <div className={this.state.buttonClass}>
-                    <button onClick={this.deleteComponent}><FontAwesomeCVPage font="trash" /></button>
-                    <button onClick={this.addNewRange}><FontAwesomeCVPage font="plus-circle" /></button>
+                    <button onClick={this.deleteComponent}><FontAwesomeCvPage font="trash" /></button>
+                    <button onClick={this.addNewRange}><FontAwesomeCvPage font="plus-circle" /></button>
                 </div>
                 <div>
-                    <CVtextarea
+                    <CvTextarea
                         type="text"
                         name={data.title}
                         placeholder="Title"
@@ -79,13 +89,25 @@ export default class CVinputRangeComponent extends React.Component{
                         id="title"
                     />
                 </div>
-                <InputRange
-                    maxValue={100}
-                    minValue={0}
-                    value={this.state.value*1}
-                    onChange={value => this.setState({value})}
-                    onChangeComplete={value => this.pushValue(value)}
-                />
+                <div className={this.checkComponentType()}>
+                    <CvTextarea
+                        type="text"
+                        name={data.title}
+                        placeholder="Title"
+                        onBlur={this.pushData}
+                        className="cv-header-input"
+                        id="description"
+                    />
+                </div>
+                <div>
+                    <InputRange
+                        maxValue={100}
+                        minValue={0}
+                        value={this.state.value*1}
+                        onChange={value => this.setState({value})}
+                        onChangeComplete={value => this.pushValue(value)}
+                    />
+                </div>
             </div>
         )
     }

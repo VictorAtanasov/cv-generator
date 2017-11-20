@@ -117,7 +117,15 @@ const cvData = {
     expertise: {
         '-KiQi5jtW3koeV2erqNA': {
             title: 'expertise-title',
-            range: '10'
+            range: '10',
+            description: 'description'
+        }
+    },
+    languages: {
+        '-KiXi1jgW3koeV2erqNA': {
+            title: 'expertise-title',
+            range: '10',
+            description: 'description'
         }
     }
 }

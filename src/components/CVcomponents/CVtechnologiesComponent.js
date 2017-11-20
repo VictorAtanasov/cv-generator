@@ -1,11 +1,11 @@
 import React from 'react';
-import FontAwesomeCVPage from '../FontAwesomeCVPage';
-import CVtechnologiesTextarea from './CVtechnologiesTextarea';
-import CVtextarea from '../forms/CVtextarea';
+import FontAwesomeCvPage from '../FontAwesomeCvPage';
+import CvTechnologiesTextarea from './CvTechnologiesTextarea';
+import CvTextarea from '../forms/CvTextarea';
 import _ from 'lodash';
 import '../../App.css';
 
-export default class CVtechnologiesComponent extends React.Component{
+export default class CvTechnologiesComponent extends React.Component{
     constructor(props){
         super(props);
 
@@ -63,7 +63,7 @@ export default class CVtechnologiesComponent extends React.Component{
 
     renderTechnologies(){
         return _.map(this.props.cv.cvData[this.props.type][this.props.id].technologies, (technology, key) => {
-            return <CVtechnologiesTextarea 
+            return <CvTechnologiesTextarea 
                         type="text"
                         name={technology.technology}
                         placeholder="Your Technology"
@@ -120,12 +120,12 @@ export default class CVtechnologiesComponent extends React.Component{
         return(
             <div className="experienceWarpper" onMouseEnter={this.showOptions} onMouseLeave={this.hideOptions}>
                 <div className={this.state.buttonClass}>
-                    <button onClick={this.deleteComponent}><FontAwesomeCVPage font="trash" /></button>
-                    <button onClick={this.addNewComp}><FontAwesomeCVPage font="plus" /></button>
-                    <button onClick={this.addTechnology}><FontAwesomeCVPage font="plus-circle" /></button>
+                    <button onClick={this.deleteComponent}><FontAwesomeCvPage font="trash" /></button>
+                    <button onClick={this.addNewComp}><FontAwesomeCvPage font="plus" /></button>
+                    <button onClick={this.addTechnology}><FontAwesomeCvPage font="plus-circle" /></button>
                 </div>
                 <div>
-                    <CVtextarea 
+                    <CvTextarea 
                         type="text"
                         name={this.props.cv.cvData[this.props.type][this.props.id]['title']['group-title']}
                         placeholder="Company Name"

@@ -1,8 +1,8 @@
 import React from 'react';
-import CVtextarea from '../forms/CVtextarea';
+import CvTextarea from '../forms/CvTextarea';
 import '../../App.css';
 
-export default class CVsummaryComponent extends React.Component{
+export default class CvSummaryComponent extends React.Component{
     constructor(props){
         super(props);
 
@@ -24,7 +24,7 @@ export default class CVsummaryComponent extends React.Component{
             <div className="experienceWarpper">
                 <div>
                     <div>
-                        <CVtextarea 
+                        <CvTextarea 
                             type="text"
                             name={data.summary}
                             placeholder="Title"
