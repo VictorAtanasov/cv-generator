@@ -1,5 +1,21 @@
 const cvData = {
     image: ' ',
+    titles: {
+        achievment : 'Achievments',
+        awards : 'Awards',
+        certification : 'Certification',
+        courses : 'Courses',
+        education : 'Education',
+        experience : 'Experience',
+        languages : 'Languages',
+        motivation : 'Motivation',
+        projects : 'Projects',
+        proud : 'Proud',
+        strengths : 'Strengths',
+        summary : 'Summary',
+        technologies : 'Technologies',
+        expertise: 'Expertise'
+    },
     experience: {
         '-KyQi5jtW3WhuV8kdqNW': {
             company: 'company',

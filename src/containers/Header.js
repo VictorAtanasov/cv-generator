@@ -53,9 +53,6 @@ class Header extends React.Component{
         return(
             <div>
                 <div>
-                    Header
-                </div>
-                <div>
                     <ul>                        
                         <Link to="/">
                             <li>

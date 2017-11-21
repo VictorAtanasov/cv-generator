@@ -8,13 +8,34 @@ class Photo extends React.Component{
     constructor(props){
         super(props);
 
+        this.state = {
+            imageUploaderClass: 'hidden'
+        }
+
         this.pushImage = this.pushImage.bind(this);
         this.renderImage = this.renderImage.bind(this);
+        this.showImageUploader = this.showImageUploader.bind(this);
+        this.hideImageUploader = this.hideImageUploader.bind(this);
     }
 
     pushImage(e){
         let file = e.target.files[0];
-        this.props.uploadImage(this.props.userInfo, file);
+        this.props.uploadImage(this.props.userInfo, file)
+            .then(() => {
+                this.refs.fileForm.reset()
+            })
+    }
+
+    showImageUploader(){
+        this.setState({
+            imageUploaderClass: 'block'
+        })
+    }
+
+    hideImageUploader(){
+        this.setState({
+            imageUploaderClass: 'hidden'
+        })
     }
 
 
@@ -23,11 +44,15 @@ class Photo extends React.Component{
         if(this.props.cv.cvData){
             if(this.props.cv.cvData.image !== ' '){
                 return(
-                    <img src={this.props.cv.cvData.image} alt="user"/>
+                    <div onClick={this.showImageUploader}>
+                        <img src={this.props.cv.cvData.image} alt="user"/>
+                    </div>
                 )
             } else {
                 return(
-                    <img src="https://app.enhancv.com/b7e44f9da8257826e8dd86a243c2ec6b.svg" alt="user"/>
+                    <div onClick={this.showImageUploader}>
+                        <img src="https://app.enhancv.com/b7e44f9da8257826e8dd86a243c2ec6b.svg" alt="user"/>
+                    </div>   
                 )
             }
         }
@@ -39,8 +64,13 @@ class Photo extends React.Component{
                 <div>
                     {this.renderImage()}
                 </div>
-                <div>
-                    <input type="file" onChange={this.pushImage}/>
+                <div className={this.state.imageUploaderClass}>
+                    <div>
+                        <form ref="fileForm">
+                            <input type="file" onChange={this.pushImage}/>
+                        </form>
+                        <button onClick={this.hideImageUploader}>OK</button>
+                    </div>
                 </div>
             </div>
         )

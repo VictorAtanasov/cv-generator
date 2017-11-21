@@ -48,3 +48,12 @@ img {
   padding: 10px;
   margin-top: -20px;
   margin-left: 81px; }
+
+.textarea-component-title {
+  overflow: hidden;
+  resize: none;
+  border: none;
+  font-size: 32px;
+  height: 35px;
+  font-weight: 600;
+  margin-top: 50px; }

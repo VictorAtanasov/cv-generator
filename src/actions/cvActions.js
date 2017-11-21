@@ -18,6 +18,11 @@ export function setData(uid, key, data){
     return dispatch => db.set(data)
 }
 
+export function setComponentData(uid, component, key, data){
+    let db = cvs.child(uid).child('cvData').child(component).child(key);
+    return dispatch => db.set(data)
+}
+
 export function setMultipleComponentData(uid, component, componentId, key, data){
     let db = cvs.child(uid).child('cvData').child(component).child(componentId).child(key);
     return dispatch => db.set(data)
