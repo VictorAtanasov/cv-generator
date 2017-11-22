@@ -4,6 +4,8 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as userActions from '../actions/userActions';
 import AuthButton from '../components/AuthButton';
+import logo from '../images/short.png';
+import '../App.css'
 
 class Header extends React.Component{
     constructor(props){
@@ -52,6 +54,11 @@ class Header extends React.Component{
     render(){
         return(
             <div>
+                <div className="header-logo">
+                    <Link to ="/">
+                        <img src={logo} alt="deiba"/>
+                    </Link>
+                </div>
                 <div>
                     <ul>                        
                         <Link to="/">
