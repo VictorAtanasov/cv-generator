@@ -3,7 +3,6 @@ import FontAwesomeCvPage from '../FontAwesomeCvPage';
 import CvTechnologiesTextarea from './CvTechnologiesTextarea';
 import CvTextarea from '../forms/CvTextarea';
 import _ from 'lodash';
-import '../../App.css';
 
 export default class CvTechnologiesComponent extends React.Component{
     constructor(props){

@@ -4,7 +4,6 @@ import {bindActionCreators} from 'redux';
 import * as cvActions from '../actions/cvActions';
 import CvCertificationComponent from '../components/CVcomponents/CvCertificationComponent';
 import _ from 'lodash';
-import '../App.css';
 
 class CvCertificationContainer extends React.Component{
     

@@ -1,6 +1,5 @@
 import React from 'react';
 import CvTextarea from '../forms/CvTextarea';
-import '../../App.css';
 
 export default class CvSummaryComponent extends React.Component{
     constructor(props){

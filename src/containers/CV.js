@@ -11,7 +11,6 @@ import CvSummaryContainer from '../containers/CvSummaryContainer';
 import CvTechnologiesContainer from '../containers/CvTechnologiesContainer';
 import CvInputRangeInputContainer from '../containers/CvInputRangeInputContainer';
 import CvTextarea from '../components/forms/CvTextarea';
-import '../App.css';
 
 class CV extends React.Component{
 

@@ -2,7 +2,6 @@ import React from 'react';
 import CvTextarea from '../forms/CvTextarea';
 import InputRange from 'react-input-range';
 import FontAwesomeCvPage from '../FontAwesomeCvPage';
-import '../../App.css';
 import '../../../node_modules/react-input-range/lib/css/index.css';
 
 export default class CvInputRangeComponent extends React.Component{

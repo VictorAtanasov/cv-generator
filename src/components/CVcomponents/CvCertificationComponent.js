@@ -2,7 +2,6 @@ import React from 'react';
 import FontAwesomeCvPage from '../FontAwesomeCvPage';
 import CvTextarea from '../forms/CvTextarea';
 import registrationData from '../../Firebase/data';
-import '../../App.css';
 
 export default class CvCertificationComponent extends React.Component{
     constructor(props){

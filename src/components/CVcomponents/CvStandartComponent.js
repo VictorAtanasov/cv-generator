@@ -4,7 +4,6 @@ import CvAchievment from './CvAchievment';
 import FontAwesomeCvPage from '../FontAwesomeCvPage';
 import registrationData from '../../Firebase/data';
 import _ from 'lodash';
-import '../../App.css';
 
 export default class CvStandartComponent extends React.Component{
     constructor(props){

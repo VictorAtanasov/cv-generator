@@ -4,7 +4,6 @@ import {bindActionCreators} from 'redux';
 import * as cvActions from '../actions/cvActions';
 import CvInputRangeComponent from '../components/CVcomponents/CvInputRangeComponent';
 import _ from 'lodash';
-import '../App.css';
 
 class CvInputRangeInputContainer extends React.Component{
     

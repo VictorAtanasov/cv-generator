@@ -4,7 +4,6 @@ import {bindActionCreators} from 'redux';
 import * as cvActions from '../actions/cvActions';
 import CvShortComponent from '../components/CVcomponents/CvShortComponent';
 import _ from 'lodash';
-import '../App.css';
 
 class CvShortContainer extends React.Component{
     

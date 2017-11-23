@@ -1,11 +1,12 @@
 import React from 'react';
+import { Button } from 'reactstrap';
 
 const AuthButton = (props) => {
     return(
         <div>
-            <button className={props.className} type={props.type} onClick={props.onClick}>
+            <Button color={props.color} type={props.type} onClick={props.onClick}>
                 {props.text}
-            </button>
+            </Button>
         </div>
     )
 }

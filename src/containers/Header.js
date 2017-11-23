@@ -5,7 +5,6 @@ import {bindActionCreators} from 'redux';
 import * as userActions from '../actions/userActions';
 import AuthButton from '../components/AuthButton';
 import logo from '../images/short.png';
-import '../App.css'
 
 class Header extends React.Component{
     constructor(props){
@@ -35,7 +34,7 @@ class Header extends React.Component{
                 <div>
                     <span>{`Hi ${this.props.user.displayName}`}</span>
                     <div>
-                        <AuthButton className="btn btn-danger" text="Sign Out" onClick={this.handleSignOut} />
+                        <AuthButton color="primary" text="Sign Out" onClick={this.handleSignOut} />
                     </div>
                 </div>
             )
@@ -44,7 +43,7 @@ class Header extends React.Component{
                 <div>
                     <span>{`Hi ${this.props.user.email}`}</span>
                     <div>
-                        <AuthButton className="btn btn-danger" text="Sign Out" onClick={this.handleSignOut} />
+                        <AuthButton color="danger" text="Sign Out" onClick={this.handleSignOut} />
                     </div>
                 </div>
             )

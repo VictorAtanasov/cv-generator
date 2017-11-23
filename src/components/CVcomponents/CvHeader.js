@@ -1,7 +1,6 @@
 import React from 'react';
 import CvTextarea from '../forms/CvTextarea';
 import FontAwesomeCvPage from '../FontAwesomeCvPage';
-import '../../App.css';
 
 
 export default class CvHeader extends React.Component{
