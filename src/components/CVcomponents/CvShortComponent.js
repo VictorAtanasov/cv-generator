@@ -35,13 +35,13 @@ export default class CvShortComponent extends React.Component{
     }
 
     showIcons(e){
-        if(this.state.chooceIconButton === 'active'){
+        if(this.state.chooceIconButton === 'active-cv-state'){
             this.setState({
                 chooceIconButton: 'hidden'
             })
         }else{
             this.setState({
-                chooceIconButton: 'active'
+                chooceIconButton: 'active-cv-state'
             })
         }
     }
@@ -79,7 +79,7 @@ export default class CvShortComponent extends React.Component{
 
     showOptions(e){
         this.setState({
-            buttonClass: 'active'
+            buttonClass: 'active-cv-state'
         })
     }
 

@@ -5,12 +5,26 @@ import {bindActionCreators} from 'redux';
 import * as userActions from '../actions/userActions';
 import AuthButton from '../components/AuthButton';
 import logo from '../images/short.png';
+import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem, Button } from 'reactstrap';
+import {FontAwesomeSpinner} from '../components/FontAwesomeSpinner';
 
 class Header extends React.Component{
     constructor(props){
         super(props);
-        this.ifUser = this.ifUser.bind(this);
+        
+        this.state = {
+          dropdownOpen: false
+        };
+
+        this.toggle = this.toggle.bind(this);
+        this.ifRegUser = this.ifRegUser.bind(this);
         this.handleSignOut = this.handleSignOut.bind(this);
+    }
+
+    toggle() {
+        this.setState({
+          dropdownOpen: !this.state.dropdownOpen
+        });
     }
 
     componentWillMount(){
@@ -28,60 +42,55 @@ class Header extends React.Component{
             })
     }
 
-    ifUser(){
-        if(this.props.user.displayName){
-            return(
-                <div>
-                    <span>{`Hi ${this.props.user.displayName}`}</span>
-                    <div>
-                        <AuthButton color="primary" text="Sign Out" onClick={this.handleSignOut} />
+    ifRegUser(){
+        if(!this.props.user.loading){
+            if(this.props.user.email){
+                return(
+                    <div className="header-menu-items">
+                        <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+                            <DropdownToggle caret>
+                                Button Dropdown
+                            </DropdownToggle>
+                            <DropdownMenu>
+                                <Link to={`/cv/${this.props.user.uid}`}>
+                                    <DropdownItem>Your CV</DropdownItem>
+                                </Link>
+                                <DropdownItem divider />
+                                <DropdownItem onClick={this.handleSignOut}>
+                                    Sign Out
+                                </DropdownItem>
+                            </DropdownMenu>
+                        </ButtonDropdown>
                     </div>
-                </div>
-            )
-        } else if(this.props.user.email){
-            return(
-                <div>
-                    <span>{`Hi ${this.props.user.email}`}</span>
-                    <div>
-                        <AuthButton color="danger" text="Sign Out" onClick={this.handleSignOut} />
+                )
+            } else{
+                return(
+                    <div className="header-menu-items">
+                        <ul>
+                            <li>
+                                <Link to="/logIn">Log In</Link>
+                            </li>
+                            <li>
+                                <Link to="/signUp">Sign Up</Link>
+                            </li>
+                        </ul>
                     </div>
-                </div>
-            )
+                )
+            }
         }
     }
 
     render(){
         return(
-            <div>
+            <div className="header-wrapper">
                 <div className="header-logo">
                     <Link to ="/">
                         <img src={logo} alt="deiba"/>
                     </Link>
                 </div>
-                <div>
-                    <ul>                        
-                        <Link to="/">
-                            <li>
-                                Home
-                            </li>
-                        </Link>
-                        <Link to="/logIn">
-                            <li>
-                                Log In
-                            </li>
-                        </Link>
-                        <Link to="/signUp">
-                            <li>
-                                Sign Up
-                            </li>
-                        </Link>
-                        <Link to={`/cv/${this.props.user.uid}`}>
-                            <li>
-                                Your CV
-                            </li>
-                        </Link>
-                    </ul>
-                    {this.ifUser()}
+                <div className="header-menu-items-wrapper">
+                    <Link to="/">Home</Link>
+                    {this.ifRegUser()}
                 </div>
             </div>
         )

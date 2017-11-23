@@ -50,7 +50,7 @@ export default class CvCertificationComponent extends React.Component{
 
     showOptions(e){
         this.setState({
-            buttonClass: 'active'
+            buttonClass: 'active-cv-state'
         })
     }
 

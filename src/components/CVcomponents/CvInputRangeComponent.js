@@ -52,7 +52,7 @@ export default class CvInputRangeComponent extends React.Component{
 
     showOptions(e){
         this.setState({
-            buttonClass: 'active'
+            buttonClass: 'active-cv-state'
         })
     }
 

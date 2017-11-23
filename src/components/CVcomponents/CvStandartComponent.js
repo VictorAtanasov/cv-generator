@@ -113,7 +113,7 @@ export default class CvStandartComponent extends React.Component{
 
     showOptions(e){
         this.setState({
-            buttonClass: 'active'
+            buttonClass: 'active-cv-state'
         })
     }
 
