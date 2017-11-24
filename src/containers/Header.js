@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as userActions from '../actions/userActions';
 import AuthButton from '../components/AuthButton';
-import logo from '../images/short.png';
+import logo from '../images/logo.png';
 import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem, Button } from 'reactstrap';
 import {FontAwesomeSpinner} from '../components/FontAwesomeSpinner';
 
@@ -47,9 +47,10 @@ class Header extends React.Component{
             if(this.props.user.email){
                 return(
                     <div className="header-menu-items">
-                        <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-                            <DropdownToggle caret>
-                                Button Dropdown
+                        <Link to="/">Home</Link>
+                        <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle} >
+                            <DropdownToggle caret outline color="primary">
+                                {this.props.user.displayName}
                             </DropdownToggle>
                             <DropdownMenu>
                                 <Link to={`/cv/${this.props.user.uid}`}>
@@ -66,14 +67,14 @@ class Header extends React.Component{
             } else{
                 return(
                     <div className="header-menu-items">
-                        <ul>
-                            <li>
-                                <Link to="/logIn">Log In</Link>
-                            </li>
-                            <li>
-                                <Link to="/signUp">Sign Up</Link>
-                            </li>
-                        </ul>
+                        <Link to="/">
+                            Home
+                        </Link>
+                        <Link to="/registration">
+                            <Button outline color="primary">
+                                Log In
+                            </Button>
+                        </Link>
                     </div>
                 )
             }
@@ -83,14 +84,15 @@ class Header extends React.Component{
     render(){
         return(
             <div className="header-wrapper">
-                <div className="header-logo">
-                    <Link to ="/">
-                        <img src={logo} alt="deiba"/>
-                    </Link>
-                </div>
-                <div className="header-menu-items-wrapper">
-                    <Link to="/">Home</Link>
-                    {this.ifRegUser()}
+                <div className="header">
+                    <div className="header-logo">
+                        <Link to ="/">
+                            <img src={logo} alt="deiba"/>
+                        </Link>
+                    </div>
+                    <div className="header-menu-items-wrapper">
+                        {this.ifRegUser()}
+                    </div>
                 </div>
             </div>
         )

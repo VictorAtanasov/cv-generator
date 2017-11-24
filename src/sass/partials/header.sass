@@ -5,14 +5,27 @@
         height: auto
 
 .header-wrapper
-    padding: 20px 15px
-
-.header-menu-items-wrapper
-    display: inline-block
-    float: right
+    position: absolute
+    border-bottom: 1px solid rgba(255,255,255, 0.3)
+    background: transparent
+    width: 100%
+    z-index: 9999
+    li
+        display: inline-block
+        list-style-type: none
 
 .header-menu-items
     display: inline-block
     margin-left: 15px
+    display: flex
+    align-items: center
+    justify-content: space-around
     
 
+.header
+    width: 1190px
+    margin: 0 auto
+    display: flex
+    align-items: center
+    justify-content: space-between
+    height: 80px
