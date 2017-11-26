@@ -62,58 +62,60 @@ class Registration extends React.Component{
             <div className="registration-page-wrapper">
                 <div className="registration-header-wrapper">
                     <div className="registration-header">
-                        <div>
+                        <div className="image-container">
 
                         </div>
-                        <div className="tabs-container">
-                            <Nav tabs>
-                                <NavItem>
-                                    <NavLink
-                                        className={classnames({ active: this.state.activeTab === '1' })}
-                                        onClick={() => { this.toggle('1'); }}
-                                    >
-                                        Log In
-                                    </NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink
-                                        className={classnames({ active: this.state.activeTab === '2' })}
-                                        onClick={() => { this.toggle('2'); }}
-                                    >
-                                        Sign Up
-                                    </NavLink>
-                                </NavItem>
-                            </Nav>
-                            <TabContent activeTab={this.state.activeTab}>
-                                <TabPane tabId="1">
-                                    <Row>
-                                        <Col sm="12">
-                                            <form ref="logInForm" onSubmit={this.handleLoginSubmit}>
-                                                <InputField type="text" className="logInInput" id="email" placeholder="Email"
-                                                    inputAction={(event) => this.setState({email: event.target.value})} />
-                                                <InputField type="password" className="logInInput" id="password" placeholder="Password"
-                                                    inputAction={(event) => this.setState({password: event.target.value})} />
-                                                <AuthButton className="btn btn-primary" type="submit" text="Log In" />
-                                            </form>
-                                        </Col>
-                                    </Row>
-                                </TabPane>
-                                <TabPane tabId="2">
-                                    <Row>
-                                        <Col sm="12">
-                                            <form ref="signUpForm" onSubmit={this.handleSignUp}>
-                                                <InputField type="text" className="signUpInput" id="email" placeholder="Email"
-                                                    inputAction={(event) => this.setState({email: event.target.value})} />
-                                                <InputField type="password" className="signUpInput" id="password" placeholder="Password"
-                                                    inputAction={(event) => this.setState({password: event.target.value})} />
-                                                <InputField type="text" className="signUpInput" id="name" placeholder="User Name"
-                                                    inputAction={(event) => this.setState({name: event.target.value})} />
-                                                <AuthButton className="btn btn-primary" type="submit" text="Sign Up" />
-                                            </form>
-                                        </Col>
-                                    </Row>
-                                </TabPane>
-                            </TabContent>
+                        <div className="tabs-container">    
+                            <div className="tabs">
+                                <Nav tabs>
+                                    <NavItem>
+                                        <NavLink
+                                            className={classnames({ active: this.state.activeTab === '1' })}
+                                            onClick={() => { this.toggle('1'); }}
+                                        >
+                                            Log In
+                                        </NavLink>
+                                    </NavItem>
+                                    <NavItem>
+                                        <NavLink
+                                            className={classnames({ active: this.state.activeTab === '2' })}
+                                            onClick={() => { this.toggle('2'); }}
+                                        >
+                                            Sign Up
+                                        </NavLink>
+                                    </NavItem>
+                                </Nav>
+                                <TabContent activeTab={this.state.activeTab}>
+                                    <TabPane tabId="1">
+                                        <Row>
+                                            <Col sm="12">
+                                                <form ref="logInForm" onSubmit={this.handleLoginSubmit}>
+                                                    <InputField type="text" className="logInInput" id="email" placeholder="Email"
+                                                        inputAction={(event) => this.setState({email: event.target.value})} />
+                                                    <InputField type="password" className="logInInput" id="password" placeholder="Password"
+                                                        inputAction={(event) => this.setState({password: event.target.value})} />
+                                                    <AuthButton color="primary" type="submit" text="Log In" />
+                                                </form>
+                                            </Col>
+                                        </Row>
+                                    </TabPane>
+                                    <TabPane tabId="2">
+                                        <Row>
+                                            <Col sm="12">
+                                                <form ref="signUpForm" onSubmit={this.handleSignUp}>
+                                                    <InputField type="text" className="signUpInput" id="email" placeholder="Email"
+                                                        inputAction={(event) => this.setState({email: event.target.value})} />
+                                                    <InputField type="password" className="signUpInput" id="password" placeholder="Password"
+                                                        inputAction={(event) => this.setState({password: event.target.value})} />
+                                                    <InputField type="text" className="signUpInput" id="name" placeholder="User Name"
+                                                        inputAction={(event) => this.setState({name: event.target.value})} />
+                                                    <AuthButton color="primary" type="submit" text="Sign Up" />
+                                                </form>
+                                            </Col>
+                                        </Row>
+                                    </TabPane>
+                                </TabContent>
+                            </div>
                         </div>
                     </div>
                 </div>

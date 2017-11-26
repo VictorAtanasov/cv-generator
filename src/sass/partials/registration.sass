@@ -1,5 +1,9 @@
+.registration-page-wrapper
+    height: 100%
+    @extend %transarent-input
+
 .registration-header-wrapper
-    height: 500px
+    height: 100%
     text-align: center
     color: #ffffff
     background-color: #545da9
@@ -10,8 +14,42 @@
     width: 100%
 
 .registration-header
-    @extend %header
-    width: 1190px
+    display: flex
+    justify-content: center
+    align-items: center
+    padding-top: 100px
 
 .tabs-container
-    width: 30%
+    width: 35%
+    height: 480px
+    background-color: rgba(255,255,255,0.2)
+    border: 1px solid $transparent-white
+    border-top-right-radius: 10px
+    border-bottom-right-radius: 10px
+    display: flex
+    justify-content: center
+    align-items: center
+
+.image-container
+    width: 45%
+    height: 565px
+    float: left
+    border: 1px solid $transparent-white
+    border-radius: 10px
+    background: 
+        image: url(./images/registration-bg.png)
+        position: center
+        repeat: repeat
+        size: cover
+        color: rgba(255,255,255,0.1)
+
+.tabs
+    width: 300px
+    .active .nav-link a
+        &:hover
+            color: #495057 !important
+    .btn-outline-primary
+        color: $white
+        border-color: $white
+        &:hover
+            border-color: #007bff
