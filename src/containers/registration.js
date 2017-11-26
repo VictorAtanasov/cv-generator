@@ -62,9 +62,7 @@ class Registration extends React.Component{
             <div className="registration-page-wrapper">
                 <div className="registration-header-wrapper">
                     <div className="registration-header">
-                        <div className="image-container">
-
-                        </div>
+                        <div className="image-container"></div>
                         <div className="tabs-container">    
                             <div className="tabs">
                                 <Nav tabs>

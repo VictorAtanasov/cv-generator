@@ -47,10 +47,8 @@ class CvPage extends React.Component{
 
     render(){
         return(
-            <div>
-                <div>
-                    {this.renderCVData()}
-                </div>
+            <div className="cv-page-wrapper">
+                {this.renderCVData()}
             </div>
         )
     }

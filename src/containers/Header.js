@@ -47,7 +47,7 @@ class Header extends React.Component{
             if(this.props.user.email){
                 return(
                     <div className="header-menu-items">
-                        <Link to="/">Home</Link>
+                        <Link to="/"  className="home-page-link">Home</Link>
                         <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle} >
                             <DropdownToggle caret outline color="primary">
                                 {this.props.user.displayName}
@@ -67,7 +67,7 @@ class Header extends React.Component{
             } else{
                 return(
                     <div className="header-menu-items">
-                        <Link to="/">
+                        <Link to="/" className="home-page-link">
                             Home
                         </Link>
                         <Link to="/registration">

@@ -46,6 +46,12 @@
   align-items: center;
   justify-content: space-around; }
 
+.home-page-link {
+  color: #fff;
+  margin-right: 20px; }
+  .home-page-link:hover {
+    color: #212529; }
+
 .header {
   width: 1190px;
   margin: 0 auto;
@@ -121,12 +127,16 @@
     .tabs .btn-outline-primary:hover {
       border-color: #007bff; }
 
+.cv-page-wrapper {
+  padding-top: 100px;
+  background-color: #54a7d3;
+  min-height: 100%; }
+
 .cv-header-input-wrapper {
   display: inline-block; }
 
 .CVconainerWrapper {
-  width: 1240px;
-  height: 1754px;
+  width: 1100px;
   background: white;
   margin: 0 auto; }
 

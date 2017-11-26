@@ -29,237 +29,232 @@ class CV extends React.Component{
     render(){
         const data = this.props.cv.cvData.titles;
         return(
-            <div>
-                <div className="CVconainerWrapper">
-                    <h2>
-                        CV Container
-                    </h2>
-                    <div className="componentWarpper">
-                        <CvHeader {...this.props} userInfo={this.props.userInfo} />
-                        <CvPhoto userInfo={this.props.userInfo.userUid} />
+            <div className="CVconainerWrapper">
+                <div className="componentWarpper">
+                    <CvHeader {...this.props} userInfo={this.props.userInfo} />
+                    <CvPhoto userInfo={this.props.userInfo.userUid} />
+                    <div>
                         <div>
-                            <div>
-                                <CvTextarea 
-                                    type="text"
-                                    name={data.experience}
-                                    placeholder="Title"
-                                    onBlur={this.updateTitle}
-                                    className="textarea-component-title"
-                                    id='experience'
-                                />
-                            </div>
-                            <CvStandartContainer 
-                                userInfo={this.props.userInfo}
-                                type='experience'
+                            <CvTextarea 
+                                type="text"
+                                name={data.experience}
+                                placeholder="Title"
+                                onBlur={this.updateTitle}
+                                className="textarea-component-title"
+                                id='experience'
                             />
                         </div>
+                        <CvStandartContainer 
+                            userInfo={this.props.userInfo}
+                            type='experience'
+                        />
+                    </div>
+                    <div>
                         <div>
-                            <div>
-                                <CvTextarea 
-                                    type="text"
-                                    name={data.projects}
-                                    placeholder="Title"
-                                    onBlur={this.updateTitle}
-                                    className="textarea-component-title"
-                                    id='projects'
-                                />
-                            </div>
-                            <CvStandartContainer 
-                                userInfo={this.props.userInfo}
-                                type='projects'
+                            <CvTextarea 
+                                type="text"
+                                name={data.projects}
+                                placeholder="Title"
+                                onBlur={this.updateTitle}
+                                className="textarea-component-title"
+                                id='projects'
                             />
                         </div>
+                        <CvStandartContainer 
+                            userInfo={this.props.userInfo}
+                            type='projects'
+                        />
+                    </div>
+                    <div>
                         <div>
-                            <div>
-                                <CvTextarea 
-                                    type="text"
-                                    name={data.education}
-                                    placeholder="Title"
-                                    onBlur={this.updateTitle}
-                                    className="textarea-component-title"
-                                    id='education'
-                                />
-                            </div>
-                            <CvStandartContainer 
-                                userInfo={this.props.userInfo}
-                                type='education'
+                            <CvTextarea 
+                                type="text"
+                                name={data.education}
+                                placeholder="Title"
+                                onBlur={this.updateTitle}
+                                className="textarea-component-title"
+                                id='education'
                             />
                         </div>
+                        <CvStandartContainer 
+                            userInfo={this.props.userInfo}
+                            type='education'
+                        />
+                    </div>
+                    <div>
                         <div>
-                            <div>
-                                <CvTextarea 
-                                    type="text"
-                                    name={data.proud}
-                                    placeholder="Title"
-                                    onBlur={this.updateTitle}
-                                    className="textarea-component-title"
-                                    id='proud'
-                                />
-                            </div>
-                            <CvShortContainer
-                                userInfo={this.props.userInfo}
-                                type='proud' 
+                            <CvTextarea 
+                                type="text"
+                                name={data.proud}
+                                placeholder="Title"
+                                onBlur={this.updateTitle}
+                                className="textarea-component-title"
+                                id='proud'
                             />
                         </div>
+                        <CvShortContainer
+                            userInfo={this.props.userInfo}
+                            type='proud' 
+                        />
+                    </div>
+                    <div>
                         <div>
-                            <div>
-                                <CvTextarea 
-                                    type="text"
-                                    name={data.strengths}
-                                    placeholder="Title"
-                                    onBlur={this.updateTitle}
-                                    className="textarea-component-title"
-                                    id='strengths'
-                                />
-                            </div>
-                            <CvShortContainer
-                                userInfo={this.props.userInfo}
-                                type='strengths'
+                            <CvTextarea 
+                                type="text"
+                                name={data.strengths}
+                                placeholder="Title"
+                                onBlur={this.updateTitle}
+                                className="textarea-component-title"
+                                id='strengths'
                             />
                         </div>
+                        <CvShortContainer
+                            userInfo={this.props.userInfo}
+                            type='strengths'
+                        />
+                    </div>
+                    <div>
                         <div>
-                            <div>
-                                <CvTextarea 
-                                    type="text"
-                                    name={data.awards}
-                                    placeholder="Title"
-                                    onBlur={this.updateTitle}
-                                    className="textarea-component-title"
-                                    id='awards'
-                                />
-                            </div>
-                            <CvShortContainer
-                                userInfo={this.props.userInfo}
-                                type='awards'
+                            <CvTextarea 
+                                type="text"
+                                name={data.awards}
+                                placeholder="Title"
+                                onBlur={this.updateTitle}
+                                className="textarea-component-title"
+                                id='awards'
                             />
                         </div>
+                        <CvShortContainer
+                            userInfo={this.props.userInfo}
+                            type='awards'
+                        />
+                    </div>
+                    <div>
                         <div>
-                            <div>
-                                <CvTextarea 
-                                    type="text"
-                                    name={data.achievments}
-                                    placeholder="Title"
-                                    onBlur={this.updateTitle}
-                                    className="textarea-component-title"
-                                    id='achievments'
-                                />
-                            </div>
-                            <CvShortContainer
-                                userInfo={this.props.userInfo}
-                                type='achievments'
+                            <CvTextarea 
+                                type="text"
+                                name={data.achievments}
+                                placeholder="Title"
+                                onBlur={this.updateTitle}
+                                className="textarea-component-title"
+                                id='achievments'
                             />
                         </div>
+                        <CvShortContainer
+                            userInfo={this.props.userInfo}
+                            type='achievments'
+                        />
+                    </div>
+                    <div>
                         <div>
-                            <div>
-                                <CvTextarea 
-                                    type="text"
-                                    name={data.motivation}
-                                    placeholder="Title"
-                                    onBlur={this.updateTitle}
-                                    className="textarea-component-title"
-                                    id='motivation'
-                                />
-                            </div>
-                            <CvShortContainer
-                                userInfo={this.props.userInfo}
-                                type='motivation'
+                            <CvTextarea 
+                                type="text"
+                                name={data.motivation}
+                                placeholder="Title"
+                                onBlur={this.updateTitle}
+                                className="textarea-component-title"
+                                id='motivation'
                             />
                         </div>
+                        <CvShortContainer
+                            userInfo={this.props.userInfo}
+                            type='motivation'
+                        />
+                    </div>
+                    <div>
                         <div>
-                            <div>
-                                <CvTextarea 
-                                    type="text"
-                                    name={data.certification}
-                                    placeholder="Title"
-                                    onBlur={this.updateTitle}
-                                    className="textarea-component-title"
-                                    id='certification'
-                                />
-                            </div>
-                            <CvCertificationContainer 
-                                userInfo={this.props.userInfo}
-                                type='certification'
+                            <CvTextarea 
+                                type="text"
+                                name={data.certification}
+                                placeholder="Title"
+                                onBlur={this.updateTitle}
+                                className="textarea-component-title"
+                                id='certification'
                             />
                         </div>
+                        <CvCertificationContainer 
+                            userInfo={this.props.userInfo}
+                            type='certification'
+                        />
+                    </div>
+                    <div>
                         <div>
-                            <div>
-                                <CvTextarea 
-                                    type="text"
-                                    name={data.courses}
-                                    placeholder="Title"
-                                    onBlur={this.updateTitle}
-                                    className="textarea-component-title"
-                                    id='courses'
-                                />
-                            </div>
-                            <CvCertificationContainer 
-                                userInfo={this.props.userInfo}
-                                type='courses'
+                            <CvTextarea 
+                                type="text"
+                                name={data.courses}
+                                placeholder="Title"
+                                onBlur={this.updateTitle}
+                                className="textarea-component-title"
+                                id='courses'
                             />
                         </div>
+                        <CvCertificationContainer 
+                            userInfo={this.props.userInfo}
+                            type='courses'
+                        />
+                    </div>
+                    <div>
                         <div>
-                            <div>
-                                <CvTextarea 
-                                    type="text"
-                                    name={data.summary}
-                                    placeholder="Title"
-                                    onBlur={this.updateTitle}
-                                    className="textarea-component-title"
-                                    id='summary'
-                                />
-                            </div>
-                            <CvSummaryContainer
-                                userInfo={this.props.userInfo}
+                            <CvTextarea 
+                                type="text"
+                                name={data.summary}
+                                placeholder="Title"
+                                onBlur={this.updateTitle}
+                                className="textarea-component-title"
+                                id='summary'
                             />
                         </div>
+                        <CvSummaryContainer
+                            userInfo={this.props.userInfo}
+                        />
+                    </div>
+                    <div>
                         <div>
-                            <div>
-                                <CvTextarea 
-                                    type="text"
-                                    name={data.technologies}
-                                    placeholder="Title"
-                                    onBlur={this.updateTitle}
-                                    className="textarea-component-title"
-                                    id='technologies'
-                                />
-                            </div>
-                            <CvTechnologiesContainer 
-                                userInfo={this.props.userInfo}
-                                type='technologies'
+                            <CvTextarea 
+                                type="text"
+                                name={data.technologies}
+                                placeholder="Title"
+                                onBlur={this.updateTitle}
+                                className="textarea-component-title"
+                                id='technologies'
                             />
                         </div>
+                        <CvTechnologiesContainer 
+                            userInfo={this.props.userInfo}
+                            type='technologies'
+                        />
+                    </div>
+                    <div>
                         <div>
-                            <div>
-                                <CvTextarea 
-                                    type="text"
-                                    name={data.expertise}
-                                    placeholder="Title"
-                                    onBlur={this.updateTitle}
-                                    className="textarea-component-title"
-                                    id='expertise'
-                                />
-                            </div>
-                            <CvInputRangeInputContainer 
-                                userInfo={this.props.userInfo}
-                                type='expertise'
+                            <CvTextarea 
+                                type="text"
+                                name={data.expertise}
+                                placeholder="Title"
+                                onBlur={this.updateTitle}
+                                className="textarea-component-title"
+                                id='expertise'
                             />
                         </div>
+                        <CvInputRangeInputContainer 
+                            userInfo={this.props.userInfo}
+                            type='expertise'
+                        />
+                    </div>
+                    <div>
                         <div>
-                            <div>
-                                <CvTextarea 
-                                    type="text"
-                                    name={data.languages}
-                                    placeholder="Title"
-                                    onBlur={this.updateTitle}
-                                    className="textarea-component-title"
-                                    id='languages'
-                                />
-                            </div>
-                            <CvInputRangeInputContainer 
-                                userInfo={this.props.userInfo}
-                                type='languages'
+                            <CvTextarea 
+                                type="text"
+                                name={data.languages}
+                                placeholder="Title"
+                                onBlur={this.updateTitle}
+                                className="textarea-component-title"
+                                id='languages'
                             />
                         </div>
+                        <CvInputRangeInputContainer 
+                            userInfo={this.props.userInfo}
+                            type='languages'
+                        />
                     </div>
                 </div>
             </div>
