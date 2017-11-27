@@ -4,6 +4,7 @@ import {bindActionCreators} from 'redux';
 import * as cvActions from '../actions/cvActions';
 import * as userActions from '../actions/userActions';
 import {FontAwesomeSpinner} from '../components/FontAwesomeSpinner';
+import Paper from 'material-ui/Paper';
 import CV from './CV';
 
 
@@ -46,9 +47,19 @@ class CvPage extends React.Component{
     }
 
     render(){
+        const style = {
+            height: 'auto',
+            width: '70%',
+            margin: '0 auto',
+            textAlign: 'center',
+            overflow: 'hidden'
+        };
         return(
+            
             <div className="cv-page-wrapper">
-                {this.renderCVData()}
+                <Paper style={style} zDepth={5}>
+                    {this.renderCVData()}
+                </Paper>
             </div>
         )
     }

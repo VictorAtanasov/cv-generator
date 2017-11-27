@@ -4,8 +4,9 @@ import { bindActionCreators } from 'redux';
 import * as userActions from '../actions/userActions';
 import InputField from '../components/forms/InputField';
 import AuthButton from '../components/AuthButton';
-import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
+import {TabContent, TabPane, Nav, NavItem, NavLink, Row, Col} from 'reactstrap';
 import classnames from 'classnames';
+import Snackbar from 'material-ui/Snackbar';
 
 class Registration extends React.Component{
     constructor(props){
@@ -14,13 +15,30 @@ class Registration extends React.Component{
             email: '',
             password: '',
             name: '',
-            activeTab: '1'
+            activeTab: '1',
+            message: '',
+            open: false
         }
 
         this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
         this.toggle = this.toggle.bind(this);
         this.handleSignUp = this.handleSignUp.bind(this);
+        this.dismissAlert = this.dismissAlert.bind(this);
+        this.handleTouchTap = this.handleTouchTap.bind(this);
+        this.handleRequestClose = this.handleRequestClose.bind(this);
     }
+
+    handleTouchTap = () => {
+        this.setState({
+          open: true,
+        });
+    };
+
+    handleRequestClose = () => {
+        this.setState({
+            open: false,
+        });
+    };
 
     toggle(tab) {
         if (this.state.activeTab !== tab) {
@@ -32,38 +50,74 @@ class Registration extends React.Component{
 
     handleLoginSubmit(e){
         e.preventDefault();
-
         this.props.logIn(this.state.email, this.state.password)
             .then((userUid) =>{
                 this.props.history.replace(`/cv/${userUid}`);
             })
             .catch((err) =>{
-                console.log(err)
+                if(err.code === "auth/user-not-found"){
+                    this.setState({
+                        message: 'Wrong Email Entered'
+                    })
+                } else{
+                    this.setState({
+                        message: 'Wrong Password Entered'
+                    })
+                }
+                this.setState({
+                    open: true
+                })
             })
         this.refs.logInForm.reset()
     }
 
     handleSignUp(e){
         e.preventDefault();
-        this.props.signUp(this.state.email, this.state.password, this.state.name)
+        if(this.state.name !== ''){
+            this.props.signUp(this.state.email, this.state.password, this.state.name)
             .then((userUid) => {
                 this.props.history.replace(`/cv/${userUid}`)
             })
             .catch((err) => {
-                console.log(err);
+                this.setState({
+                    message: err.message
+                })
+                this.setState({
+                    open: true
+                })
             });
+        } else{
+            this.setState({
+                message: 'Username is required'
+            })
+            this.setState({
+                open: true
+            })
+        }
+        
         this.refs.signUpForm.reset();
     }
 
-
+    dismissAlert() {
+        this.setState({ visible: false });
+    }
 
     render(){
+        const style = {
+            background: '#B22222'
+        };
         return(
             <div className="registration-page-wrapper">
                 <div className="registration-header-wrapper">
                     <div className="registration-header">
                         <div className="image-container"></div>
-                        <div className="tabs-container">    
+                        <div className="tabs-container">
+                            <Snackbar
+                                open={this.state.open}
+                                message={this.state.message}
+                                bodyStyle={style}
+                                onRequestClose={this.handleRequestClose}
+                            />
                             <div className="tabs">
                                 <Nav tabs>
                                     <NavItem>
@@ -92,7 +146,7 @@ class Registration extends React.Component{
                                                         inputAction={(event) => this.setState({email: event.target.value})} />
                                                     <InputField type="password" className="logInInput" id="password" placeholder="Password"
                                                         inputAction={(event) => this.setState({password: event.target.value})} />
-                                                    <AuthButton color="primary" type="submit" text="Log In" />
+                                                    <AuthButton type="submit" text="Log In" />
                                                 </form>
                                             </Col>
                                         </Row>
@@ -107,7 +161,7 @@ class Registration extends React.Component{
                                                         inputAction={(event) => this.setState({password: event.target.value})} />
                                                     <InputField type="text" className="signUpInput" id="name" placeholder="User Name"
                                                         inputAction={(event) => this.setState({name: event.target.value})} />
-                                                    <AuthButton color="primary" type="submit" text="Sign Up" />
+                                                    <AuthButton type="submit" text="Sign Up" />
                                                 </form>
                                             </Col>
                                         </Row>

@@ -1,12 +1,10 @@
 import React from 'react';
-import { Button } from 'reactstrap';
+import RaisedButton from 'material-ui/RaisedButton';
 
 const AuthButton = (props) => {
     return(
         <div>
-            <Button outline color={props.color} type={props.type} onClick={props.onClick}>
-                {props.text}
-            </Button>
+            <RaisedButton color={props.color} type={props.type} onClick={props.onClick} label={props.text} />
         </div>
     )
 }

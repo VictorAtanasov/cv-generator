@@ -5,27 +5,44 @@ import {bindActionCreators} from 'redux';
 import * as userActions from '../actions/userActions';
 import AuthButton from '../components/AuthButton';
 import logo from '../images/logo.png';
-import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem, Button } from 'reactstrap';
+import { Button } from 'reactstrap';
 import {FontAwesomeSpinner} from '../components/FontAwesomeSpinner';
+import {FlatButton, RaisedButton, Popover, Menu, MenuItem} from 'material-ui';
 
 class Header extends React.Component{
     constructor(props){
         super(props);
         
         this.state = {
-          dropdownOpen: false
+          dropdownOpen: false,
+          open: false,
         };
 
-        this.toggle = this.toggle.bind(this);
         this.ifRegUser = this.ifRegUser.bind(this);
         this.handleSignOut = this.handleSignOut.bind(this);
+        this.handleTouchTap = this.handleTouchTap.bind(this);
+        this.handleRequestClose = this.handleRequestClose.bind(this);
     }
 
-    toggle() {
+    handleTouchTap = (event) => {
+        event.preventDefault();
+        if (this.state.open === true){
+            this.setState({
+                open: false,
+            });
+        }else{
+            this.setState({
+                open: true,
+                anchorEl: event.currentTarget,
+            });
+        }
+    };
+    
+    handleRequestClose = () => {
         this.setState({
-          dropdownOpen: !this.state.dropdownOpen
+            open: false,
         });
-    }
+    };
 
     componentWillMount(){
         this.props.getUser()
@@ -43,37 +60,46 @@ class Header extends React.Component{
     }
 
     ifRegUser(){
+        const style = {
+            margin: 12
+        };
         if(!this.props.user.loading){
             if(this.props.user.email){
                 return(
                     <div className="header-menu-items">
-                        <Link to="/"  className="home-page-link">Home</Link>
-                        <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle} >
-                            <DropdownToggle caret outline color="primary">
-                                {this.props.user.displayName}
-                            </DropdownToggle>
-                            <DropdownMenu>
+                            <Link to="/">
+                                <FlatButton label="Home" hoverColor="white"/>
+                            </Link>                        
+                        <div>
+                            <RaisedButton
+                                onClick={this.handleTouchTap}
+                                label={this.props.user.displayName ? this.props.user.displayName : 'Hello'}
+                            />
+                            <Popover
+                                open={this.state.open}
+                                anchorEl={this.state.anchorEl}
+                                anchorOrigin={{horizontal: 'left', vertical: 'bottom'}}
+                                targetOrigin={{horizontal: 'left', vertical: 'top'}}
+                                onRequestClose={this.handleRequestClose}
+                            >
+                            <Menu>
                                 <Link to={`/cv/${this.props.user.uid}`}>
-                                    <DropdownItem>Your CV</DropdownItem>
+                                    <MenuItem primaryText="Your CV"/>
                                 </Link>
-                                <DropdownItem divider />
-                                <DropdownItem onClick={this.handleSignOut}>
-                                    Sign Out
-                                </DropdownItem>
-                            </DropdownMenu>
-                        </ButtonDropdown>
+                                <MenuItem primaryText="Sign Out" onClick={this.handleSignOut} />
+                            </Menu>
+                            </Popover>
+                        </div>
                     </div>
                 )
             } else{
                 return(
                     <div className="header-menu-items">
-                        <Link to="/" className="home-page-link">
-                            Home
+                        <Link to="/">
+                            <FlatButton label="Home" hoverColor="white"/>
                         </Link>
                         <Link to="/registration">
-                            <Button outline color="primary">
-                                Log In
-                            </Button>
+                            <RaisedButton label="Registration" style={style} />
                         </Link>
                     </div>
                 )
