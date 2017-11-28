@@ -137,13 +137,72 @@
   background-color: #54a7d3;
   min-height: 100%; }
 
-.cv-header-input-wrapper {
-  display: inline-block; }
+.cv-header-wrapper {
+  display: block;
+  text-align: left;
+  padding: 25px; }
 
-.CVconainerWrapper {
-  width: 1100px;
-  background: white;
-  margin: 0 auto; }
+.cv-name-wrapper, .cv-role-wrapper {
+  width: 610px;
+  max-width: 610px; }
+
+.cv-name {
+  display: inline-block;
+  overflow: hidden;
+  resize: none;
+  border: none;
+  font-size: 42px;
+  height: 50px;
+  font-weight: 600;
+  width: 610px;
+  max-width: 610px; }
+
+.cv-role {
+  display: inline-block;
+  overflow: hidden;
+  resize: none;
+  border: none;
+  font-size: 21px;
+  height: 40px;
+  font-weight: 600;
+  width: 610px;
+  max-width: 610px;
+  color: #0277BD; }
+
+.photo-wrapper {
+  float: right;
+  margin-top: 13px; }
+
+.cv-header-input-wrapper {
+  display: inline-block;
+  margin: 5px;
+  margin-top: 0;
+  height: 30px; }
+
+.cv-header-input {
+  margin-left: 5px; }
+  .cv-header-input input {
+    font-size: 14px !important; }
+
+.imagePopUp {
+  position: absolute;
+  height: 300px;
+  width: 300px;
+  top: 50%;
+  left: 50%;
+  background-color: firebrick;
+  z-index: 9;
+  margin-left: -150px;
+  margin-top: -150px; }
+  .imagePopUp .imagePopUpInner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+
+.fa {
+  color: #0277BD; }
 
 .experienceWarpper {
   border: 1px solid black;
@@ -162,8 +221,8 @@
   display: none; }
 
 img {
-  width: 200px;
-  height: 200px; }
+  width: 150px;
+  height: 150px; }
 
 .inputsContainer {
   margin-top: 15px; }

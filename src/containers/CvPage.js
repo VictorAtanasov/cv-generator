@@ -3,8 +3,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as cvActions from '../actions/cvActions';
 import * as userActions from '../actions/userActions';
-import {FontAwesomeSpinner} from '../components/FontAwesomeSpinner';
-import Paper from 'material-ui/Paper';
+import {Paper, CircularProgress } from 'material-ui';
 import CV from './CV';
 
 
@@ -24,15 +23,37 @@ class CvPage extends React.Component{
 
     renderCVData(){
         if(this.props.user.loading || !(this.props.cv.cvData)){
+            const style = {
+                height: '1000px',
+                width: '940px',
+                margin: '0 auto',
+                textAlign: 'center',
+                overflow: 'hidden',
+                display: 'flex',
+                'alignItems': 'center',
+                'justifyContent': 'center'
+            };
             return(
-                <FontAwesomeSpinner />
+                <Paper style={style} zDepth={5}>
+                    <CircularProgress size={80} thickness={5} />
+                </Paper>
             )
         }else{
             if(!(this.props.user.loading) && this.props.user.email){
+                const style = {
+                    height: 'auto',
+                    width: '940px',
+                    margin: '0 auto',
+                    textAlign: 'center',
+                    overflow: 'hidden',
+                    padding: '30px'
+                };
                 return(
-                    <div>
-                        <CV userInfo={this.state} />
-                    </div>
+                    <Paper style={style} zDepth={5}>
+                        <div>
+                            <CV userInfo={this.state} />
+                        </div>
+                    </Paper>
                 )
             } else{
                 return(
@@ -47,19 +68,9 @@ class CvPage extends React.Component{
     }
 
     render(){
-        const style = {
-            height: 'auto',
-            width: '70%',
-            margin: '0 auto',
-            textAlign: 'center',
-            overflow: 'hidden'
-        };
         return(
-            
             <div className="cv-page-wrapper">
-                <Paper style={style} zDepth={5}>
-                    {this.renderCVData()}
-                </Paper>
+                {this.renderCVData()}
             </div>
         )
     }

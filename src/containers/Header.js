@@ -83,7 +83,7 @@ class Header extends React.Component{
                                 onRequestClose={this.handleRequestClose}
                             >
                             <Menu>
-                                <Link to={`/cv/${this.props.user.uid}`}>
+                                <Link to={`/cv/${this.props.user.uid}`} onClick={this.handleRequestClose}>
                                     <MenuItem primaryText="Your CV"/>
                                 </Link>
                                 <MenuItem primaryText="Sign Out" onClick={this.handleSignOut} />

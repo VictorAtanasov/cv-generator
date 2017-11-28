@@ -1,5 +1,7 @@
 import React from 'react';
 import CvTextarea from '../forms/CvTextarea';
+import CvTextAreaTitle from '../forms/CvTextAreaTitle';
+import CvPhoto from './CvPhoto';
 import FontAwesomeCvPage from '../FontAwesomeCvPage';
 
 
@@ -19,32 +21,30 @@ export default class CvHeader extends React.Component{
 
     render(){
         return(
-            <div>
-                <h2>
-                    Header
-                </h2>
+            <div className="cv-header-wrapper">
+                <CvPhoto userInfo={this.props.userInfo.userUid} />
+                <div className="cv-name-wrapper">
+                    <CvTextAreaTitle 
+                        type="text"
+                        name={this.props.cv.name || "Your Name"}
+                        placeholder="Your Name"
+                        onBlur={ this.pushData }
+                        className="cv-name"
+                        id="name"
+                    />
+                </div>
+                <div className="cv-role-wrapper">
+                    <CvTextAreaTitle 
+                        type="text"
+                        name={this.props.cv.role || "Your Next Desired Role?"}
+                        placeholder="Your Next Desired Role?"
+                        onBlur={ this.pushData }
+                        className="cv-role"
+                        id="role"
+                    />
+                </div>
                 <div>
-                    <div>
-                        <CvTextarea 
-                            type="text"
-                            name={this.props.cv.name || "Your Name"}
-                            placeholder="Your Name"
-                            onBlur={ this.pushData }
-                            className="cv-header-input"
-                            id="name"
-                        />
-                    </div>
-                    <div>
-                        <CvTextarea 
-                            type="text"
-                            name={this.props.cv.role || "Your Next Desired Role?"}
-                            placeholder="Your Next Desired Role?"
-                            onBlur={ this.pushData }
-                            className="cv-header-input"
-                            id="role"
-                        />
-                    </div>
-                    <div>
+                    <div className="cv-header-input-wrapper">
                         <FontAwesomeCvPage font="phone" />
                         <CvTextarea 
                             type="text"
@@ -55,7 +55,7 @@ export default class CvHeader extends React.Component{
                             id="phone"
                         />
                     </div>
-                    <div>
+                    <div className="cv-header-input-wrapper">
                         <FontAwesomeCvPage font="link" />
                         <CvTextarea 
                             type="text"
@@ -66,7 +66,7 @@ export default class CvHeader extends React.Component{
                             id="website"
                         />
                     </div>
-                    <div>
+                    <div className="cv-header-input-wrapper">
                         <FontAwesomeCvPage font="envelope-o" />
                         <CvTextarea 
                             type="text"
@@ -77,7 +77,7 @@ export default class CvHeader extends React.Component{
                             id="email"
                         />
                     </div>
-                    <div>
+                    <div className="cv-header-input-wrapper">
                         <FontAwesomeCvPage font="map-marker" />
                         <CvTextarea 
                             type="text"

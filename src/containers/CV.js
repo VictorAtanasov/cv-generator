@@ -4,7 +4,6 @@ import {bindActionCreators} from 'redux';
 import * as cvActions from '../actions/cvActions';
 import CvHeader from '../components/CVcomponents/CvHeader';
 import CvStandartContainer from '../containers/CvStandartContainer';
-import CvPhoto from '../components/CVcomponents/CvPhoto';
 import CvShortContainer from '../containers/CvShortContainer';
 import CvCertificationContainer from '../containers/CvCertificationContainer';
 import CvSummaryContainer from '../containers/CvSummaryContainer';
@@ -32,8 +31,7 @@ class CV extends React.Component{
             <div className="CVconainerWrapper">
                 <div className="componentWarpper">
                     <CvHeader {...this.props} userInfo={this.props.userInfo} />
-                    <CvPhoto userInfo={this.props.userInfo.userUid} />
-                    <div>
+                    
                         <div>
                             <CvTextarea 
                                 type="text"
@@ -48,8 +46,7 @@ class CV extends React.Component{
                             userInfo={this.props.userInfo}
                             type='experience'
                         />
-                    </div>
-                    <div>
+                    
                         <div>
                             <CvTextarea 
                                 type="text"
@@ -64,8 +61,7 @@ class CV extends React.Component{
                             userInfo={this.props.userInfo}
                             type='projects'
                         />
-                    </div>
-                    <div>
+                    
                         <div>
                             <CvTextarea 
                                 type="text"
@@ -80,8 +76,7 @@ class CV extends React.Component{
                             userInfo={this.props.userInfo}
                             type='education'
                         />
-                    </div>
-                    <div>
+                    
                         <div>
                             <CvTextarea 
                                 type="text"
@@ -96,8 +91,7 @@ class CV extends React.Component{
                             userInfo={this.props.userInfo}
                             type='proud' 
                         />
-                    </div>
-                    <div>
+                    
                         <div>
                             <CvTextarea 
                                 type="text"
@@ -112,8 +106,7 @@ class CV extends React.Component{
                             userInfo={this.props.userInfo}
                             type='strengths'
                         />
-                    </div>
-                    <div>
+                    
                         <div>
                             <CvTextarea 
                                 type="text"
@@ -128,8 +121,7 @@ class CV extends React.Component{
                             userInfo={this.props.userInfo}
                             type='awards'
                         />
-                    </div>
-                    <div>
+                    
                         <div>
                             <CvTextarea 
                                 type="text"
@@ -144,8 +136,7 @@ class CV extends React.Component{
                             userInfo={this.props.userInfo}
                             type='achievments'
                         />
-                    </div>
-                    <div>
+                    
                         <div>
                             <CvTextarea 
                                 type="text"
@@ -160,8 +151,7 @@ class CV extends React.Component{
                             userInfo={this.props.userInfo}
                             type='motivation'
                         />
-                    </div>
-                    <div>
+                    
                         <div>
                             <CvTextarea 
                                 type="text"
@@ -176,8 +166,7 @@ class CV extends React.Component{
                             userInfo={this.props.userInfo}
                             type='certification'
                         />
-                    </div>
-                    <div>
+                    
                         <div>
                             <CvTextarea 
                                 type="text"
@@ -192,8 +181,7 @@ class CV extends React.Component{
                             userInfo={this.props.userInfo}
                             type='courses'
                         />
-                    </div>
-                    <div>
+                    
                         <div>
                             <CvTextarea 
                                 type="text"
@@ -207,8 +195,7 @@ class CV extends React.Component{
                         <CvSummaryContainer
                             userInfo={this.props.userInfo}
                         />
-                    </div>
-                    <div>
+                    
                         <div>
                             <CvTextarea 
                                 type="text"
@@ -223,8 +210,7 @@ class CV extends React.Component{
                             userInfo={this.props.userInfo}
                             type='technologies'
                         />
-                    </div>
-                    <div>
+                   
                         <div>
                             <CvTextarea 
                                 type="text"
@@ -239,8 +225,7 @@ class CV extends React.Component{
                             userInfo={this.props.userInfo}
                             type='expertise'
                         />
-                    </div>
-                    <div>
+                    
                         <div>
                             <CvTextarea 
                                 type="text"
@@ -255,7 +240,7 @@ class CV extends React.Component{
                             userInfo={this.props.userInfo}
                             type='languages'
                         />
-                    </div>
+                    
                 </div>
             </div>
         )

@@ -2,28 +2,46 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as cvActions from '../../actions/cvActions';
+import {RaisedButton, Dialog, FlatButton, LinearProgress} from 'material-ui';
+import profilePic from '../../images/profile-pic.svg'
 
 class Photo extends React.Component{
     constructor(props){
         super(props);
 
         this.state = {
-            imageUploaderClass: 'hidden'
+            imageUploaderClass: 'hidden',
+            open: false,
+            uploading: false,
         }
 
         this.pushImage = this.pushImage.bind(this);
-        this.renderImage = this.renderImage.bind(this);
         this.showImageUploader = this.showImageUploader.bind(this);
         this.hideImageUploader = this.hideImageUploader.bind(this);
     }
 
     pushImage(e){
+        this.setState({
+            uploading: true
+        })
         let file = e.target.files[0];
         this.props.uploadImage(this.props.userInfo, file)
             .then(() => {
-                this.refs.fileForm.reset()
+                this.refs.fileForm.reset();
+                this.handleClose();
+                this.setState({
+                    uploading: false
+                })
             })
     }
+
+    handleOpen = () => {
+        this.setState({open: true});
+    };
+    
+    handleClose = () => {
+        this.setState({open: false});
+    };
 
     showImageUploader(){
         this.setState({
@@ -37,40 +55,52 @@ class Photo extends React.Component{
         })
     }
 
-
-
-    renderImage(){
-        if(this.props.cv.cvData){
-            if(this.props.cv.cvData.image !== ' '){
-                return(
-                    <div onClick={this.showImageUploader}>
-                        <img src={this.props.cv.cvData.image} alt="user"/>
-                    </div>
-                )
-            } else {
-                return(
-                    <div onClick={this.showImageUploader}>
-                        <img src="https://app.enhancv.com/b7e44f9da8257826e8dd86a243c2ec6b.svg" alt="user"/>
-                    </div>   
-                )
-            }
-        }
-    }
-
     render(){
+        const styles = {
+            button: {
+              margin: 12,
+            },
+            imageInput: {
+              cursor: 'pointer',
+              position: 'absolute',
+              top: 0,
+              bottom: 0,
+              right: 0,
+              left: 0,
+              width: '100%',
+              opacity: 0,
+            },
+        };
+        const actions = [
+            <FlatButton
+              label="Cancel"
+              primary={true}
+              onClick={this.handleClose}
+            />,
+            <form ref="fileForm">
+                <RaisedButton
+                    label="Choose an Image"
+                    labelPosition="before"
+                    style={styles.button}
+                    containerElement="label"
+                >
+                    <input type="file" style={styles.imageInput} onChange={this.pushImage}/>
+                </RaisedButton>
+            </form>
+        ];
         return(
-            <div>
-                <div>
-                    {this.renderImage()}
+            <div className="photo-wrapper">
+                <div onClick={this.handleOpen}>
+                    <img src={this.props.cv.cvData.image !== '' ? this.props.cv.cvData.image : profilePic} alt="user"/>
                 </div>
-                <div className={this.state.imageUploaderClass}>
-                    <div>
-                        <form ref="fileForm">
-                            <input type="file" onChange={this.pushImage}/>
-                        </form>
-                        <button onClick={this.hideImageUploader}>OK</button>
-                    </div>
-                </div>
+                <Dialog
+                    title="Chooce Image for Your CV"
+                    actions={actions}
+                    modal={true}
+                    open={this.state.open}
+                >
+                    {this.state.uploading ? <LinearProgress mode="indeterminate" /> : ''}
+                </Dialog>
             </div>
         )
     }

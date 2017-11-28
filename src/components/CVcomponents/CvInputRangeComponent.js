@@ -1,8 +1,7 @@
 import React from 'react';
 import CvTextarea from '../forms/CvTextarea';
-import InputRange from 'react-input-range';
 import FontAwesomeCvPage from '../FontAwesomeCvPage';
-import '../../../node_modules/react-input-range/lib/css/index.css';
+import Slider from 'material-ui/Slider';
 
 export default class CvInputRangeComponent extends React.Component{
     constructor(props){
@@ -20,6 +19,7 @@ export default class CvInputRangeComponent extends React.Component{
         this.showOptions = this.showOptions.bind(this);
         this.hideOptions = this.hideOptions.bind(this);
         this.checkComponentType = this.checkComponentType.bind(this);
+        this.onRangeChange = this.onRangeChange.bind(this);
     }
 
     pushData(e){
@@ -30,9 +30,9 @@ export default class CvInputRangeComponent extends React.Component{
         this.props.setMultipleComponentData(userUid, this.props.type, componentId, key, data);
     }
 
-    pushValue(value){
+    pushValue(event){
         let userUid = this.props.userInfo.userUid;
-        this.props.setMultipleComponentData(userUid, this.props.type, this.props.id, 'range', value);
+        this.props.setMultipleComponentData(userUid, this.props.type, this.props.id, 'range', this.state.value);
     }
 
     addNewRange(){
@@ -70,6 +70,12 @@ export default class CvInputRangeComponent extends React.Component{
         }
     }
 
+    onRangeChange(event, range){
+        this.setState({
+            value: range
+        })
+    }
+
     render(){
         const data = this.props.cv.cvData[this.props.type][this.props.id];
         return(
@@ -99,12 +105,13 @@ export default class CvInputRangeComponent extends React.Component{
                     />
                 </div>
                 <div>
-                    <InputRange
-                        maxValue={100}
-                        minValue={0}
+                    <Slider
+                        min={0}
+                        max={100}
+                        step={1}
                         value={this.state.value*1}
-                        onChange={value => this.setState({value})}
-                        onChangeComplete={value => this.pushValue(value)}
+                        onChange={this.onRangeChange}
+                        onDragStop={this.pushValue}
                     />
                 </div>
             </div>
