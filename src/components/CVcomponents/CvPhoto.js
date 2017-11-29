@@ -27,11 +27,13 @@ class Photo extends React.Component{
         let file = e.target.files[0];
         this.props.uploadImage(this.props.userInfo, file)
             .then(() => {
-                this.refs.fileForm.reset();
-                this.handleClose();
-                this.setState({
-                    uploading: false
-                })
+                setTimeout(() => {
+                    this.refs.fileForm.reset();
+                    this.handleClose();
+                    this.setState({
+                        uploading: false
+                    })
+                }, 2500)
             })
     }
 

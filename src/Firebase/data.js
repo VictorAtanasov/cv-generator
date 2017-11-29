@@ -143,6 +143,13 @@ const cvData = {
             range: '10',
             description: 'description'
         }
+    },
+    headerConfig:{
+        0: 1,
+        1: 1,
+        2: 1,
+        3: 1,
+        image: 'round-image'
     }
 }
 

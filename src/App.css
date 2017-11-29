@@ -171,7 +171,9 @@
 
 .photo-wrapper {
   float: right;
-  margin-top: 13px; }
+  margin-top: 19px;
+  border-radius: 50%;
+  overflow: hidden; }
 
 .cv-header-input-wrapper {
   display: inline-block;
@@ -254,3 +256,10 @@ img {
 
 .scroll {
   height: 2000px; }
+
+.componentOptionsPopOver {
+  width: auto;
+  padding: 5px 10px;
+  margin: 0 auto;
+  right: 50%;
+  border-radius: 30%; }

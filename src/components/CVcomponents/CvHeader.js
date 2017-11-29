@@ -3,13 +3,22 @@ import CvTextarea from '../forms/CvTextarea';
 import CvTextAreaTitle from '../forms/CvTextAreaTitle';
 import CvPhoto from './CvPhoto';
 import FontAwesomeCvPage from '../FontAwesomeCvPage';
-
+import Paper from 'material-ui/Paper';
+import CvInnerPopOver from './CvInnerPopOver';
 
 export default class CvHeader extends React.Component{
     constructor(props){
         super(props);
 
+        this.state = {
+            componentOptions: 'hidden',
+            innerComponentOptions: 'hidden',
+        }
+
         this.pushData = this.pushData.bind(this);
+        this.showPopOver = this.showPopOver.bind(this);
+        this.hidePopOver = this.hidePopOver.bind(this);
+        this.showInnerPopOverOptions = this.showInnerPopOverOptions.bind(this);
     }
 
     pushData(e){
@@ -19,9 +28,39 @@ export default class CvHeader extends React.Component{
         this.props.setData(userUid, key, data)
     }
 
+    showPopOver(){
+        this.setState({
+            componentOptions: 'active-cv-state'
+        })
+    }
+
+    hidePopOver(){
+        this.setState({
+            componentOptions: 'hidden'
+        })
+    }
+
+    showInnerPopOverOptions(){
+        if(this.state.innerComponentOptions === 'hidden'){
+            this.setState({
+                innerComponentOptions: 'active-cv-state'
+            })
+        } else{
+            this.setState({
+                innerComponentOptions: 'hidden'
+            })
+        }
+    }
+
     render(){
         return(
-            <div className="cv-header-wrapper">
+            <div className="cv-header-wrapper" onMouseEnter={this.showPopOver} onMouseLeave={this.hidePopOver}>
+                <Paper zDepth={1} className={this.state.componentOptions + ' ' + 'componentOptionsPopOver'}>
+                    <span onClick={this.showInnerPopOverOptions}>
+                        <FontAwesomeCvPage font='cog' />
+                    </span>
+                </Paper>
+                <CvInnerPopOver className={this.state.innerComponentOptions} {...this.props}/>
                 <CvPhoto userInfo={this.props.userInfo.userUid} />
                 <div className="cv-name-wrapper">
                     <CvTextAreaTitle 
@@ -44,44 +83,44 @@ export default class CvHeader extends React.Component{
                     />
                 </div>
                 <div>
-                    <div className="cv-header-input-wrapper">
+                    <div className={this.props.cv.headerConfig.phone === 1 ? "cv-header-input-wrapper" : "hidden"}>
                         <FontAwesomeCvPage font="phone" />
                         <CvTextarea 
                             type="text"
-                            name={this.props.cv.phone || "Phone"}
+                            name={this.props.cv.phone}
                             placeholder="Phone"
                             onBlur={ this.pushData }
                             className="cv-header-input"
                             id="phone"
                         />
                     </div>
-                    <div className="cv-header-input-wrapper">
+                    <div className={this.props.cv.headerConfig.website === 1 ? "cv-header-input-wrapper" : "hidden"}>
                         <FontAwesomeCvPage font="link" />
                         <CvTextarea 
                             type="text"
-                            name={this.props.cv.website || "Website/Link"}
+                            name={this.props.cv.website}
                             placeholder="Website/Link"
                             onBlur={ this.pushData }
                             className="cv-header-input"
                             id="website"
                         />
                     </div>
-                    <div className="cv-header-input-wrapper">
+                    <div className={this.props.cv.headerConfig.email === 1 ? "cv-header-input-wrapper" : "hidden"}>
                         <FontAwesomeCvPage font="envelope-o" />
                         <CvTextarea 
                             type="text"
-                            name={this.props.cv.email || "E-Mail"}
+                            name={this.props.cv.email}
                             placeholder="E-Mail"
                             onBlur={ this.pushData }
                             className="cv-header-input"
                             id="email"
                         />
                     </div>
-                    <div className="cv-header-input-wrapper">
+                    <div className={this.props.cv.headerConfig.location === 1 ? "cv-header-input-wrapper" : "hidden"}>
                         <FontAwesomeCvPage font="map-marker" />
                         <CvTextarea 
                             type="text"
-                            name={this.props.cv.location || "Location"}
+                            name={this.props.cv.location}
                             placeholder="Location"
                             onBlur={ this.pushData }
                             className="cv-header-input"
