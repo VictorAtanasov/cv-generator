@@ -13,26 +13,31 @@ export default class CvInnerPopOver extends React.Component {
     }
 
     renderIcons(){
-        return _.map(this.props.cv.headerConfig, (option, key) => {
+        return _.map(this.props.cv.cvData[this.props.id], (option, key) => {
             return <Toggle
                         label={key}
                         key={key}
+                        data-istoggled={key}
                         onToggle={this.toggle}
+                        toggled={option}
                     />
         })
     }
 
-    toggle(e){
-        console.log(e)
+    toggle(e, isInputChecked){
+        let key = e.target.getAttribute('data-isToggled');
+        this.props.setComponentData(this.props.userInfo.userUid, this.props.id, key, isInputChecked);
     }
 
     render(){
         const style = {
-            height: 100,
-            width: 100,
-            margin: 20,
+            height:'auto',
+            width: 'auto',
+            padding: '10px 20px',
             textAlign: 'center',
-            display: 'inline-block',
+            position: 'absolute',
+            left: '50%',
+            zIndex: 999,
         };
         const stylesToggle = {
             block: {

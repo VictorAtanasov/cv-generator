@@ -3,6 +3,7 @@ import CvTextarea from '../forms/CvTextarea';
 import CvAchievment from './CvAchievment';
 import FontAwesomeCvPage from '../FontAwesomeCvPage';
 import registrationData from '../../Firebase/data';
+import Paper from 'material-ui/Paper';
 import _ from 'lodash';
 
 export default class CvStandartComponent extends React.Component{
@@ -24,7 +25,6 @@ export default class CvStandartComponent extends React.Component{
         this.descriptionAreaClassName = this.descriptionAreaClassName.bind(this);
         this.companyAreaClassName = this.companyAreaClassName.bind(this);
         this.addAchievment = this.addAchievment.bind(this);
-        this.addLinkArea = this.addLinkArea.bind(this);
     }
 
     pushData(e){
@@ -140,24 +140,29 @@ export default class CvStandartComponent extends React.Component{
         }
     }
 
-    addLinkArea(){
-        if(this.props.cv.cvData[this.props.type][this.props.id].linkAreaClass === 'hidden'){
-            this.props.setMultipleComponentData(this.props.userInfo.userUid, this.props.type, this.props.id, 'linkAreaClass', 'block');
-        } else{
-            this.props.setMultipleComponentData(this.props.userInfo.userUid, this.props.type, this.props.id, 'linkAreaClass', 'hidden');
-        }
-    }
-
     render(){
         const data = this.props.cv.cvData[this.props.type][this.props.id];
         return(
             <div className="experienceWarpper" onMouseEnter={this.showOptions} onMouseLeave={this.hideOptions}>
-                <div className={this.state.buttonClass}>
+                <Paper zDepth={1} className={this.state.buttonClass + ' ' + 'componentOptionsPopOver'}>
+                    <span onClick={this.deleteExperience}>
+                        <FontAwesomeCvPage font="trash" />
+                    </span>
+                    <span onClick={this.addNewComp}>
+                        <FontAwesomeCvPage font="plus" />
+                    </span>
+                    <span onClick={this.showInnerPopOverOptions}>
+                        <FontAwesomeCvPage font='cog' />
+                    </span>
+                    <span onClick={this.addAchievment}>
+                        <FontAwesomeCvPage font='plus-circle' />
+                    </span>
+                </Paper>
+                {/* <div className={this.state.buttonClass}>
                     <button onClick={this.deleteExperience}><FontAwesomeCvPage font="trash" /></button>
                     <button onClick={this.addNewComp}><FontAwesomeCvPage font="plus" /></button>
-                    <button onClick={this.addLinkArea}><FontAwesomeCvPage font="link" /></button>
                     <button onClick={this.addAchievment}><FontAwesomeCvPage font="plus-circle" /></button>
-                </div>
+                </div> */}
                 <div>
                     <div>
                         <CvTextarea 

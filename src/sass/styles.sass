@@ -19,10 +19,27 @@
     display: block
     position: absolute
     margin-top: -11px
-    
 
 .block
     display: block
+
+.innerPopOver
+    display: block
+    margin-top: 50px
+    position: absolute
+    left: 45.5%
+    &::after
+        content: ""
+        position: absolute
+        border-style: solid
+        display: block
+        width: 0
+        top: -14px
+        right: -65px
+        bottom: auto
+        left: auto
+        border-width: 13px 13px 0 0
+        border-color: transparent #EEEEEE
 
 .hidden
     display: none
@@ -62,10 +79,13 @@ img
 .scroll
     height: 2000px
 
-
 .componentOptionsPopOver
     width: auto
-    padding: 5px 10px
-    margin: 0 auto
-    right: 50%
-    border-radius: 30%
+    padding: 10px 20px 10px 0
+    margin-top: -40px
+    right: 40%
+    position: absolute
+    z-index: 9
+    span
+        margin-left: 10px
+        font-size: 17px

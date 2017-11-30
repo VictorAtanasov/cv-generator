@@ -24,11 +24,16 @@ const cvData = {
             date: 'Date period',
             location: 'location',
             link: 'link',
-            linkAreaClass: 'hidden',
             achievments: {
                 '-KyQi5jtW3WhuV9kdqNW': {
                     achievment: 'achievment'
                 }
+            },
+            config: {
+                date: true,
+                description: true,
+                link: true,
+                location: true
             }
         }
     },
@@ -145,10 +150,10 @@ const cvData = {
         }
     },
     headerConfig:{
-        0: 1,
-        1: 1,
-        2: 1,
-        3: 1,
+        email: true,
+        location: true,
+        phone: true,
+        website: true,
         image: 'round-image'
     }
 }

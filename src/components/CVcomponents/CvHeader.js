@@ -4,7 +4,7 @@ import CvTextAreaTitle from '../forms/CvTextAreaTitle';
 import CvPhoto from './CvPhoto';
 import FontAwesomeCvPage from '../FontAwesomeCvPage';
 import Paper from 'material-ui/Paper';
-import CvInnerPopOver from './CvInnerPopOver';
+import CvInnerPopOverHeader from './CvInnerPopOverHeader';
 
 export default class CvHeader extends React.Component{
     constructor(props){
@@ -43,7 +43,7 @@ export default class CvHeader extends React.Component{
     showInnerPopOverOptions(){
         if(this.state.innerComponentOptions === 'hidden'){
             this.setState({
-                innerComponentOptions: 'active-cv-state'
+                innerComponentOptions: 'innerPopOver'
             })
         } else{
             this.setState({
@@ -60,7 +60,7 @@ export default class CvHeader extends React.Component{
                         <FontAwesomeCvPage font='cog' />
                     </span>
                 </Paper>
-                <CvInnerPopOver className={this.state.innerComponentOptions} {...this.props}/>
+                <CvInnerPopOverHeader className={this.state.innerComponentOptions} {...this.props} id='headerConfig' />
                 <CvPhoto userInfo={this.props.userInfo.userUid} />
                 <div className="cv-name-wrapper">
                     <CvTextAreaTitle 
@@ -83,7 +83,7 @@ export default class CvHeader extends React.Component{
                     />
                 </div>
                 <div>
-                    <div className={this.props.cv.headerConfig.phone === 1 ? "cv-header-input-wrapper" : "hidden"}>
+                    <div className={this.props.cv.cvData.headerConfig.phone === true ? "cv-header-input-wrapper" : "hidden"}>
                         <FontAwesomeCvPage font="phone" />
                         <CvTextarea 
                             type="text"
@@ -94,7 +94,7 @@ export default class CvHeader extends React.Component{
                             id="phone"
                         />
                     </div>
-                    <div className={this.props.cv.headerConfig.website === 1 ? "cv-header-input-wrapper" : "hidden"}>
+                    <div className={this.props.cv.cvData.headerConfig.website === true ? "cv-header-input-wrapper" : "hidden"}>
                         <FontAwesomeCvPage font="link" />
                         <CvTextarea 
                             type="text"
@@ -105,7 +105,7 @@ export default class CvHeader extends React.Component{
                             id="website"
                         />
                     </div>
-                    <div className={this.props.cv.headerConfig.email === 1 ? "cv-header-input-wrapper" : "hidden"}>
+                    <div className={this.props.cv.cvData.headerConfig.email === true ? "cv-header-input-wrapper" : "hidden"}>
                         <FontAwesomeCvPage font="envelope-o" />
                         <CvTextarea 
                             type="text"
@@ -116,7 +116,7 @@ export default class CvHeader extends React.Component{
                             id="email"
                         />
                     </div>
-                    <div className={this.props.cv.headerConfig.location === 1 ? "cv-header-input-wrapper" : "hidden"}>
+                    <div className={this.props.cv.cvData.headerConfig.location === true ? "cv-header-input-wrapper" : "hidden"}>
                         <FontAwesomeCvPage font="map-marker" />
                         <CvTextarea 
                             type="text"
