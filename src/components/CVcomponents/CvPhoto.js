@@ -91,9 +91,12 @@ class Photo extends React.Component{
             </form>
         ];
         return(
-            <div className="photo-wrapper">
+            <div className={'photo-wrapper' + ' ' + this.props.className}>
                 <div onClick={this.handleOpen}>
-                    <img src={this.props.cv.cvData.image !== '' ? this.props.cv.cvData.image : profilePic} alt="user"/>
+                    <img 
+                        src={this.props.cv.cvData.image !== '' ? this.props.cv.cvData.image : profilePic} 
+                        alt="user"
+                    />
                 </div>
                 <Dialog
                     title="Chooce Image for Your CV"

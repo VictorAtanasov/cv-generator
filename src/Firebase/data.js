@@ -33,7 +33,8 @@ const cvData = {
                 date: true,
                 description: true,
                 link: true,
-                location: true
+                location: true,
+                bullets: true
             }
         }
     },
@@ -50,13 +51,20 @@ const cvData = {
                 '-KyQi5jtW4WhoV9kdqNZ': {
                     achievment: 'achievment'
                 }
+            },
+            config: {
+                date: true,
+                description: true,
+                link: true,
+                location: true,
+                bullets: true
             }
         }
     },
     education: {
         '-KyQa2jtW3KhoV9kdqNZ': {
             company: 'School or University',
-            description: 'none',
+            description: 'Description',
             title: 'title',
             date: 'Date period',
             location: 'location',
@@ -66,6 +74,13 @@ const cvData = {
                 '-KyQi5jtW4WhoV9kdqNZ': {
                     achievment: 'achievment'
                 }
+            },
+            config: {
+                date: true,
+                description: true,
+                link: true,
+                location: true,
+                bullets: true
             }
         }
     },
@@ -154,6 +169,7 @@ const cvData = {
         location: true,
         phone: true,
         website: true,
+        photo: true,
         image: 'round-image'
     }
 }

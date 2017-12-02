@@ -2,6 +2,7 @@ import React from 'react';
 import CvTextarea from '../forms/CvTextarea';
 import CvAchievment from './CvAchievment';
 import FontAwesomeCvPage from '../FontAwesomeCvPage';
+import CvInnerPopOver from './CvInnerPopOver';
 import registrationData from '../../Firebase/data';
 import Paper from 'material-ui/Paper';
 import _ from 'lodash';
@@ -11,7 +12,8 @@ export default class CvStandartComponent extends React.Component{
         super(props);
 
         this.state = {
-            buttonClass: 'hidden'
+            buttonClass: 'hidden',
+            innerComponentOptions: 'hidden',
         }
 
         this.pushData = this.pushData.bind(this);
@@ -22,9 +24,9 @@ export default class CvStandartComponent extends React.Component{
         this.addNewComp = this.addNewComp.bind(this);
         this.hideOptions = this.hideOptions.bind(this);
         this.showOptions = this.showOptions.bind(this);
-        this.descriptionAreaClassName = this.descriptionAreaClassName.bind(this);
         this.companyAreaClassName = this.companyAreaClassName.bind(this);
         this.addAchievment = this.addAchievment.bind(this);
+        this.showInnerPopOverOptions = this.showInnerPopOverOptions.bind(this);
     }
 
     pushData(e){
@@ -80,7 +82,7 @@ export default class CvStandartComponent extends React.Component{
                         placeholder="Your Achievment"
                         onBlur={this.setAchievmentData}
                         onKeyDown={this.pushAchievmentData}
-                        className="cv-header-input"
+                        className="textarea-sm textarea-default"
                         id={key}
                         font="circle"
                         key={key}
@@ -113,23 +115,16 @@ export default class CvStandartComponent extends React.Component{
 
     showOptions(e){
         this.setState({
-            buttonClass: 'active-cv-state'
+            buttonClass: 'active-cv-state',
         })
     }
 
     hideOptions(e){
         this.setState({
             buttonClass: 'hidden',
-            chooceIconButton: 'hidden'
+            chooceIconButton: 'hidden',
+            innerComponentOptions: 'hidden',
         })
-    }
-
-    descriptionAreaClassName(){
-        if(this.props.type === 'education'){
-            return 'hidden'
-        } else {
-            return 'block'
-        }
     }
 
     companyAreaClassName(){
@@ -140,11 +135,30 @@ export default class CvStandartComponent extends React.Component{
         }
     }
 
+    showInnerPopOverOptions(){
+        if(this.state.innerComponentOptions === 'hidden'){
+            this.setState({
+                innerComponentOptions: 'innerPopOver'
+            })
+        } else{
+            this.setState({
+                innerComponentOptions: 'hidden'
+            })
+        }
+    }
+
     render(){
         const data = this.props.cv.cvData[this.props.type][this.props.id];
         return(
-            <div className="experienceWarpper" onMouseEnter={this.showOptions} onMouseLeave={this.hideOptions}>
-                <Paper zDepth={1} className={this.state.buttonClass + ' ' + 'componentOptionsPopOver'}>
+            <div 
+                className="experienceWarpper"
+                onMouseEnter={this.showOptions}
+                onMouseLeave={this.hideOptions}
+            >
+                <Paper 
+                    zDepth={1}
+                    className={this.state.buttonClass + ' ' + 'componentOptionsPopOver'}
+                >
                     <span onClick={this.deleteExperience}>
                         <FontAwesomeCvPage font="trash" />
                     </span>
@@ -158,11 +172,12 @@ export default class CvStandartComponent extends React.Component{
                         <FontAwesomeCvPage font='plus-circle' />
                     </span>
                 </Paper>
-                {/* <div className={this.state.buttonClass}>
-                    <button onClick={this.deleteExperience}><FontAwesomeCvPage font="trash" /></button>
-                    <button onClick={this.addNewComp}><FontAwesomeCvPage font="plus" /></button>
-                    <button onClick={this.addAchievment}><FontAwesomeCvPage font="plus-circle" /></button>
-                </div> */}
+                <CvInnerPopOver
+                        className={this.state.innerComponentOptions}
+                        {...this.props}
+                        type={this.props.type}
+                        id={this.props.id}
+                />
                 <div>
                     <div>
                         <CvTextarea 
@@ -170,7 +185,7 @@ export default class CvStandartComponent extends React.Component{
                             name={data.title}
                             placeholder="Title"
                             onBlur={this.pushData}
-                            className="cv-header-input"
+                            className="cv-standart-title"
                             id="title"
                         />
                     </div>
@@ -180,51 +195,54 @@ export default class CvStandartComponent extends React.Component{
                             name={data.company}
                             placeholder="Company Name"
                             onBlur={this.pushData}
-                            className="cv-header-input"
+                            className="cv-standart-blue textarea-default"
                             id="company"
                         />
                     </div>
-                    <div>
+                    <div className={data.config.date === true ? 'inline-textarea-icon-wrapper' : 'hidden'}>
+                        <FontAwesomeCvPage font="calendar" />
                         <CvTextarea 
                             type="text"
                             name={data.date}
                             placeholder="Date Period"
                             onBlur={this.pushData}
-                            className="cv-header-input"
+                            className="inline-textarea-icon textarea-default"
                             id="date"
                         />
                     </div>
-                    <div>
+                    <div className={data.config.location === true ? 'inline-textarea-icon-wrapper' : 'hidden'}>
+                        <FontAwesomeCvPage font="map-marker" />
                         <CvTextarea 
                             type="text"
                             name={data.location}
                             placeholder="location"
                             onBlur={this.pushData}
-                            className="cv-header-input"
+                            className="inline-textarea-icon textarea-default"
                             id="location"
                         />
                     </div>
-                    <div className={data.linkAreaClass}>
+                    <div className={data.config.link === true ? 'block' : 'hidden'}>
+                        <FontAwesomeCvPage font="link" />
                         <CvTextarea 
                             type="text"
                             name={data.link}
                             placeholder="link"
                             onBlur={this.pushData}
-                            className="cv-header-input"
+                            className="block-textarea-icon textarea-default"
                             id="link"
                         />
                     </div>
-                    <div className={this.descriptionAreaClassName()}>
+                    <div className={data.config.description === true ? 'block' : 'hidden'}>
                         <CvTextarea 
                             type="text"
                             name={data.description}
                             placeholder="Company Description"
                             onBlur={this.pushData}
-                            className="cv-header-input"
+                            className="textarea-sm textarea-default"
                             id="description"
                         />
                     </div>
-                    <div>
+                    <div className={data.config.bullets === true ? 'block' : 'hidden'}>
                         {this.renderAchievments()}
                     </div>
                 </div>

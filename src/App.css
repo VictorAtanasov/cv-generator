@@ -18,6 +18,18 @@
   .registration-page-wrapper input::-webkit-input-placeholder {
     color: #fff; }
 
+.headerPopOverWrapper {
+  height: auto;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.cv-header-wrapper {
+  border: 1px solid rgba(255, 255, 255, 0); }
+  .cv-header-wrapper:hover {
+    border: 1px solid #0277BD; }
+
 .header-logo {
   display: inline-block; }
   .header-logo img {
@@ -59,6 +71,31 @@
   align-items: center;
   justify-content: space-between;
   height: 80px; }
+
+.headerPopOverWrapper {
+  width: 880px;
+  margin-top: 35px; }
+
+.headerPopOver {
+  padding: 5px 10px; }
+
+.headerInnerPopOver {
+  display: block;
+  margin-top: 20px;
+  position: absolute;
+  left: 42.5%; }
+  .headerInnerPopOver::after {
+    content: "";
+    position: absolute;
+    border-style: solid;
+    display: block;
+    width: 0;
+    top: -14px;
+    right: -65px;
+    bottom: auto;
+    left: auto;
+    border-width: 13px 13px 0 0;
+    border-color: transparent #EEEEEE; }
 
 .home-header-wrapper {
   height: 720px;
@@ -203,13 +240,65 @@
     align-items: center;
     justify-content: center; }
 
+.inputsContainer {
+  margin-top: 15px; }
+
+.textarea-component-title {
+  overflow: hidden;
+  resize: none;
+  border: none;
+  font-size: 28px !important;
+  font-weight: 600;
+  margin-top: 50px;
+  width: 100% !important; }
+
+.cv-header-input {
+  font-size: 15px !important; }
+
+.cv-standart-title {
+  font-size: 21px !important;
+  width: 100% !important; }
+
+.cv-standart-blue {
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  width: 100% !important; }
+  .cv-standart-blue input {
+    color: #0277BD !important; }
+
+.textarea-default {
+  height: 40px !important;
+  margin-top: -8px !important; }
+
+.inline-textarea-icon-wrapper {
+  display: inline-block; }
+
+.inline-textarea-icon {
+  font-size: 11px !important;
+  width: auto !important;
+  margin-left: 5px !important; }
+
+.textarea-sm {
+  font-size: 13px !important; }
+
+.block-textarea-icon {
+  font-size: 13px !important;
+  width: 80% !important;
+  margin-left: 5px !important; }
+
 .fa {
-  color: #0277BD; }
+  color: #000000; }
+  .fa:hover {
+    color: #0277BD; }
+
+.fa-circle {
+  margin-right: 5px;
+  margin-top: -8px; }
 
 .experienceWarpper {
-  border: 1px solid black;
-  padding: 10px;
-  margin-bottom: 10px; }
+  border: 1px solid rgba(255, 255, 255, 0); }
+  .experienceWarpper:hover {
+    border: 1px solid #0277BD; }
 
 .active-cv-state {
   display: block;
@@ -221,9 +310,9 @@
 
 .innerPopOver {
   display: block;
-  margin-top: 50px;
+  margin-top: 19px;
   position: absolute;
-  left: 45.5%; }
+  left: 35%; }
   .innerPopOver::after {
     content: "";
     position: absolute;
@@ -244,23 +333,11 @@ img {
   width: 150px;
   height: 150px; }
 
-.inputsContainer {
-  margin-top: 15px; }
-
 .icons-wrapper {
   background: antiquewhite;
   padding: 10px;
   margin-top: -20px;
   margin-left: 81px; }
-
-.textarea-component-title {
-  overflow: hidden;
-  resize: none;
-  border: none;
-  font-size: 32px;
-  height: 40px;
-  font-weight: 600;
-  margin-top: 50px; }
 
 .loading {
   position: absolute;
@@ -285,3 +362,12 @@ img {
   .componentOptionsPopOver span {
     margin-left: 10px;
     font-size: 17px; }
+
+.componentWarpper {
+  text-align: left; }
+
+.cv-achievment-wrapper {
+  display: flex;
+  align-items: center; }
+  .cv-achievment-wrapper .fa {
+    font-size: 6px; }

@@ -3,7 +3,7 @@ import {Paper, Toggle} from 'material-ui';
 import _ from 'lodash';
 
 
-export default class CvInnerPopOverHeader extends React.Component {
+export default class CvInnerPopOver extends React.Component {
     constructor(props){
         super(props);
 
@@ -12,7 +12,7 @@ export default class CvInnerPopOverHeader extends React.Component {
     }
 
     renderIcons(){
-        return _.map(this.props.cv.cvData[this.props.id], (option, key) => {
+        return _.map(this.props.cv.cvData[this.props.type][this.props.id].config, (option, key) => {
             return <Toggle
                         label={key}
                         key={key}
@@ -25,7 +25,7 @@ export default class CvInnerPopOverHeader extends React.Component {
 
     toggle(e, isInputChecked){
         let key = e.target.getAttribute('data-isToggled');
-        this.props.setComponentData(this.props.userInfo.userUid, this.props.id, key, isInputChecked);
+        this.props.setMultipleComponentNestedData(this.props.userInfo.userUid, this.props.type, this.props.id, 'config', key, isInputChecked);
     }
 
     render(){

@@ -3,10 +3,6 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as userActions from '../actions/userActions';
-import AuthButton from '../components/AuthButton';
-import logo from '../images/logo.png';
-import { Button } from 'reactstrap';
-import {FontAwesomeSpinner} from '../components/FontAwesomeSpinner';
 import {FlatButton, RaisedButton, Popover, Menu, MenuItem} from 'material-ui';
 
 class Header extends React.Component{

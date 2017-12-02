@@ -5,15 +5,22 @@
 @import 'partials/registration'
 @import 'partials/cv-page'
 @import 'partials/cv-header'
+@import 'partials/cv-textarea'
 
 
 .fa
-    color: $light-blue-800
+    color: $black
+    &:hover
+        color: $light-blue-800
+
+.fa-circle
+    margin-right: 5px
+    margin-top: -8px
 
 .experienceWarpper
-    border: 1px solid black
-    padding: 10px
-    margin-bottom: 10px
+    border: 1px solid rgba(255,255,255,0.0)
+    &:hover
+        border: 1px solid $light-blue-800
 
 .active-cv-state
     display: block
@@ -25,9 +32,9 @@
 
 .innerPopOver
     display: block
-    margin-top: 50px
+    margin-top: 19px
     position: absolute
-    left: 45.5%
+    left: 35%
     &::after
         content: ""
         position: absolute
@@ -48,23 +55,11 @@ img
     width: 150px
     height: 150px
 
-.inputsContainer
-    margin-top: 15px
-
 .icons-wrapper
     background: antiquewhite
     padding: 10px
     margin-top: -20px
     margin-left: 81px
-
-.textarea-component-title
-    overflow: hidden
-    resize: none
-    border: none
-    font-size: 32px
-    height: 40px
-    font-weight: 600
-    margin-top: 50px
 
 .loading
     position: absolute
@@ -89,3 +84,12 @@ img
     span
         margin-left: 10px
         font-size: 17px
+
+.componentWarpper
+    text-align: left
+
+.cv-achievment-wrapper
+    display: flex
+    align-items: center
+    .fa
+        font-size: 6px

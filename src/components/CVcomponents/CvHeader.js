@@ -36,14 +36,15 @@ export default class CvHeader extends React.Component{
 
     hidePopOver(){
         this.setState({
-            componentOptions: 'hidden'
+            componentOptions: 'hidden',
+            innerComponentOptions: 'hidden'
         })
     }
 
     showInnerPopOverOptions(){
         if(this.state.innerComponentOptions === 'hidden'){
             this.setState({
-                innerComponentOptions: 'innerPopOver'
+                innerComponentOptions: 'headerInnerPopOver'
             })
         } else{
             this.setState({
@@ -54,14 +55,30 @@ export default class CvHeader extends React.Component{
 
     render(){
         return(
-            <div className="cv-header-wrapper" onMouseEnter={this.showPopOver} onMouseLeave={this.hidePopOver}>
-                <Paper zDepth={1} className={this.state.componentOptions + ' ' + 'componentOptionsPopOver'}>
-                    <span onClick={this.showInnerPopOverOptions}>
-                        <FontAwesomeCvPage font='cog' />
-                    </span>
-                </Paper>
-                <CvInnerPopOverHeader className={this.state.innerComponentOptions} {...this.props} id='headerConfig' />
-                <CvPhoto userInfo={this.props.userInfo.userUid} />
+            <div 
+                className="cv-header-wrapper"
+                onMouseEnter={this.showPopOver}
+                onMouseLeave={this.hidePopOver}
+            >
+                <div className="headerPopOverWrapper">
+                    <Paper 
+                        zDepth={1}
+                        className={this.state.componentOptions + ' ' + 'headerPopOver'}
+                    >
+                        <span onClick={this.showInnerPopOverOptions}>
+                            <FontAwesomeCvPage font='cog' />
+                        </span>
+                    </Paper>
+                    <CvInnerPopOverHeader
+                        className={this.state.innerComponentOptions}
+                        {...this.props}
+                        id='headerConfig'
+                    />
+                </div>
+                <CvPhoto 
+                    userInfo={this.props.userInfo.userUid} 
+                    className={this.props.cv.cvData.headerConfig.photo === true ? 'block' : 'hidden'}
+                />
                 <div className="cv-name-wrapper">
                     <CvTextAreaTitle 
                         type="text"

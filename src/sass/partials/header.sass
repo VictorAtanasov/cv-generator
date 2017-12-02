@@ -1,3 +1,8 @@
+.cv-header-wrapper
+    border: 1px solid rgba(255,255,255,0.0)
+    &:hover
+        border: 1px solid $light-blue-800
+
 .header-logo
     display: inline-block
     img
@@ -39,3 +44,29 @@
     align-items: center
     justify-content: space-between
     height: 80px
+
+.headerPopOverWrapper
+    @extend %popOverWrapper
+    width: 880px
+    margin-top: 35px
+
+.headerPopOver
+    padding: 5px 10px
+
+.headerInnerPopOver
+    display: block
+    margin-top: 20px
+    position: absolute
+    left: 42.5%
+    &::after
+        content: ""
+        position: absolute
+        border-style: solid
+        display: block
+        width: 0
+        top: -14px
+        right: -65px
+        bottom: auto
+        left: auto
+        border-width: 13px 13px 0 0
+        border-color: transparent #EEEEEE
