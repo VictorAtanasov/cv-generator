@@ -1,5 +1,5 @@
 import React from 'react';
-import CvTextarea from '../forms/CvTextarea';
+import CvTextareaMultiLine from '../forms/CvTextareaMultiLine';
 
 export default class CvSummaryComponent extends React.Component{
     constructor(props){
@@ -23,12 +23,12 @@ export default class CvSummaryComponent extends React.Component{
             <div className="experienceWarpper">
                 <div>
                     <div>
-                        <CvTextarea 
+                        <CvTextareaMultiLine 
                             type="text"
                             name={data.summary}
                             placeholder="Title"
                             onBlur={this.pushData}
-                            className="cv-header-input"
+                            className="multiline-textarea"
                             id="summary"
                         />
                     </div>

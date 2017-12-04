@@ -240,9 +240,6 @@
     align-items: center;
     justify-content: center; }
 
-.inputsContainer {
-  margin-top: 15px; }
-
 .textarea-component-title {
   overflow: hidden;
   resize: none;
@@ -257,7 +254,8 @@
 
 .cv-standart-title {
   font-size: 21px !important;
-  width: 100% !important; }
+  width: 100% !important;
+  margin-top: -10px; }
 
 .cv-standart-blue {
   font-size: 15px !important;
@@ -285,6 +283,11 @@
   font-size: 13px !important;
   width: 80% !important;
   margin-left: 5px !important; }
+
+.multiline-textarea {
+  width: 100% !important;
+  overflow: visible;
+  font-size: 15px !important; }
 
 .fa {
   color: #000000; }

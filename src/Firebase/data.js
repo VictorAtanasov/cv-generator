@@ -123,14 +123,24 @@ const cvData = {
         '-KyQi5jtW3WhaV9kdqNA': {
             certificate: 'Name of the certificate',
             organization: 'Organization',
-            description: 'Description'
+            description: 'Description',
+            config: {
+                organization: true,
+                description: true,
+                link: true
+            }
         }
     },
     courses: {
         '-KyQi5jtW3WhaV9kdqNA': {
             certificate: 'Name of the course',
             organization: 'Organization',
-            description: 'Description'
+            description: 'Description',
+            config: {
+                organization: true,
+                description: true,
+                link: true
+            }
         }
     },
     summary: {
