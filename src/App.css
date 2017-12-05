@@ -263,6 +263,17 @@
   .cv-achievment-wrapper .fa {
     font-size: 6px; }
 
+.icon-wrapper {
+  width: 40px;
+  height: 40px;
+  line-height: 44px;
+  display: inline-block;
+  margin: 8px 10px;
+  padding-left: 1px;
+  cursor: pointer;
+  position: relative;
+  z-index: 10; }
+
 .cv-header-wrapper {
   display: block;
   text-align: left;
@@ -271,6 +282,8 @@
 .cv-name-wrapper, .cv-role-wrapper {
   width: 610px;
   max-width: 610px; }
+  .cv-name-wrapper textarea, .cv-role-wrapper textarea {
+    background: transparent; }
 
 .cv-name {
   display: inline-block;

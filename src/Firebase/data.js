@@ -1,5 +1,5 @@
 const cvData = {
-    image: ' ',
+    image: '',
     titles: {
         achievment : 'Achievments',
         awards : 'Awards',
@@ -206,7 +206,6 @@ const cvData = {
         phone: true,
         website: true,
         photo: true,
-        image: 'round-image'
     }
 }
 

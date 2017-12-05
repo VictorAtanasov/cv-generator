@@ -31,11 +31,11 @@ class CV extends React.Component{
         return(
             <div className="CVconainerWrapper">
                 <div className="componentWarpper">
-                    {/* <CvHeader {...this.props} userInfo={this.props.userInfo} /> */}
+                    <CvHeader {...this.props} userInfo={this.props.userInfo} />
                     <Container>
                         <Row>
                             <Col xs="7">
-                                {/* <div>
+                                <div>
                                     <CvTextarea 
                                         type="text"
                                         name={data.experience}
@@ -48,9 +48,9 @@ class CV extends React.Component{
                                 <CvStandartContainer 
                                     userInfo={this.props.userInfo}
                                     type='experience'
-                                /> */}
+                                />
 
-                                {/* <div>
+                                <div>
                                     <CvTextarea 
                                         type="text"
                                         name={data.education}
@@ -63,7 +63,7 @@ class CV extends React.Component{
                                 <CvStandartContainer 
                                     userInfo={this.props.userInfo}
                                     type='education'
-                                /> */}
+                                />
 
                                 <div>
                                     <CvTextarea 

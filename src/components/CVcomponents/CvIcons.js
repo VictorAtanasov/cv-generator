@@ -2,6 +2,7 @@ import React from 'react';
 import {Paper, Toggle} from 'material-ui';
 import _ from 'lodash';
 import icons from '../../Firebase/icons';
+import FontAwesomeCvPage from '../FontAwesomeCvPage';
 
 
 export default class CvIcons extends React.Component {
@@ -9,44 +10,39 @@ export default class CvIcons extends React.Component {
         super(props);
 
         this.renderIcons = this.renderIcons.bind(this);
-        this.toggle = this.toggle.bind(this);
+        this.chooseIcon = this.chooseIcon.bind(this);
     }
 
     renderIcons(){
-        // return _.map(this.props.cv.cvData[this.props.type][this.props.id].config, (option, key) => {
-        //     return <Toggle
-        //                 label={key}
-        //                 key={key}
-        //                 data-istoggled={key}
-        //                 onToggle={this.toggle}
-        //                 toggled={option}
-        //             />
-        // })
-        //console.log(icons)
+        return icons.map((icon, key) => {
+            return <div key={key} onClick={this.chooseIcon} className="icon-wrapper"><FontAwesomeCvPage font={icon}/></div>
+        })
     }
 
-    toggle(e, isInputChecked){
-        let key = e.target.getAttribute('data-isToggled');
-        this.props.setMultipleComponentNestedData(this.props.userInfo.userUid, this.props.type, this.props.id, 'config', key, isInputChecked);
+    chooseIcon(e){
+        let font = e.target.className;
+        font = font.substring(font.indexOf("-") + 1);
+        let componentId = this.props.id;
+        this.props.setMultipleComponentData(this.props.userInfo.userUid, this.props.type, componentId, 'font', font);
     }
 
     render(){
         const style = {
-            height:'auto',
-            width: 'auto',
+            height:'200px',
+            width: '250px',
             padding: '10px 20px',
             textAlign: 'center',
             position: 'absolute',
             left: '50%',
             zIndex: 999,
+            overflow: 'auto'
         };
         return(
-            // <div className={this.props.className}>
-            //     <Paper zDepth={3} style={style}>
-            //        {this.renderIcons()}
-            //     </Paper>
-            // </div>
-            <span>{this.renderIcons()}</span>
+            <div className={this.props.className}>
+                <Paper zDepth={3} style={style}>
+                   {this.renderIcons()}
+                </Paper>
+            </div>
         )
     }
 }

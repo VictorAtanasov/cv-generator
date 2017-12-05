@@ -21,7 +21,6 @@ export default class CvShortComponent extends React.Component{
         this.deleteExperience = this.deleteExperience.bind(this);
         this.showOptions = this.showOptions.bind(this);
         this.showInnerPopOverOptions = this.showInnerPopOverOptions.bind(this);
-        this.chooseIcon = this.chooseIcon.bind(this);
         this.addNewComp = this.addNewComp.bind(this);
         this.hideOptions = this.hideOptions.bind(this);
         this.showIcons = this.showIcons.bind(this);
@@ -38,12 +37,6 @@ export default class CvShortComponent extends React.Component{
     deleteExperience(e){
         let userUid = this.props.userInfo.userUid;
         this.props.deleteComponent(userUid, this.props.type, this.props.id)
-    }
-
-    chooseIcon(e){
-        let font = e.target.className.replace(/^.+-/, '');
-        let componentId = this.props.id;
-        this.props.setMultipleComponentData(this.props.userInfo.userUid, this.props.type, componentId, 'font', font);
     }
 
     addNewComp(){
