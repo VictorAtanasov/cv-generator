@@ -27,7 +27,7 @@ class CvInputRangeInputContainer extends React.Component{
         
         render(){
             return(
-                <div className="experienceWarpper">
+                <div className="input-range-wrapper">
                     {this.renderComponents()}
                 </div>
             )

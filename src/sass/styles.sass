@@ -7,21 +7,6 @@
 @import 'partials/cv-header'
 @import 'partials/cv-textarea'
 
-
-.fa
-    color: $black
-    &:hover
-        color: $light-blue-800
-
-.fa-circle
-    margin-right: 5px
-    margin-top: -8px
-
-.experienceWarpper
-    border: 1px solid rgba(255,255,255,0.0)
-    &:hover
-        border: 1px solid $light-blue-800
-
 .active-cv-state
     display: block
     position: absolute
@@ -29,24 +14,6 @@
 
 .block
     display: block
-
-.innerPopOver
-    display: block
-    margin-top: 19px
-    position: absolute
-    left: 35%
-    &::after
-        content: ""
-        position: absolute
-        border-style: solid
-        display: block
-        width: 0
-        top: -14px
-        right: -65px
-        bottom: auto
-        left: auto
-        border-width: 13px 13px 0 0
-        border-color: transparent #EEEEEE
 
 .hidden
     display: none
@@ -74,35 +41,15 @@ img
 .scroll
     height: 2000px
 
-.componentOptionsPopOver
-    width: auto
-    padding: 10px 20px 10px 0
-    margin-top: -40px
-    right: 40%
-    position: absolute
-    z-index: 9
-    span
-        margin-left: 10px
-        font-size: 17px
+@media all
+    .page-break
+        display: none
 
-.componentWarpper
-    text-align: left
-
-.cv-achievment-wrapper
-    display: flex
-    align-items: center
-    .fa
-        font-size: 6px
-
-// @media all
-//     .page-break
-//         display: none
-
-
-// @media print
-//     .page-break
-//         display: block
-//         page-break-before: always
-//     @page
-//         size: auto
-//         margin: 0mm
+@media print
+    -webkit-print-color-adjust: exact
+    .page-break
+        display: block
+        page-break-before: always
+    @page
+        size: auto
+        margin: 0mm

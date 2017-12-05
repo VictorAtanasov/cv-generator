@@ -88,35 +88,55 @@ const cvData = {
         '-KyQi5jtW3WhaV9kdqNW': {
             font: 'diamond',
             achievment: 'What are you most proud of?',
-            description: 'Why are you proud of this achievment?'
+            description: 'Why are you proud of this achievment?',
+            config: {
+                icon: true,
+                description: true,
+            },
         }
     },
     strengths: {
         '-KyQi5jtW3WhaV9kdqNW': {
             font: 'line-chart',
             achievment: 'Strength',
-            description: 'Description'
+            description: 'Description',
+            config: {
+                icon: true,
+                description: true,
+            },
         }
     },
     awards: {
         '-KyQi5jtW3WhaV9kdqNW': {
             font: 'trophy',
             achievment: 'Award Name',
-            description: 'Award description'
+            description: 'Award description',
+            config: {
+                icon: true,
+                description: true,
+            },
         }
     },
     motivation: {
         '-KyQy1jtWdWhqV9kdqNW': {
             font: 'heart',
             achievment: 'Motivation Title',
-            description: 'Motivation description'
+            description: 'Motivation description',
+            config: {
+                icon: true,
+                description: true,
+            },
         }
     },
     achievments: {
         '-KyQi5jtA2WhaV9kdqNW': {
             font: 'globe',
             achievment: 'What are you most proud of?',
-            description: 'Why are you prod of this achievment?'
+            description: 'Why are you prod of this achievment?',
+            config: {
+                icon: true,
+                description: true,
+            },
         }
     },
     certification: {
@@ -164,14 +184,20 @@ const cvData = {
         '-KiQi5jtW3koeV2erqNA': {
             title: 'expertise-title',
             range: '10',
-            description: 'description'
+            description: 'description',
+            config: {
+                slider: true,
+            }
         }
     },
     languages: {
         '-KiXi1jgW3koeV2erqNA': {
             title: 'expertise-title',
             range: '10',
-            description: 'description'
+            description: 'description',
+            config: {
+                slider: true,
+            }
         }
     },
     headerConfig:{

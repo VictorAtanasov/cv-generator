@@ -169,10 +169,99 @@
   width: 400px;
   margin-top: 165px; }
 
+.paper {
+  background-image: url(./images/paper-bg.jpg) !important;
+  background-color: #fafafa !important; }
+
 .cv-page-wrapper {
   padding-top: 100px;
   background-color: #54a7d3;
   min-height: 100%; }
+
+.fa {
+  color: #000000; }
+  .fa:hover {
+    color: #0277BD; }
+
+.fa-circle {
+  margin-right: 5px;
+  margin-top: -8px; }
+
+.experienceWarpper {
+  border: 1px solid rgba(255, 255, 255, 0);
+  border-bottom: 1px dashed grey;
+  padding: 10px 0 5px 2px; }
+  .experienceWarpper:hover {
+    border: 1px solid #0277BD; }
+
+.input-range-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between; }
+
+.input-range-component {
+  display: flex;
+  flex-basis: calc(50% - 10px);
+  justify-content: center;
+  flex-direction: column; }
+
+.slider div {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important; }
+
+.componentOptionsPopOver {
+  width: auto;
+  padding: 10px 20px 10px 0;
+  margin-top: -40px !important;
+  right: 40%;
+  position: absolute;
+  z-index: 9; }
+  .componentOptionsPopOver span {
+    margin-left: 10px;
+    font-size: 17px; }
+
+.innerPopOver, .innerSmallerPopOver {
+  display: block;
+  margin-top: 19px;
+  position: absolute;
+  left: 35%; }
+  .innerPopOver::after, .innerSmallerPopOver::after {
+    content: "";
+    position: absolute;
+    border-style: solid;
+    display: block;
+    width: 0;
+    top: -14px;
+    right: -65px;
+    bottom: auto;
+    left: auto;
+    border-width: 13px 13px 0 0;
+    border-color: transparent #EEEEEE; }
+
+.componentOptionsSmallerPopOver {
+  width: auto;
+  padding: 1px 20px 1px 0;
+  margin-top: -34px !important;
+  margin-left: 15px;
+  z-index: 9; }
+  .componentOptionsSmallerPopOver span {
+    margin-left: 10px;
+    font-size: 17px; }
+
+.innerSmallerPopOver {
+  left: auto;
+  margin-left: 44px;
+  margin-top: -3px !important; }
+
+.componentWarpper {
+  text-align: left; }
+
+.cv-achievment-wrapper {
+  display: flex;
+  align-items: center; }
+  .cv-achievment-wrapper .fa {
+    font-size: 6px; }
 
 .cv-header-wrapper {
   display: block;
@@ -247,7 +336,8 @@
   font-size: 28px !important;
   font-weight: 600;
   margin-top: 50px;
-  width: 100% !important; }
+  width: 100% !important;
+  border-bottom: 2px solid #000000; }
 
 .cv-header-input {
   font-size: 15px !important; }
@@ -289,20 +379,6 @@
   overflow: visible;
   font-size: 15px !important; }
 
-.fa {
-  color: #000000; }
-  .fa:hover {
-    color: #0277BD; }
-
-.fa-circle {
-  margin-right: 5px;
-  margin-top: -8px; }
-
-.experienceWarpper {
-  border: 1px solid rgba(255, 255, 255, 0); }
-  .experienceWarpper:hover {
-    border: 1px solid #0277BD; }
-
 .active-cv-state {
   display: block;
   position: absolute;
@@ -310,24 +386,6 @@
 
 .block {
   display: block; }
-
-.innerPopOver {
-  display: block;
-  margin-top: 19px;
-  position: absolute;
-  left: 35%; }
-  .innerPopOver::after {
-    content: "";
-    position: absolute;
-    border-style: solid;
-    display: block;
-    width: 0;
-    top: -14px;
-    right: -65px;
-    bottom: auto;
-    left: auto;
-    border-width: 13px 13px 0 0;
-    border-color: transparent #EEEEEE; }
 
 .hidden {
   display: none; }
@@ -355,22 +413,15 @@ img {
 .scroll {
   height: 2000px; }
 
-.componentOptionsPopOver {
-  width: auto;
-  padding: 10px 20px 10px 0;
-  margin-top: -40px;
-  right: 40%;
-  position: absolute;
-  z-index: 9; }
-  .componentOptionsPopOver span {
-    margin-left: 10px;
-    font-size: 17px; }
+@media all {
+  .page-break {
+    display: none; } }
 
-.componentWarpper {
-  text-align: left; }
-
-.cv-achievment-wrapper {
-  display: flex;
-  align-items: center; }
-  .cv-achievment-wrapper .fa {
-    font-size: 6px; }
+@media print {
+  -webkit-print-color-adjust: exact;
+  .page-break {
+    display: block;
+    page-break-before: always; }
+  @page {
+    size: auto;
+    margin: 0mm; } }

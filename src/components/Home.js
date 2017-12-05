@@ -1,5 +1,4 @@
 import React from 'react';
-import monster from '../images/official-bl.png';
 
 export const Home = (props) => {
 

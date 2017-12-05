@@ -1,7 +1,9 @@
 import React from 'react';
 import CvTextarea from '../forms/CvTextarea';
 import FontAwesomeCvPage from '../FontAwesomeCvPage';
-import Slider from 'material-ui/Slider';
+import CvInnerPopOver from './CvInnerPopOver';
+import registrationData from '../../Firebase/data';
+import {Paper, Slider} from 'material-ui';
 
 export default class CvInputRangeComponent extends React.Component{
     constructor(props){
@@ -9,7 +11,8 @@ export default class CvInputRangeComponent extends React.Component{
 
         this.state = {
             value: this.props.cv.cvData[this.props.type][this.props.id].range,
-            buttonClass: 'hidden'
+            buttonClass: 'hidden',
+            innerComponentOptions: 'hidden',
         };
 
         this.pushData = this.pushData.bind(this);
@@ -18,8 +21,8 @@ export default class CvInputRangeComponent extends React.Component{
         this.addNewRange = this.addNewRange.bind(this);
         this.showOptions = this.showOptions.bind(this);
         this.hideOptions = this.hideOptions.bind(this);
-        this.checkComponentType = this.checkComponentType.bind(this);
         this.onRangeChange = this.onRangeChange.bind(this);
+        this.showInnerPopOverOptions = this.showInnerPopOverOptions.bind(this);
     }
 
     pushData(e){
@@ -37,10 +40,16 @@ export default class CvInputRangeComponent extends React.Component{
 
     addNewRange(){
         let userUid = this.props.userInfo.userUid;
-        let data = {
-            title: 'expertise-title',
-            range: '10',
-            description: 'description'
+        var data = {};
+        switch(this.props.type){
+            case 'languages':
+                data = {...registrationData.languages['-KiXi1jgW3koeV2erqNA']};
+                break;
+            case 'expertise':
+                data = {...registrationData.expertise['-KiQi5jtW3koeV2erqNA']};
+                break;
+            default:
+                break;
         }
         this.props.pushData(userUid, this.props.type, data);
     }
@@ -59,15 +68,8 @@ export default class CvInputRangeComponent extends React.Component{
     hideOptions(e){
         this.setState({
             buttonClass: 'hidden',
+            innerComponentOptions: 'hidden'
         })
-    }
-
-    checkComponentType(){
-        if(this.props.type === 'expertise'){
-            return 'hidden'
-        } else {
-            return 'block'
-        }
     }
 
     onRangeChange(event, range){
@@ -76,35 +78,57 @@ export default class CvInputRangeComponent extends React.Component{
         })
     }
 
+    showInnerPopOverOptions(){
+        if(this.state.innerComponentOptions === 'hidden'){
+            this.setState({
+                innerComponentOptions: 'innerSmallerPopOver'
+            })
+        } else{
+            this.setState({
+                innerComponentOptions: 'hidden'
+            })
+        }
+    }
+
     render(){
         const data = this.props.cv.cvData[this.props.type][this.props.id];
         return(
-            <div onMouseEnter={this.showOptions} onMouseLeave={this.hideOptions}>
-                <div className={this.state.buttonClass}>
-                    <button onClick={this.deleteComponent}><FontAwesomeCvPage font="trash" /></button>
-                    <button onClick={this.addNewRange}><FontAwesomeCvPage font="plus-circle" /></button>
-                </div>
+            <div 
+                className="experienceWarpper input-range-component"
+                onMouseEnter={this.showOptions}
+                onMouseLeave={this.hideOptions}
+            >
+                <Paper 
+                    zDepth={1}
+                    className={this.state.buttonClass + ' ' + 'componentOptionsSmallerPopOver'}
+                >
+                    <span onClick={this.deleteComponent}>
+                        <FontAwesomeCvPage font="trash" />
+                    </span>
+                    <span onClick={this.addNewRange}>
+                        <FontAwesomeCvPage font="plus" />
+                    </span>
+                    <span onClick={this.showInnerPopOverOptions}>
+                        <FontAwesomeCvPage font='cog' />
+                    </span>
+                </Paper>
+                <CvInnerPopOver
+                        className={this.state.innerComponentOptions}
+                        {...this.props}
+                        type={this.props.type}
+                        id={this.props.id}
+                />
                 <div>
                     <CvTextarea
                         type="text"
                         name={data.title}
                         placeholder="Title"
                         onBlur={this.pushData}
-                        className="cv-header-input"
+                        className="cv-standart-blue textarea-default"
                         id="title"
                     />
                 </div>
-                <div className={this.checkComponentType()}>
-                    <CvTextarea
-                        type="text"
-                        name={data.title}
-                        placeholder="Title"
-                        onBlur={this.pushData}
-                        className="cv-header-input"
-                        id="description"
-                    />
-                </div>
-                <div>
+                <div className={data.config.slider === true ? 'block' : 'hidden'}>
                     <Slider
                         min={0}
                         max={100}
@@ -112,6 +136,7 @@ export default class CvInputRangeComponent extends React.Component{
                         value={this.state.value*1}
                         onChange={this.onRangeChange}
                         onDragStop={this.pushValue}
+                        className="slider"
                     />
                 </div>
             </div>

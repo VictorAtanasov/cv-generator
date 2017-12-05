@@ -1,4 +1,96 @@
+.paper
+    background: 
+        image: url(./images/paper-bg.jpg) !important
+        color: #fafafa !important
+
 .cv-page-wrapper
     padding-top: 100px
     background-color: $cv-page-bg
     min-height: 100%
+
+.fa
+    color: $black
+    &:hover
+        color: $light-blue-800
+
+.fa-circle
+    margin-right: 5px
+    margin-top: -8px
+
+.experienceWarpper
+    border: 1px solid rgba(255,255,255,0.0)
+    border-bottom: 1px dashed grey
+    padding: 10px 0 5px 2px
+    &:hover
+        border: 1px solid $light-blue-800
+
+.input-range-wrapper
+    display: flex
+    flex-wrap: wrap
+    flex-direction: row
+    justify-content: space-between
+
+.input-range-component
+    display: flex 
+    flex-basis: calc(50% - 10px)
+    justify-content: center
+    flex-direction: column
+
+.slider
+    div
+        margin-top: 0 !important
+        margin-bottom: 0 !important
+        
+.componentOptionsPopOver
+    width: auto
+    padding: 10px 20px 10px 0
+    margin-top: -40px !important
+    right: 40%
+    position: absolute
+    z-index: 9
+    span
+        margin-left: 10px
+        font-size: 17px
+
+.innerPopOver
+    display: block
+    margin-top: 19px
+    position: absolute
+    left: 35%
+    &::after
+        content: ""
+        position: absolute
+        border-style: solid
+        display: block
+        width: 0
+        top: -14px
+        right: -65px
+        bottom: auto
+        left: auto
+        border-width: 13px 13px 0 0
+        border-color: transparent #EEEEEE
+
+.componentOptionsSmallerPopOver
+    width: auto
+    padding: 1px 20px 1px 0
+    margin-top: -34px !important
+    margin-left: 15px
+    z-index: 9
+    span
+        margin-left: 10px
+        font-size: 17px
+
+.innerSmallerPopOver
+    @extend .innerPopOver
+    left: auto
+    margin-left: 44px
+    margin-top: -3px !important
+
+.componentWarpper
+    text-align: left
+
+.cv-achievment-wrapper
+    display: flex
+    align-items: center
+    .fa
+        font-size: 6px
