@@ -221,12 +221,12 @@
     margin-left: 10px;
     font-size: 17px; }
 
-.innerPopOver, .innerSmallerPopOver {
+.innerPopOver, .innerSmallerPopOver, .innerShortComponentPopOver {
   display: block;
   margin-top: 19px;
   position: absolute;
   left: 35%; }
-  .innerPopOver::after, .innerSmallerPopOver::after {
+  .innerPopOver::after, .innerSmallerPopOver::after, .innerShortComponentPopOver::after {
     content: "";
     position: absolute;
     border-style: solid;
@@ -253,6 +253,9 @@
   left: auto;
   margin-left: 44px;
   margin-top: -3px !important; }
+
+.innerShortComponentPopOver {
+  left: 25%; }
 
 .componentWarpper {
   text-align: left; }
@@ -392,6 +395,17 @@
   overflow: visible;
   font-size: 15px !important; }
 
+.short-component-title {
+  font-size: 15px;
+  font-weight: bold;
+  margin-left: 10px; }
+
+.blue-icons {
+  color: #0277BD;
+  font-size: 23px; }
+  .blue-icons:hover {
+    color: #000000; }
+
 .active-cv-state {
   display: block;
   position: absolute;
@@ -399,6 +413,9 @@
 
 .block {
   display: block; }
+
+.inline-block {
+  display: inline-block; }
 
 .hidden {
   display: none; }

@@ -82,7 +82,8 @@ export default class CvShortComponent extends React.Component{
     showInnerPopOverOptions(){
         if(this.state.innerComponentOptions === 'hidden'){
             this.setState({
-                innerComponentOptions: 'innerPopOver'
+                innerComponentOptions: 'innerShortComponentPopOver',
+                icons: 'hidden'
             })
         } else{
             this.setState({
@@ -94,7 +95,8 @@ export default class CvShortComponent extends React.Component{
     showIcons(){
         if(this.state.icons === 'hidden'){
             this.setState({
-                icons: 'innerPopOver'
+                icons: 'innerPopOver',
+                innerComponentOptions: 'hidden'
             })
         } else{
             this.setState({
@@ -118,7 +120,7 @@ export default class CvShortComponent extends React.Component{
                     <span onClick={this.deleteExperience}>
                         <FontAwesomeCvPage font="trash" />
                     </span>
-                    <span onClick={this.addNewRange}>
+                    <span onClick={this.addNewComp}>
                         <FontAwesomeCvPage font="plus" />
                     </span>
                     <span onClick={this.showInnerPopOverOptions}>
@@ -140,31 +142,15 @@ export default class CvShortComponent extends React.Component{
                     type={this.props.type}
                     id={this.props.id}
                 />
-                {/* <div className={this.state.buttonClass}>
-                    <button onClick={this.deleteExperience}><FontAwesomeCvPage font="trash" /></button>
-                    <button onClick={this.showIcons}><FontAwesomeCvPage font="cog" /></button>
-                    <button onClick={this.addNewComp}><FontAwesomeCvPage font="plus" /></button>
-                    <div className={`${this.state.chooceIconButton} icons-wrapper`}>
-                        <span onClick={this.chooseIcon}>
-                            <FontAwesomeCvPage font={'envelope'} />
-                        </span>
-                        <span onClick={this.chooseIcon}>
-                            <FontAwesomeCvPage font={'film'} />
-                        </span>
-                        <span onClick={this.chooseIcon}>
-                            <FontAwesomeCvPage font={'diamond'} />
-                        </span>
-                    </div>
-                </div> */}
                 <div>
-                    <span className={data.config.icon === true ? 'block' : 'hidden'}>
-                        <FontAwesomeCvPage font={data.font} />
+                    <span className={data.config.icon === true ? 'inline-block' : 'hidden'}>
+                        <FontAwesomeCvPage font={data.font} className="blue-icons" />
                     </span>
                     <CvTextarea 
                         type="text"
                         name={data.achievment}
                         placeholder="Title"
-                        className="cv-header-input"
+                        className="short-component-title"
                         id="achievment"
                         onBlur={this.pushData}
                     />

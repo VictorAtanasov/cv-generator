@@ -5,6 +5,7 @@ const FontAwesomeCvPage = (props) => {
     return(
         <FontAwesome
             name={props.font}
+            className={props.className}
         />
     )
 }
