@@ -1,6 +1,6 @@
 import React from 'react';
 import FontAwesomeCvPage from '../FontAwesomeCvPage';
-import CvTechnologiesTextarea from './CvTechnologiesTextarea';
+import CvTechnologiesTextarea from '../forms/CvTechnologiesTextarea';
 import CvTextarea from '../forms/CvTextarea';
 import _ from 'lodash';
 
@@ -51,13 +51,15 @@ export default class CvTechnologiesComponent extends React.Component{
     }
 
     setTechnologyData(e){
+        
         let userUid = this.props.userInfo.userUid;
-        let targetValue = {
-            'technology': e.target.value
-        }
-        let componentId = this.props.id;
-        let key = e.target.id;
-        this.props.setMultipleComponentNestedData(userUid, this.props.type, componentId, 'technologies', key, targetValue);
+        console.log(e.target.value)
+        // let targetValue = {
+        //     'technology': e.target.value
+        // }
+        // let componentId = this.props.id;
+        // let key = e.target.id;
+        // this.props.setMultipleComponentNestedData(userUid, this.props.type, componentId, 'technologies', key, targetValue);
     }
 
     renderTechnologies(){
@@ -68,7 +70,7 @@ export default class CvTechnologiesComponent extends React.Component{
                         placeholder="Your Technology"
                         onBlur={this.setTechnologyData}
                         onKeyDown={this.pushTechnologyData}
-                        className="cv-header-input"
+                        className="cv-technologies-input"
                         id={key}
                         key={key}
                     />
@@ -129,7 +131,7 @@ export default class CvTechnologiesComponent extends React.Component{
                         name={this.props.cv.cvData[this.props.type][this.props.id]['title']['group-title']}
                         placeholder="Company Name"
                         onBlur={this.pushData}
-                        className="cv-header-input"
+                        className="cv-standart-blue textarea-default"
                         id="group-title"
                     />
                 </div>

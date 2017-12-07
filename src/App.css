@@ -400,6 +400,21 @@
   font-weight: bold;
   margin-left: 10px; }
 
+.cv-technologies-input {
+  border: 1px solid #a9a9a9;
+  padding: 5px 8px;
+  background: transparent;
+  min-width: 20px;
+  margin: 5px;
+  max-width: 95%;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  display: inline-block; }
+
+.cv-texhnologies-wrapper {
+  display: inline-block; }
+
 .blue-icons {
   color: #0277BD;
   font-size: 23px; }

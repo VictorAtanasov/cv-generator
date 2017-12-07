@@ -86,7 +86,7 @@ const cvData = {
     },
     proud: {
         '-KyQi5jtW3WhaV9kdqNW': {
-            font: 'diamond',
+            font: 'grav',
             achievment: 'What are you most proud of?',
             description: 'Why are you proud of this achievment?',
             config: {
@@ -97,7 +97,7 @@ const cvData = {
     },
     strengths: {
         '-KyQi5jtW3WhaV9kdqNW': {
-            font: 'line-chart',
+            font: 'grav',
             achievment: 'Strength',
             description: 'Description',
             config: {
@@ -108,7 +108,7 @@ const cvData = {
     },
     awards: {
         '-KyQi5jtW3WhaV9kdqNW': {
-            font: 'trophy',
+            font: 'grav',
             achievment: 'Award Name',
             description: 'Award description',
             config: {
@@ -119,7 +119,7 @@ const cvData = {
     },
     motivation: {
         '-KyQy1jtWdWhqV9kdqNW': {
-            font: 'heart',
+            font: 'grav',
             achievment: 'Motivation Title',
             description: 'Motivation description',
             config: {
@@ -130,7 +130,7 @@ const cvData = {
     },
     achievments: {
         '-KyQi5jtA2WhaV9kdqNW': {
-            font: 'globe',
+            font: 'grav',
             achievment: 'What are you most proud of?',
             description: 'Why are you prod of this achievment?',
             config: {
