@@ -177,6 +177,9 @@ const cvData = {
                 '-KiQ9xjtW3eheV2ksqNA': {
                     technology: 'technology'
                 }
+            },
+            config: {
+                title: true
             }
         }
     },

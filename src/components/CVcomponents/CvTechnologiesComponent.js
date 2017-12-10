@@ -2,6 +2,7 @@ import React from 'react';
 import FontAwesomeCvPage from '../FontAwesomeCvPage';
 import CvTechnologiesTextarea from '../forms/CvTechnologiesTextarea';
 import CvTextarea from '../forms/CvTextarea';
+import CvInnerPopOver from './CvInnerPopOver';
 import Paper from 'material-ui/Paper';
 import _ from 'lodash';
 
@@ -10,7 +11,8 @@ export default class CvTechnologiesComponent extends React.Component{
         super(props);
 
         this.state = {
-            buttonClass: 'hidden'
+            buttonClass: 'hidden',
+            innerComponentOptions: 'hidden',
         }
 
         this.renderTechnologies = this.renderTechnologies.bind(this);
@@ -20,6 +22,7 @@ export default class CvTechnologiesComponent extends React.Component{
         this.showOptions = this.showOptions.bind(this);
         this.addTechnology = this.addTechnology.bind(this);
         this.pushData = this.pushData.bind(this);
+        this.showInnerPopOverOptions = this.showInnerPopOverOptions.bind(this);
     }
 
     addTechnology(){
@@ -57,6 +60,9 @@ export default class CvTechnologiesComponent extends React.Component{
                 '-KiQ9xjtW3eheV2ksqNA': {
                     technology: 'technology'
                 }
+            },
+            config: {
+                title: true
             }
         };
         this.props.pushData(this.props.userInfo.userUid, this.props.type, data)
@@ -71,7 +77,8 @@ export default class CvTechnologiesComponent extends React.Component{
     hideOptions(e){
         this.setState({
             buttonClass: 'hidden',
-            chooceIconButton: 'hidden'
+            chooceIconButton: 'hidden',
+            innerComponentOptions: 'hidden',
         })
     }
 
@@ -83,9 +90,21 @@ export default class CvTechnologiesComponent extends React.Component{
         this.props.setMultipleComponentNestedData(userUid, this.props.type, componentId, 'title', key, data);
     }
 
-    render(){
-        return(
+    showInnerPopOverOptions(){
+        if(this.state.innerComponentOptions === 'hidden'){
+            this.setState({
+                innerComponentOptions: 'innerPopOver'
+            })
+        } else{
+            this.setState({
+                innerComponentOptions: 'hidden'
+            })
+        }
+    }
 
+    render(){
+        const data = this.props.cv.cvData[this.props.type][this.props.id];
+        return(
             <div 
                 className="experienceWarpper" 
                 onMouseEnter={this.showOptions} 
@@ -93,7 +112,7 @@ export default class CvTechnologiesComponent extends React.Component{
             >
                     <Paper 
                         zDepth={1}
-                        className={this.state.buttonClass + ' ' + 'componentOptionsPopOver'}
+                        className={this.state.buttonClass + ' ' + 'componentOptionsPopOverRight'}
                     >
                         <span onClick={this.deleteComponent}>
                             <FontAwesomeCvPage font="trash" />
@@ -108,14 +127,22 @@ export default class CvTechnologiesComponent extends React.Component{
                             <FontAwesomeCvPage font="plus-circle" />
                         </span>
                     </Paper>
-                    <CvTextarea 
-                        type="text"
-                        name={this.props.cv.cvData[this.props.type][this.props.id]['title']['group-title']}
-                        placeholder="Company Name"
-                        onBlur={this.pushData}
-                        className="cv-standart-blue textarea-default"
-                        id="group-title"
+                    <CvInnerPopOver
+                        className={this.state.innerComponentOptions}
+                        {...this.props}
+                        type={this.props.type}
+                        id={this.props.id}
                     />
+                    <div className = {data.config.title === true ? 'block' : 'hidden'}>
+                        <CvTextarea 
+                            type="text"
+                            name={data.title['group-title']}
+                            placeholder="Company Name"
+                            onBlur={this.pushData}
+                            className="cv-standart-blue textarea-default"
+                            id="group-title"
+                        />
+                    </div>
                 <div>
                     {this.renderTechnologies()}
                 </div>

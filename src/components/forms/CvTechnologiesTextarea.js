@@ -54,15 +54,17 @@ export default class CvTechnologiesTextarea extends React.Component{
 
     render(){
         return(
-            <AutosizeInput
-                onBlur={this.setTechnologyData}
-                value={this.state.html}
-                placeholder={this.props.placeholder}
-                id={this.props.id}
-                onChange={this.handleChange}
-                onKeyDown={this.pushTechnologyData}
-                spellCheck="false"
-            />
+            <div className="technology-input-wrapper">
+                <AutosizeInput
+                    onBlur={this.setTechnologyData}
+                    value={this.state.html}
+                    placeholder={this.props.placeholder}
+                    id={this.props.id}
+                    onChange={this.handleChange}
+                    onKeyDown={this.pushTechnologyData}
+                    spellCheck="false"
+                />
+            </div>
         )
     }
 }

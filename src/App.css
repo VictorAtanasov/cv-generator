@@ -174,7 +174,7 @@
   background-color: #fafafa !important; }
 
 .cv-page-wrapper {
-  padding-top: 100px;
+  padding: 100px 0 0 22%;
   background-color: #54a7d3;
   min-height: 100%; }
 
@@ -210,16 +210,19 @@
   margin-top: 0 !important;
   margin-bottom: 0 !important; }
 
-.componentOptionsPopOver {
+.componentOptionsPopOver, .componentOptionsPopOverRight {
   width: auto;
   padding: 10px 20px 10px 0;
   margin-top: -40px !important;
   right: 40%;
   position: absolute;
   z-index: 9; }
-  .componentOptionsPopOver span {
+  .componentOptionsPopOver span, .componentOptionsPopOverRight span {
     margin-left: 10px;
     font-size: 17px; }
+
+.componentOptionsPopOverRight {
+  right: 30%; }
 
 .innerPopOver, .innerSmallerPopOver, .innerShortComponentPopOver {
   display: block;
@@ -414,6 +417,16 @@
 
 .cv-texhnologies-wrapper {
   display: inline-block; }
+
+.technology-input-wrapper {
+  display: inline-block;
+  margin: 0 15px 7px 0; }
+  .technology-input-wrapper input {
+    background: transparent;
+    border: 1px solid #a9a9a9;
+    padding: 5px 8px;
+    font-size: 14px;
+    font-weight: 700; }
 
 .blue-icons {
   color: #0277BD;

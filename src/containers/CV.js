@@ -78,7 +78,7 @@ class CV extends React.Component{
                                 <CvStandartContainer 
                                     userInfo={this.props.userInfo}
                                     type='projects'
-                                /> */}
+                                />  */}
 
                                 <div>
                                     <CvTextarea 
@@ -110,7 +110,7 @@ class CV extends React.Component{
                                     type='courses'
                                 />
 
-                                <div>
+                                {/* <div>
                                     <CvTextarea 
                                         type="text"
                                         name={data.summary}
@@ -122,7 +122,7 @@ class CV extends React.Component{
                                 </div>
                                 <CvSummaryContainer
                                     userInfo={this.props.userInfo}
-                                />
+                                /> */}
                             </Col>
                             
                             <Col xs="5">
