@@ -95,7 +95,7 @@ export default class CvHeader extends React.Component{
                         name={this.props.cv.role || "Your Next Desired Role?"}
                         placeholder="Your Next Desired Role?"
                         onBlur={ this.pushData }
-                        className="cv-role"
+                        className="cv-role changable-color"
                         id="role"
                     />
                 </div>

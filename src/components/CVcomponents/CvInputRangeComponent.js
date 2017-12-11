@@ -124,7 +124,7 @@ export default class CvInputRangeComponent extends React.Component{
                         name={data.title}
                         placeholder="Title"
                         onBlur={this.pushData}
-                        className="cv-standart-blue textarea-default"
+                        className="cv-standart-sub-title textarea-default changable-color-input"
                         id="title"
                     />
                 </div>

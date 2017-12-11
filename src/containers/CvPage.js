@@ -49,11 +49,16 @@ class CvPage extends React.Component{
                     padding: '30px'
                 };
                 return(
-                    <Paper style={style} zDepth={5} className="paper">
-                        <div className="page" key="1">
-                            <CV userInfo={this.state} />
+                    <div>
+                        <div className="aside">
+                            <p>test</p>
                         </div>
-                    </Paper>
+                        <Paper style={style} zDepth={5} className="paper">
+                            <div className="page" key="1">
+                                <CV userInfo={this.state} />
+                            </div>
+                        </Paper>
+                    </div>
                 )
             } else{
                 return(

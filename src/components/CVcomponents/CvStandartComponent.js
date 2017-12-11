@@ -195,7 +195,7 @@ export default class CvStandartComponent extends React.Component{
                             name={data.company}
                             placeholder="Company Name"
                             onBlur={this.pushData}
-                            className="cv-standart-blue textarea-default"
+                            className="cv-standart-sub-title textarea-default changable-color-input"
                             id="company"
                         />
                     </div>

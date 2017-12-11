@@ -139,7 +139,7 @@ export default class CvTechnologiesComponent extends React.Component{
                             name={data.title['group-title']}
                             placeholder="Company Name"
                             onBlur={this.pushData}
-                            className="cv-standart-blue textarea-default"
+                            className="cv-standart-sub-title textarea-default changable-color-input"
                             id="group-title"
                         />
                     </div>

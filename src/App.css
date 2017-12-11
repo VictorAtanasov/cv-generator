@@ -311,8 +311,7 @@
   height: 40px;
   font-weight: 600;
   width: 610px;
-  max-width: 610px;
-  color: #0277BD; }
+  max-width: 610px; }
 
 .photo-wrapper {
   float: right;
@@ -366,12 +365,10 @@
   width: 100% !important;
   margin-top: -10px; }
 
-.cv-standart-blue {
+.cv-standart-sub-title {
   font-size: 15px !important;
   font-weight: 600 !important;
   width: 100% !important; }
-  .cv-standart-blue input {
-    color: #0277BD !important; }
 
 .textarea-default {
   height: 40px !important;
@@ -433,6 +430,15 @@
   font-size: 23px; }
   .blue-icons:hover {
     color: #000000; }
+
+.changable-color {
+  color: #0277BD; }
+
+.changable-color-input input {
+  color: #0277BD !important; }
+
+.aside {
+  float: left; }
 
 .active-cv-state {
   display: block;
