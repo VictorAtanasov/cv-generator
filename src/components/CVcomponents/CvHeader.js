@@ -12,7 +12,7 @@ export default class CvHeader extends React.Component{
 
         this.state = {
             componentOptions: 'hidden',
-            innerComponentOptions: 'hidden',
+            innerComponentOptions: 'hidden', 
         }
 
         this.pushData = this.pushData.bind(this);
@@ -95,7 +95,8 @@ export default class CvHeader extends React.Component{
                         name={this.props.cv.role || "Your Next Desired Role?"}
                         placeholder="Your Next Desired Role?"
                         onBlur={ this.pushData }
-                        className="cv-role changable-color"
+                        className="cv-role"
+                        color={{color: this.props.cv.cvData.styles['secondary-color']}}
                         id="role"
                     />
                 </div>

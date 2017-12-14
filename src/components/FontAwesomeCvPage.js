@@ -6,6 +6,7 @@ const FontAwesomeCvPage = (props) => {
         <FontAwesome
             name={props.font}
             className={props.className}
+            style={props.color}
         />
     )
 }

@@ -144,7 +144,7 @@ export default class CvShortComponent extends React.Component{
                 />
                 <div>
                     <span className={data.config.icon === true ? 'inline-block' : 'hidden'}>
-                        <FontAwesomeCvPage font={data.font} className="blue-icons" />
+                        <FontAwesomeCvPage font={data.font} className="blue-icons" color={{color: this.props.cv.cvData.styles['secondary-color']}} />
                     </span>
                     <CvTextarea 
                         type="text"

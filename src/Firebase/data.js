@@ -209,6 +209,10 @@ const cvData = {
         phone: true,
         website: true,
         photo: true,
+    },
+    styles: {
+        'main-color': 'black',
+        'secondary-color': '#0277BD'
     }
 }
 

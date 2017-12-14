@@ -174,7 +174,7 @@
   background-color: #fafafa !important; }
 
 .cv-page-wrapper {
-  padding: 100px 0 0 22%;
+  padding: 100px 0 0 0;
   background-color: #54a7d3;
   min-height: 100%; }
 
@@ -426,7 +426,6 @@
     font-weight: 700; }
 
 .blue-icons {
-  color: #0277BD;
   font-size: 23px; }
   .blue-icons:hover {
     color: #000000; }

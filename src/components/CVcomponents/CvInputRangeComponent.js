@@ -124,8 +124,9 @@ export default class CvInputRangeComponent extends React.Component{
                         name={data.title}
                         placeholder="Title"
                         onBlur={this.pushData}
-                        className="cv-standart-sub-title textarea-default changable-color-input"
+                        className="cv-standart-sub-title textarea-default"
                         id="title"
+                        color={{color: this.props.cv.cvData.styles['secondary-color']}}
                     />
                 </div>
                 <div className={data.config.slider === true ? 'block' : 'hidden'}>

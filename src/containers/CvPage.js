@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as cvActions from '../actions/cvActions';
 import * as userActions from '../actions/userActions';
+import CvAside from '../components/CVcomponents/CvAside';
 import {Paper, CircularProgress } from 'material-ui';
 import CV from './CV';
 
@@ -51,7 +52,7 @@ class CvPage extends React.Component{
                 return(
                     <div>
                         <div className="aside">
-                            <p>test</p>
+                            <CvAside setComponentData={this.props.setComponentData} user={this.state.userUid} />
                         </div>
                         <Paper style={style} zDepth={5} className="paper">
                             <div className="page" key="1">
