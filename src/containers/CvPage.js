@@ -35,9 +35,9 @@ class CvPage extends React.Component{
                 'justifyContent': 'center'
             };
             return(
-                <Paper style={style} zDepth={5}>
-                    <CircularProgress size={80} thickness={5} />
-                </Paper>
+                <div className="loader-wrapper">
+                    <CircularProgress size={80} thickness={5} color='white' />
+                </div>
             )
         }else{
             if(!(this.props.user.loading) && this.props.user.email){
@@ -65,7 +65,7 @@ class CvPage extends React.Component{
                 return(
                     <div>
                         <p>
-                            Log in or register first fucker
+                            Log in or register first!
                         </p>
                     </div>
                 )

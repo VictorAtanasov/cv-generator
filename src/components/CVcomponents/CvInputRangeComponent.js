@@ -4,6 +4,9 @@ import FontAwesomeCvPage from '../FontAwesomeCvPage';
 import CvInnerPopOver from './CvInnerPopOver';
 import registrationData from '../../Firebase/data';
 import {Paper, Slider} from 'material-ui';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+
 
 export default class CvInputRangeComponent extends React.Component{
     constructor(props){
@@ -92,6 +95,12 @@ export default class CvInputRangeComponent extends React.Component{
 
     render(){
         const data = this.props.cv.cvData[this.props.type][this.props.id];
+        const muiTheme = getMuiTheme({
+            slider: {
+              trackColor: this.props.cv.cvData.styles['secondary-color'],
+              selectionColor: this.props.cv.cvData.styles['secondary-color'],
+            },
+        });
         return(
             <div 
                 className="experienceWarpper input-range-component"
@@ -130,15 +139,17 @@ export default class CvInputRangeComponent extends React.Component{
                     />
                 </div>
                 <div className={data.config.slider === true ? 'block' : 'hidden'}>
-                    <Slider
-                        min={0}
-                        max={100}
-                        step={1}
-                        value={this.state.value*1}
-                        onChange={this.onRangeChange}
-                        onDragStop={this.pushValue}
-                        className="slider"
-                    />
+                    <MuiThemeProvider muiTheme={muiTheme}>
+                        <Slider
+                            min={0}
+                            max={100}
+                            step={1}
+                            value={this.state.value*1}
+                            onChange={this.onRangeChange}
+                            onDragStop={this.pushValue}
+                            className="slider"
+                        />
+                    </MuiThemeProvider>
                 </div>
             </div>
         )

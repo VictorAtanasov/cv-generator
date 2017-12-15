@@ -110,7 +110,7 @@ class Registration extends React.Component{
             <div className="registration-page-wrapper">
                 <div className="registration-header-wrapper">
                     <div className="registration-header">
-                        <div className="image-container"></div>
+                        {/* <div className="image-container"></div> */}
                         <div className="tabs-container">
                             <Snackbar
                                 open={this.state.open}

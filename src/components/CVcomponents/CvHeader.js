@@ -87,6 +87,7 @@ export default class CvHeader extends React.Component{
                         onBlur={ this.pushData }
                         className="cv-name"
                         id="name"
+                        color={{color: this.props.cv.cvData.styles['main-color']}}
                     />
                 </div>
                 <div className="cv-role-wrapper">
@@ -102,7 +103,7 @@ export default class CvHeader extends React.Component{
                 </div>
                 <div>
                     <div className={this.props.cv.cvData.headerConfig.phone === true ? "cv-header-input-wrapper" : "hidden"}>
-                        <FontAwesomeCvPage font="phone" />
+                        <FontAwesomeCvPage font="phone" color={{color: this.props.cv.cvData.styles['secondary-color']}} />
                         <CvTextarea 
                             type="text"
                             name={this.props.cv.phone}
@@ -113,7 +114,7 @@ export default class CvHeader extends React.Component{
                         />
                     </div>
                     <div className={this.props.cv.cvData.headerConfig.website === true ? "cv-header-input-wrapper" : "hidden"}>
-                        <FontAwesomeCvPage font="link" />
+                        <FontAwesomeCvPage font="link" color={{color: this.props.cv.cvData.styles['secondary-color']}} />
                         <CvTextarea 
                             type="text"
                             name={this.props.cv.website}
@@ -124,7 +125,7 @@ export default class CvHeader extends React.Component{
                         />
                     </div>
                     <div className={this.props.cv.cvData.headerConfig.email === true ? "cv-header-input-wrapper" : "hidden"}>
-                        <FontAwesomeCvPage font="envelope-o" />
+                        <FontAwesomeCvPage font="envelope-o" color={{color: this.props.cv.cvData.styles['secondary-color']}} />
                         <CvTextarea 
                             type="text"
                             name={this.props.cv.email}
@@ -135,7 +136,7 @@ export default class CvHeader extends React.Component{
                         />
                     </div>
                     <div className={this.props.cv.cvData.headerConfig.location === true ? "cv-header-input-wrapper" : "hidden"}>
-                        <FontAwesomeCvPage font="map-marker" />
+                        <FontAwesomeCvPage font="map-marker" color={{color: this.props.cv.cvData.styles['secondary-color']}} />
                         <CvTextarea 
                             type="text"
                             name={this.props.cv.location}

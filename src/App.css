@@ -115,6 +115,7 @@
   height: 100%; }
 
 .registration-header-wrapper {
+  position: absolute;
   height: 100%;
   text-align: center;
   color: #ffffff;
@@ -129,15 +130,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 100px; }
+  padding-top: 100px;
+  height: 100%; }
 
 .tabs-container {
   width: 35%;
   height: 480px;
   background-color: rgba(255, 255, 255, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.3);
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center; }
@@ -177,6 +177,13 @@
   padding: 100px 0 0 0;
   background-color: #54a7d3;
   min-height: 100%; }
+
+.loader-wrapper {
+  height: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 150px; }
 
 .fa {
   color: #000000; }
@@ -301,6 +308,8 @@
   font-weight: 600;
   width: 610px;
   max-width: 610px; }
+  .cv-name textarea {
+    height: 58px; }
 
 .cv-role {
   display: inline-block;
@@ -437,7 +446,60 @@
   color: #0277BD !important; }
 
 .aside {
-  float: left; }
+  float: left;
+  padding: 5px 20px 20px 5px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  width: 220px; }
+
+.colors {
+  transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+  padding: 5px;
+  text-align: center;
+  max-height: 0;
+  overflow: hidden; }
+
+.color {
+  display: inline-block;
+  position: relative;
+  margin: 8px 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  text-align: center; }
+
+.secondary-color {
+  display: inline-block;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  margin-top: 10px; }
+
+.black {
+  background-color: black; }
+
+.green {
+  background-color: #00b400; }
+
+.dodgerblue {
+  background-color: #008cff; }
+
+.darkviolet {
+  background-color: #a300ca; }
+
+.red {
+  background-color: #ff0000; }
+
+.dimgray {
+  background-color: #686868; }
+
+.peru {
+  background-color: #d49447; }
+
+.violet {
+  background-color: #9f5f9d; }
+
+.midnightblue {
+  background-color: #002878; }
 
 .active-cv-state {
   display: block;
