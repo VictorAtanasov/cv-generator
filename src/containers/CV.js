@@ -31,11 +31,11 @@ class CV extends React.Component{
         return(
             <div className="CVconainerWrapper">
                 <div className="componentWarpper">
-                    {/* <CvHeader {...this.props} userInfo={this.props.userInfo} /> */}
+                    <CvHeader {...this.props} userInfo={this.props.userInfo} />
                     <Container>
                         <Row>
                             <Col xs="7">
-                                {/* <div>
+                               <div>
                                     <CvTextarea 
                                         type="text"
                                         name={data.experience}
@@ -43,15 +43,20 @@ class CV extends React.Component{
                                         onBlur={this.updateTitle}
                                         className="textarea-component-title"
                                         id='experience'
-                                        color={{color: this.props.cv.cvData.styles['main-color']}}
+                                        styles={
+                                            {
+                                                color: this.props.cv.cvData.styles['main-color'],
+                                                fontFamily: this.props.cv.cvData.styles['font-family']
+                                            }
+                                        }
                                     />
                                 </div>
                                 <CvStandartContainer 
                                     userInfo={this.props.userInfo}
                                     type='experience'
-                                /> */}
+                                />
 
-                                {/* <div>
+                                <div>
                                     <CvTextarea 
                                         type="text"
                                         name={data.education}
@@ -59,15 +64,20 @@ class CV extends React.Component{
                                         onBlur={this.updateTitle}
                                         className="textarea-component-title"
                                         id='education'
-                                        color={{color: this.props.cv.cvData.styles['main-color']}}
+                                        styles={
+                                            {
+                                                color: this.props.cv.cvData.styles['main-color'],
+                                                fontFamily: this.props.cv.cvData.styles['font-family']
+                                            }
+                                        }
                                     />
                                 </div>
                                 <CvStandartContainer 
                                     userInfo={this.props.userInfo}
                                     type='education'
-                                /> */}
+                                />
 
-                                {/* <div>
+                                <div>
                                     <CvTextarea 
                                         type="text"
                                         name={data.projects}
@@ -75,13 +85,18 @@ class CV extends React.Component{
                                         onBlur={this.updateTitle}
                                         className="textarea-component-title"
                                         id='projects'
-                                        color={{color: this.props.cv.cvData.styles['main-color']}}
+                                        styles={
+                                            {
+                                                color: this.props.cv.cvData.styles['main-color'],
+                                                fontFamily: this.props.cv.cvData.styles['font-family']
+                                            }
+                                        }
                                     />
                                 </div>
                                 <CvStandartContainer 
                                     userInfo={this.props.userInfo}
                                     type='projects'
-                                /> */}
+                                />
 
                                 <div>
                                     <CvTextarea 
@@ -91,7 +106,12 @@ class CV extends React.Component{
                                         onBlur={this.updateTitle}
                                         className="textarea-component-title"
                                         id='certification'
-                                        color={{color: this.props.cv.cvData.styles['main-color']}}
+                                        styles={
+                                            {
+                                                color: this.props.cv.cvData.styles['main-color'],
+                                                fontFamily: this.props.cv.cvData.styles['font-family']
+                                            }
+                                        }
                                     />
                                 </div>
                                 <CvCertificationContainer 
@@ -107,7 +127,12 @@ class CV extends React.Component{
                                         onBlur={this.updateTitle}
                                         className="textarea-component-title"
                                         id='courses'
-                                        color={{color: this.props.cv.cvData.styles['main-color']}}
+                                        styles={
+                                            {
+                                                color: this.props.cv.cvData.styles['main-color'],
+                                                fontFamily: this.props.cv.cvData.styles['font-family']
+                                            }
+                                        }
                                     />
                                 </div>
                                 <CvCertificationContainer 
@@ -139,7 +164,12 @@ class CV extends React.Component{
                                         onBlur={this.updateTitle}
                                         className="textarea-component-title"
                                         id='languages'
-                                        color={{color: this.props.cv.cvData.styles['main-color']}}
+                                        styles={
+                                            {
+                                                color: this.props.cv.cvData.styles['main-color'],
+                                                fontFamily: this.props.cv.cvData.styles['font-family']
+                                            }
+                                        }
                                     />
                                 </div>
                                 <CvInputRangeInputContainer 
@@ -155,7 +185,12 @@ class CV extends React.Component{
                                         onBlur={this.updateTitle}
                                         className="textarea-component-title"
                                         id='technologies'
-                                        color={{color: this.props.cv.cvData.styles['main-color']}}
+                                        styles={
+                                            {
+                                                color: this.props.cv.cvData.styles['main-color'],
+                                                fontFamily: this.props.cv.cvData.styles['font-family']
+                                            }
+                                        }
                                     />
                                 </div>
                                 <CvTechnologiesContainer 
@@ -171,7 +206,12 @@ class CV extends React.Component{
                                         onBlur={this.updateTitle}
                                         className="textarea-component-title"
                                         id='expertise'
-                                        color={{color: this.props.cv.cvData.styles['main-color']}}
+                                        styles={
+                                            {
+                                                color: this.props.cv.cvData.styles['main-color'],
+                                                fontFamily: this.props.cv.cvData.styles['font-family']
+                                            }
+                                        }
                                     />
                                 </div>
                                 <CvInputRangeInputContainer 
@@ -187,7 +227,12 @@ class CV extends React.Component{
                                         onBlur={this.updateTitle}
                                         className="textarea-component-title"
                                         id='strengths'
-                                        color={{color: this.props.cv.cvData.styles['main-color']}}
+                                        styles={
+                                            {
+                                                color: this.props.cv.cvData.styles['main-color'],
+                                                fontFamily: this.props.cv.cvData.styles['font-family']
+                                            }
+                                        }
                                     />
                                 </div>
                                 <CvShortContainer
@@ -203,7 +248,12 @@ class CV extends React.Component{
                                         onBlur={this.updateTitle}
                                         className="textarea-component-title"
                                         id='achievments'
-                                        color={{color: this.props.cv.cvData.styles['main-color']}}
+                                        styles={
+                                            {
+                                                color: this.props.cv.cvData.styles['main-color'],
+                                                fontFamily: this.props.cv.cvData.styles['font-family']
+                                            }
+                                        }
                                     />
                                 </div>
                                 <CvShortContainer
@@ -219,7 +269,12 @@ class CV extends React.Component{
                                         onBlur={this.updateTitle}
                                         className="textarea-component-title"
                                         id='awards'
-                                        color={{color: this.props.cv.cvData.styles['main-color']}}
+                                        styles={
+                                            {
+                                                color: this.props.cv.cvData.styles['main-color'],
+                                                fontFamily: this.props.cv.cvData.styles['font-family']
+                                            }
+                                        }
                                     />
                                 </div>
                                 <CvShortContainer
@@ -235,7 +290,12 @@ class CV extends React.Component{
                                         onBlur={this.updateTitle}
                                         className="textarea-component-title"
                                         id='proud'
-                                        color={{color: this.props.cv.cvData.styles['main-color']}}
+                                        styles={
+                                            {
+                                                color: this.props.cv.cvData.styles['main-color'],
+                                                fontFamily: this.props.cv.cvData.styles['font-family']
+                                            }
+                                        }
                                     />
                                 </div>
                                 <CvShortContainer
@@ -251,7 +311,12 @@ class CV extends React.Component{
                                         onBlur={this.updateTitle}
                                         className="textarea-component-title"
                                         id='motivation'
-                                        color={{color: this.props.cv.cvData.styles['main-color']}}
+                                        styles={
+                                            {
+                                                color: this.props.cv.cvData.styles['main-color'],
+                                                fontFamily: this.props.cv.cvData.styles['font-family']
+                                            }
+                                        }
                                     />
                                 </div>
                                 <CvShortContainer

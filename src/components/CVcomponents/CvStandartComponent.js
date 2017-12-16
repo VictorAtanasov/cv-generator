@@ -187,7 +187,12 @@ export default class CvStandartComponent extends React.Component{
                             onBlur={this.pushData}
                             className="cv-standart-title"
                             id="title"
-                            color={{color: this.props.cv.cvData.styles['main-color']}}
+                            styles={
+                                {
+                                    color: this.props.cv.cvData.styles['main-color'],
+                                    fontFamily: this.props.cv.cvData.styles['font-family']
+                                }
+                            }
                         />
                     </div>
                     <div className={this.companyAreaClassName()}>
@@ -198,7 +203,12 @@ export default class CvStandartComponent extends React.Component{
                             onBlur={this.pushData}
                             className="cv-standart-sub-title textarea-default"
                             id="company"
-                            color={{color: this.props.cv.cvData.styles['secondary-color']}}
+                            styles={
+                                {
+                                    color: this.props.cv.cvData.styles['secondary-color'],
+                                    fontFamily: this.props.cv.cvData.styles['font-family']
+                                }
+                            }
                         />
                     </div>
                     <div className={data.config.date === true ? 'inline-textarea-icon-wrapper' : 'hidden'}>

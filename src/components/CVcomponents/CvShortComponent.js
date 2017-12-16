@@ -163,6 +163,11 @@ export default class CvShortComponent extends React.Component{
                         className="cv-header-input"
                         id="description"
                         onBlur={this.pushData}
+                        styles={
+                            {
+                                fontFamily: this.props.cv.cvData.styles['font-family']
+                            }
+                        }
                     />
                 </div>
             </div>

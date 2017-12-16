@@ -87,7 +87,12 @@ export default class CvHeader extends React.Component{
                         onBlur={ this.pushData }
                         className="cv-name"
                         id="name"
-                        color={{color: this.props.cv.cvData.styles['main-color']}}
+                        styles={
+                            {
+                                color: this.props.cv.cvData.styles['main-color'],
+                                fontFamily: this.props.cv.cvData.styles['font-family']
+                            }
+                        }
                     />
                 </div>
                 <div className="cv-role-wrapper">
@@ -97,7 +102,12 @@ export default class CvHeader extends React.Component{
                         placeholder="Your Next Desired Role?"
                         onBlur={ this.pushData }
                         className="cv-role"
-                        color={{color: this.props.cv.cvData.styles['secondary-color']}}
+                        styles={
+                            {
+                                color: this.props.cv.cvData.styles['secondary-color'],
+                                fontFamily: this.props.cv.cvData.styles['font-family']
+                            }
+                        }
                         id="role"
                     />
                 </div>

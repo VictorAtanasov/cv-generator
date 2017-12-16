@@ -3,6 +3,8 @@
     padding: 5px 20px 20px 5px
     border: 1px solid $transparent-white
     width: 220px
+    text-align: center
+    margin-left: 5px
 
 .colors
     transition:  all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms
@@ -10,6 +12,16 @@
     text-align: center
     max-height: 0
     overflow: hidden
+
+.fonts
+    @extend .colors
+
+.font
+    cursor: pointer
+    font-weight: 800
+    font-size: 19px
+    &:hover
+        text-decoration: underline
 
 .color
     display: inline-block
@@ -19,16 +31,19 @@
     height: 40px
     border-radius: 50%
     text-align: center
+    cursor: pointer
 
-.secondary-color
-    display: inline-block
-    border-radius: 50%
-    width: 20px
-    height: 20px
-    margin-top: 10px
+.black-border
+    border: 8px solid black
 
-.black
-    background-color: black
+.midnightblue-border
+    border: 8px solid #002878
+
+.saddlebrown-border
+    border: 8px solid #54300e
+
+.red-border
+    border: 8px solid #ff0000
 
 .green
     background-color: #00b400
@@ -51,5 +66,38 @@
 .violet
     background-color: #9f5f9d
 
-.midnightblue
-    background-color: #002878
+.darkorange
+    background-color: #ff6e00
+
+.cadetblue
+    background-color: #639cc4
+
+.indianred
+    background-color: #e15176
+
+.lato
+    font-family: 'Lato', sans-serif
+
+.playfair
+    font-family: 'Playfair Display', serif
+
+.abril
+    font-family: 'Abril Fatface', cursive
+
+.raleway
+    font-family: 'Raleway', sans-serif
+
+.montserrat
+    font-family: 'Montserrat', sans-serif
+
+.exo
+    font-family: 'Exo 2', sans-serif
+
+.oswald
+    font-family: 'Oswald', sans-serif
+
+.chivo
+    font-family: 'Chivo', sans-serif
+
+.roboto
+    font-family: 'Roboto Slab', serif

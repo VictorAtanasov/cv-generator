@@ -10,7 +10,7 @@ const CvTextAreaTitle = (props) => {
                 onBlur={props.onBlur}
                 defaultValue={props.name}
                 spellCheck="false"
-                style={props.color}
+                style={props.styles}
             />
     )
 }

@@ -141,7 +141,12 @@ export default class CvTechnologiesComponent extends React.Component{
                             onBlur={this.pushData}
                             className="cv-standart-sub-title textarea-default"
                             id="group-title"
-                            color={{color: this.props.cv.cvData.styles['secondary-color']}}
+                            styles={
+                                {
+                                    color: this.props.cv.cvData.styles['secondary-color'],
+                                    fontFamily: this.props.cv.cvData.styles['font-family']
+                                }
+                            }
                         />
                     </div>
                 <div>

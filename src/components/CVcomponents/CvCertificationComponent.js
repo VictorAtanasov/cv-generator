@@ -85,10 +85,6 @@ export default class CvCertificationComponent extends React.Component{
                 onMouseEnter={this.showOptions} 
                 onMouseLeave={this.hideOptions}
             >
-                {/* <div className={this.state.buttonClass}>
-                    <button onClick={this.deleteExperience}><FontAwesomeCvPage font="trash" /></button>
-                    <button onClick={this.addNewComp}><FontAwesomeCvPage font="plus" /></button>
-                </div> */}
                 <Paper 
                     zDepth={1}
                     className={this.state.buttonClass + ' ' + 'componentOptionsPopOver'}

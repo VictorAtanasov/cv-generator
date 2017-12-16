@@ -21,7 +21,7 @@ const CvTextarea = (props) => {
                 defaultValue={props.name}
                 underlineStyle={style}
                 underlineFocusStyle={styleFocus}
-                inputStyle={props.color}
+                inputStyle={props.styles}
             />
     )
 }
