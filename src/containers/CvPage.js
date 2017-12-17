@@ -42,9 +42,16 @@ class CvPage extends React.Component{
                 return(
                     <div>
                         <div className="aside">
-                            <CvAside setComponentData={this.props.setComponentData} user={this.state.userUid} />
+                            <CvAside 
+                                setComponentData={this.props.setComponentData} 
+                                user={this.state.userUid} 
+                            />
                         </div>
-                        <Paper style={style} zDepth={5} className="paper">
+                        <Paper 
+                            style={style} 
+                            zDepth={5} 
+                            className="paper"
+                        >
                             <div className="page" key="1">
                                 <CV userInfo={this.state} />
                             </div>

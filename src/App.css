@@ -583,15 +583,29 @@ img {
 .scroll {
   height: 2000px; }
 
-@media all {
-  .page-break {
-    display: none; } }
-
 @media print {
   -webkit-print-color-adjust: exact;
+  .header-wrapper {
+    display: none !important; }
+  .header-menu-items-wrapper {
+    display: none !important; }
+  .container {
+    max-width: 100% !important; }
+  .paper {
+    width: 100% !important; }
+  .aside {
+    display: none; }
+  .cv-page-wrapper {
+    padding: 0; }
   .page-break {
+    page-break-inside: avoid; }
+  .cv-page-wrapper {
+    background: #fff; }
+  .paper:after {
+    content: "\ Generated with love by Victor Atanasov CV Generator";
+    color: black;
     display: block;
-    page-break-before: always; }
+    height: 100%; }
   @page {
     size: auto;
     margin: 0mm; } }
