@@ -24,16 +24,6 @@ class CvPage extends React.Component{
 
     renderCVData(){
         if(this.props.user.loading || !(this.props.cv.cvData)){
-            const style = {
-                height: '1000px',
-                width: '940px',
-                margin: '0 auto',
-                textAlign: 'center',
-                overflow: 'hidden',
-                display: 'flex',
-                'alignItems': 'center',
-                'justifyContent': 'center'
-            };
             return(
                 <div className="loader-wrapper">
                     <CircularProgress size={80} thickness={5} color='white' />

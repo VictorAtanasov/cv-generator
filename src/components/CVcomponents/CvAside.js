@@ -1,5 +1,4 @@
 import React from 'react';
-import {findDOMNode} from 'react-dom';
 import AuthButton from '../AuthButton';
 import CvColorCircle from './CvColorCircle';
 

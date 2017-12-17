@@ -157,7 +157,7 @@ export default class CvStandartComponent extends React.Component{
             >
                 <Paper 
                     zDepth={1}
-                    className={this.state.buttonClass + ' ' + 'componentOptionsPopOver'}
+                    className={`${this.state.buttonClass} componentOptionsPopOver`}
                 >
                     <span onClick={this.deleteExperience}>
                         <FontAwesomeCvPage font="trash" />

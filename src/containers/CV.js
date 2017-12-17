@@ -7,7 +7,7 @@ import CvHeader from '../components/CVcomponents/CvHeader';
 import CvStandartContainer from '../containers/CvStandartContainer';
 import CvShortContainer from '../containers/CvShortContainer';
 import CvCertificationContainer from '../containers/CvCertificationContainer';
-import CvSummaryContainer from '../containers/CvSummaryContainer';
+//import CvSummaryContainer from '../containers/CvSummaryContainer';
 import CvTechnologiesContainer from '../containers/CvTechnologiesContainer';
 import CvInputRangeInputContainer from '../containers/CvInputRangeInputContainer';
 import CvTextarea from '../components/forms/CvTextarea';

@@ -1,6 +1,5 @@
 import React from 'react';
-import {Paper, Toggle} from 'material-ui';
-import _ from 'lodash';
+import {Paper} from 'material-ui';
 import icons from '../../Firebase/icons';
 import FontAwesomeCvPage from '../FontAwesomeCvPage';
 

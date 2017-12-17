@@ -91,7 +91,7 @@ class Photo extends React.Component{
             </form>
         ];
         return(
-            <div className={'photo-wrapper' + ' ' + this.props.className}>
+            <div className={`photo-wrapper ${this.props.className}`}>
                 <div onClick={this.handleOpen}>
                     <img 
                         src={this.props.cv.cvData.image !== '' ? this.props.cv.cvData.image : profilePic} 

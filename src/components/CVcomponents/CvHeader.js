@@ -63,7 +63,7 @@ export default class CvHeader extends React.Component{
                 <div className="headerPopOverWrapper">
                     <Paper 
                         zDepth={1}
-                        className={this.state.componentOptions + ' ' + 'headerPopOver'}
+                        className={`${this.state.componentOptions} headerPopOver`}
                     >
                         <span onClick={this.showInnerPopOverOptions}>
                             <FontAwesomeCvPage font='cog' />

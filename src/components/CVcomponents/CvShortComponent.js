@@ -115,7 +115,7 @@ export default class CvShortComponent extends React.Component{
             >
                 <Paper 
                     zDepth={1}
-                    className={this.state.buttonClass + ' ' + 'componentOptionsPopOverRight'}
+                    className={`${this.state.buttonClass} componentOptionsPopOverRight'`}
                 >
                     <span onClick={this.deleteExperience}>
                         <FontAwesomeCvPage font="trash" />

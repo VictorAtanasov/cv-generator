@@ -109,7 +109,7 @@ export default class CvInputRangeComponent extends React.Component{
             >
                 <Paper 
                     zDepth={1}
-                    className={this.state.buttonClass + ' ' + 'componentOptionsSmallerPopOver'}
+                    className={`${this.state.buttonClass} componentOptionsSmallerPopOver`}
                 >
                     <span onClick={this.deleteComponent}>
                         <FontAwesomeCvPage font="trash" />
