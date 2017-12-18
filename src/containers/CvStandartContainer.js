@@ -6,6 +6,7 @@ import CvStandartComponent from '../components/CVcomponents/CvStandartComponent'
 import CvTextarea from '../components/forms/CvTextarea';
 import FontAwesomeCvPage from '../components/FontAwesomeCvPage';
 import Paper from 'material-ui/Paper';
+import registrationData from '../Firebase/data';
 import _ from 'lodash';
 
 class CvStandartContainer extends React.Component{
@@ -20,6 +21,7 @@ class CvStandartContainer extends React.Component{
         this.updateTitle = this.updateTitle.bind(this);
         this.hideOptions = this.hideOptions.bind(this);
         this.showOptions = this.showOptions.bind(this);
+        this.addNewComp = this.addNewComp.bind(this);
     }
     
     renderComponents(){
@@ -38,7 +40,6 @@ class CvStandartContainer extends React.Component{
         let data = e.target.value;
         let key = e.target.id;
         this.props.setComponentData(this.props.userInfo.userUid, 'titles', key, data);
-        this.hideOptions();
     }
     
     showOptions(e){
@@ -53,11 +54,28 @@ class CvStandartContainer extends React.Component{
         })
     }
 
+    addNewComp(){
+        var data = {};
+        switch(this.props.type){
+            case 'experience':
+                data = {...registrationData.experience['-KyQi5jtW3WhuV8kdqNW']};
+                break;
+            case 'projects':
+                data = {...registrationData.projects['-KyQi5jtW3WhoV9kdqNZ']};
+                break;
+            case 'education':
+                data = {...registrationData.education['-KyQa2jtW3KhoV9kdqNZ']};
+                break;
+            default:
+                break;
+        }
+        this.props.pushData(this.props.userInfo.userUid, this.props.type, data)
+    }
         
     render(){
         const data = this.props.cv.cvData.titles;
         return(
-            <div>
+            <div onMouseLeave={this.hideOptions}>
                 <Paper 
                     zDepth={1}
                     className={`${this.state.buttonClass} componentOptionsPopOverTitle`}

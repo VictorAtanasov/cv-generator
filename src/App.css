@@ -217,19 +217,23 @@
   margin-top: 0 !important;
   margin-bottom: 0 !important; }
 
-.componentOptionsPopOver, .componentOptionsPopOverRight, .componentOptionsPopOverTitle {
+.componentOptionsPopOver, .componentOptionsPopOverRight, .componentOptionsPopOverRightTitle, .componentOptionsPopOverTitle {
   width: auto;
   padding: 10px 20px 10px 0;
   margin-top: -40px !important;
   right: 40%;
   position: absolute;
   z-index: 9; }
-  .componentOptionsPopOver span, .componentOptionsPopOverRight span, .componentOptionsPopOverTitle span {
+  .componentOptionsPopOver span, .componentOptionsPopOverRight span, .componentOptionsPopOverRightTitle span, .componentOptionsPopOverTitle span {
     margin-left: 10px;
     font-size: 17px; }
 
-.componentOptionsPopOverRight {
+.componentOptionsPopOverRight, .componentOptionsPopOverRightTitle {
   right: 30%; }
+
+.componentOptionsPopOverRightTitle {
+  margin-top: 17px !important;
+  right: 38%; }
 
 .innerPopOver, .innerSmallerPopOver, .innerShortComponentPopOver {
   display: block;
