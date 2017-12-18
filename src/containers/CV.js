@@ -7,10 +7,8 @@ import CvHeader from '../components/CVcomponents/CvHeader';
 import CvStandartContainer from '../containers/CvStandartContainer';
 import CvShortContainer from '../containers/CvShortContainer';
 import CvCertificationContainer from '../containers/CvCertificationContainer';
-//import CvSummaryContainer from '../containers/CvSummaryContainer';
 import CvTechnologiesContainer from '../containers/CvTechnologiesContainer';
 import CvInputRangeInputContainer from '../containers/CvInputRangeInputContainer';
-import CvTextarea from '../components/forms/CvTextarea';
 
 class CV extends React.Component{
 
@@ -31,119 +29,39 @@ class CV extends React.Component{
         return(
             <div className="CVconainerWrapper">
                 <div className="componentWarpper">
-                    <CvHeader {...this.props} userInfo={this.props.userInfo} />
+                    {/* <CvHeader {...this.props} userInfo={this.props.userInfo} /> */}
                     <Container>
                         <Row>
                             <Col xs="7">
-                                <div className="page-break">
-                                    <div>
-                                        <CvTextarea 
-                                            type="text"
-                                            name={data.experience}
-                                            placeholder="Title"
-                                            onBlur={this.updateTitle}
-                                            className="textarea-component-title"
-                                            id='experience'
-                                            styles={
-                                                {
-                                                    color: this.props.cv.cvData.styles['main-color'],
-                                                    fontFamily: this.props.cv.cvData.styles['font-family']
-                                                }
-                                            }
-                                        />
-                                    </div>
+                                <div className="page-break" id="experience">
                                     <CvStandartContainer 
                                         userInfo={this.props.userInfo}
                                         type='experience'
                                     />
                                 </div>
 
-                                <div className="page-break">
-                                    <div>
-                                        <CvTextarea 
-                                            type="text"
-                                            name={data.education}
-                                            placeholder="Title"
-                                            onBlur={this.updateTitle}
-                                            className="textarea-component-title"
-                                            id='education'
-                                            styles={
-                                                {
-                                                    color: this.props.cv.cvData.styles['main-color'],
-                                                    fontFamily: this.props.cv.cvData.styles['font-family']
-                                                }
-                                            }
-                                        />
-                                    </div>
+                                <div className="page-break" id="education">
                                     <CvStandartContainer 
                                         userInfo={this.props.userInfo}
                                         type='education'
                                     />
                                 </div>
 
-                                <div className="page-break">
-                                    <div>
-                                        <CvTextarea 
-                                            type="text"
-                                            name={data.projects}
-                                            placeholder="Title"
-                                            onBlur={this.updateTitle}
-                                            className="textarea-component-title"
-                                            id='projects'
-                                            styles={
-                                                {
-                                                    color: this.props.cv.cvData.styles['main-color'],
-                                                    fontFamily: this.props.cv.cvData.styles['font-family']
-                                                }
-                                            }
-                                        />
-                                    </div>
+                                <div className="page-break" id="projects">
                                     <CvStandartContainer 
                                         userInfo={this.props.userInfo}
                                         type='projects'
                                     />
                                 </div>
 
-                                <div className="page-break">
-                                    <div>
-                                        <CvTextarea 
-                                            type="text"
-                                            name={data.certification}
-                                            placeholder="Title"
-                                            onBlur={this.updateTitle}
-                                            className="textarea-component-title"
-                                            id='certification'
-                                            styles={
-                                                {
-                                                    color: this.props.cv.cvData.styles['main-color'],
-                                                    fontFamily: this.props.cv.cvData.styles['font-family']
-                                                }
-                                            }
-                                        />
-                                    </div>
+                                <div className="page-break" id="certification">
                                     <CvCertificationContainer 
                                         userInfo={this.props.userInfo}
                                         type='certification'
                                     />
                                 </div>
 
-                                <div className="page-break">
-                                    <div>
-                                        <CvTextarea 
-                                            type="text"
-                                            name={data.courses}
-                                            placeholder="Title"
-                                            onBlur={this.updateTitle}
-                                            className="textarea-component-title"
-                                            id='courses'
-                                            styles={
-                                                {
-                                                    color: this.props.cv.cvData.styles['main-color'],
-                                                    fontFamily: this.props.cv.cvData.styles['font-family']
-                                                }
-                                            }
-                                        />
-                                    </div>
+                                <div className="page-break" id="courses">
                                     <CvCertificationContainer 
                                         userInfo={this.props.userInfo}
                                         type='courses'
@@ -153,184 +71,56 @@ class CV extends React.Component{
                             </Col>
                             
                             <Col xs="5">
-                                <div className="page-break">
-                                    <div>
-                                        <CvTextarea 
-                                            type="text"
-                                            name={data.languages}
-                                            placeholder="Title"
-                                            onBlur={this.updateTitle}
-                                            className="textarea-component-title"
-                                            id='languages'
-                                            styles={
-                                                {
-                                                    color: this.props.cv.cvData.styles['main-color'],
-                                                    fontFamily: this.props.cv.cvData.styles['font-family']
-                                                }
-                                            }
-                                        />
-                                    </div>
+                                <div className="page-break" id="languages">
                                     <CvInputRangeInputContainer 
                                         userInfo={this.props.userInfo}
                                         type='languages'
                                     />
                                 </div>
 
-                                <div className="page-break">
-                                    <div>
-                                        <CvTextarea 
-                                            type="text"
-                                            name={data.technologies}
-                                            placeholder="Title"
-                                            onBlur={this.updateTitle}
-                                            className="textarea-component-title"
-                                            id='technologies'
-                                            styles={
-                                                {
-                                                    color: this.props.cv.cvData.styles['main-color'],
-                                                    fontFamily: this.props.cv.cvData.styles['font-family']
-                                                }
-                                            }
-                                        />
-                                    </div>
+                                <div className="page-break" id="technologies">
                                     <CvTechnologiesContainer 
                                         userInfo={this.props.userInfo}
                                         type='technologies'
                                     />
                                 </div>
 
-                                <div className="page-break">
-                                    <div>
-                                        <CvTextarea 
-                                            type="text"
-                                            name={data.expertise}
-                                            placeholder="Title"
-                                            onBlur={this.updateTitle}
-                                            className="textarea-component-title"
-                                            id='expertise'
-                                            styles={
-                                                {
-                                                    color: this.props.cv.cvData.styles['main-color'],
-                                                    fontFamily: this.props.cv.cvData.styles['font-family']
-                                                }
-                                            }
-                                        />
-                                    </div>
+                                <div className="page-break" id="expertise">
                                     <CvInputRangeInputContainer 
                                         userInfo={this.props.userInfo}
                                         type='expertise'
                                     />
                                 </div>
 
-                                <div className="page-break">
-                                    <div>
-                                        <CvTextarea 
-                                            type="text"
-                                            name={data.strengths}
-                                            placeholder="Title"
-                                            onBlur={this.updateTitle}
-                                            className="textarea-component-title"
-                                            id='strengths'
-                                            styles={
-                                                {
-                                                    color: this.props.cv.cvData.styles['main-color'],
-                                                    fontFamily: this.props.cv.cvData.styles['font-family']
-                                                }
-                                            }
-                                        />
-                                    </div>
+                                <div className="page-break" id="strengths">
                                     <CvShortContainer
                                         userInfo={this.props.userInfo}
                                         type='strengths'
                                     />
                                 </div>
 
-                                <div className="page-break">
-                                    <div>
-                                        <CvTextarea 
-                                            type="text"
-                                            name={data.achievments}
-                                            placeholder="Title"
-                                            onBlur={this.updateTitle}
-                                            className="textarea-component-title"
-                                            id='achievments'
-                                            styles={
-                                                {
-                                                    color: this.props.cv.cvData.styles['main-color'],
-                                                    fontFamily: this.props.cv.cvData.styles['font-family']
-                                                }
-                                            }
-                                        />
-                                    </div>
+                                <div className="page-break" id="achievments">
                                     <CvShortContainer
                                         userInfo={this.props.userInfo}
                                         type='achievments'
                                     />
                                 </div>
 
-                                <div className="page-break">
-                                    <div>
-                                        <CvTextarea 
-                                            type="text"
-                                            name={data.awards}
-                                            placeholder="Title"
-                                            onBlur={this.updateTitle}
-                                            className="textarea-component-title"
-                                            id='awards'
-                                            styles={
-                                                {
-                                                    color: this.props.cv.cvData.styles['main-color'],
-                                                    fontFamily: this.props.cv.cvData.styles['font-family']
-                                                }
-                                            }
-                                        />
-                                    </div>
+                                <div className="page-break" id="awards">
                                     <CvShortContainer
                                         userInfo={this.props.userInfo}
                                         type='awards'
                                     />
                                 </div>
 
-                                <div className="page-break">
-                                    <div>
-                                        <CvTextarea 
-                                            type="text"
-                                            name={data.proud}
-                                            placeholder="Title"
-                                            onBlur={this.updateTitle}
-                                            className="textarea-component-title"
-                                            id='proud'
-                                            styles={
-                                                {
-                                                    color: this.props.cv.cvData.styles['main-color'],
-                                                    fontFamily: this.props.cv.cvData.styles['font-family']
-                                                }
-                                            }
-                                        />
-                                    </div>
+                                <div className="page-break" id="proud">
                                     <CvShortContainer
                                         userInfo={this.props.userInfo}
                                         type='proud' 
                                     />
                                 </div>
                             
-                                <div className="page-break">
-                                    <div>
-                                        <CvTextarea 
-                                            type="text"
-                                            name={data.motivation}
-                                            placeholder="Title"
-                                            onBlur={this.updateTitle}
-                                            className="textarea-component-title"
-                                            id='motivation'
-                                            styles={
-                                                {
-                                                    color: this.props.cv.cvData.styles['main-color'],
-                                                    fontFamily: this.props.cv.cvData.styles['font-family']
-                                                }
-                                            }
-                                        />
-                                    </div>
+                                <div className="page-break" id="motivation">
                                     <CvShortContainer
                                         userInfo={this.props.userInfo}
                                         type='motivation'

@@ -18,6 +18,7 @@ const CvTextarea = (props) => {
                 className={props.className}
                 id={props.id} 
                 onBlur={props.onBlur}
+                onFocus={props.onFocus}
                 defaultValue={props.name}
                 underlineStyle={style}
                 underlineFocusStyle={styleFocus}

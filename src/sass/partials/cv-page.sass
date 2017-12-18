@@ -75,11 +75,15 @@
         display: block
         width: 0
         top: -14px
-        right: -65px
+        right: -100px
         bottom: auto
         left: auto
         border-width: 13px 13px 0 0
         border-color: transparent #EEEEEE
+
+.componentOptionsPopOverTitle
+    @extend .componentOptionsPopOver
+    margin-top: 17px !important
 
 .componentOptionsSmallerPopOver
     width: auto
@@ -96,6 +100,8 @@
     left: auto
     margin-left: 44px
     margin-top: -3px !important
+    &::after
+        right: -65px
 
 .innerShortComponentPopOver
     @extend .innerPopOver

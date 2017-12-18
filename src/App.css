@@ -217,14 +217,14 @@
   margin-top: 0 !important;
   margin-bottom: 0 !important; }
 
-.componentOptionsPopOver, .componentOptionsPopOverRight {
+.componentOptionsPopOver, .componentOptionsPopOverRight, .componentOptionsPopOverTitle {
   width: auto;
   padding: 10px 20px 10px 0;
   margin-top: -40px !important;
   right: 40%;
   position: absolute;
   z-index: 9; }
-  .componentOptionsPopOver span, .componentOptionsPopOverRight span {
+  .componentOptionsPopOver span, .componentOptionsPopOverRight span, .componentOptionsPopOverTitle span {
     margin-left: 10px;
     font-size: 17px; }
 
@@ -243,11 +243,14 @@
     display: block;
     width: 0;
     top: -14px;
-    right: -65px;
+    right: -100px;
     bottom: auto;
     left: auto;
     border-width: 13px 13px 0 0;
     border-color: transparent #EEEEEE; }
+
+.componentOptionsPopOverTitle {
+  margin-top: 17px !important; }
 
 .componentOptionsSmallerPopOver {
   width: auto;
@@ -263,6 +266,8 @@
   left: auto;
   margin-left: 44px;
   margin-top: -3px !important; }
+  .innerSmallerPopOver::after {
+    right: -65px; }
 
 .innerShortComponentPopOver {
   left: 25%; }
