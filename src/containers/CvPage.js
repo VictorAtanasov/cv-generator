@@ -43,7 +43,8 @@ class CvPage extends React.Component{
                     <div>
                         <div className="aside">
                             <CvAside 
-                                setComponentData={this.props.setComponentData} 
+                                setComponentData={this.props.setComponentData}
+                                cv={this.props.cv}
                                 user={this.state.userUid} 
                             />
                         </div>

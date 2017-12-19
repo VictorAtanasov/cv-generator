@@ -1,7 +1,7 @@
 import React from 'react';
 import AuthButton from '../AuthButton';
 import CvColorCircle from './CvColorCircle';
-
+import CvSections from './CvSections';
 
 export default class CvAside extends React.Component{
     constructor(props){
@@ -12,6 +12,7 @@ export default class CvAside extends React.Component{
         this.showFonts = this.showFonts.bind(this);
         this.renderCircles = this.renderCircles.bind(this);
         this.changeFont = this.changeFont.bind(this);
+        this.showComps = this.showComps.bind(this);
     }
 
     showColors(){
@@ -35,7 +36,6 @@ export default class CvAside extends React.Component{
             el.style.maxHeight = '0';
             el.classList.add('not-active');
         }
-        
     }
 
     changeColors(ev){
@@ -67,9 +67,24 @@ export default class CvAside extends React.Component{
         return arr
     }
 
+    showComps(){
+        let el = document.getElementsByClassName('comps')[0];
+        if(el.classList.contains('not-active')){
+            el.style.maxHeight = el.scrollHeight + 'px';
+            el.classList.remove('not-active');
+        } else {
+            el.style.maxHeight = '0';
+            el.classList.add('not-active');
+        }
+    }
+
     render(){
         return(
             <div>
+                <AuthButton text="Add New Section" onClick={this.showComps} />
+                <div className="comps not-active">
+                    <CvSections cv={this.props.cv} />
+                </div>
                 <AuthButton text="Change Colors" onClick={this.showColors} />
                 <div className="colors not-active" >
                     {this.renderCircles()}
