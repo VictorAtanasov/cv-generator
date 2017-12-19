@@ -9,23 +9,91 @@ import CvShortContainer from '../containers/CvShortContainer';
 import CvCertificationContainer from '../containers/CvCertificationContainer';
 import CvTechnologiesContainer from '../containers/CvTechnologiesContainer';
 import CvInputRangeInputContainer from '../containers/CvInputRangeInputContainer';
+import _ from 'lodash';
 
 class CV extends React.Component{
 
     constructor(props){
         super(props);
 
-        this.updateTitle = this.updateTitle.bind(this);
+        this.renderLeftComponents = this.renderLeftComponents.bind(this);
+        this.renderRightComponents = this.renderRightComponents.bind(this);
     }
 
-    updateTitle(e){
-        let data = e.target.value;
-        let key = e.target.id;
-        this.props.setComponentData(this.props.userInfo.userUid, 'titles', key, data);
+    renderLeftComponents(){
+        var iterator = 1;
+        return _.map(this.props.cv.cvData, (comp, key) => {
+            switch(key){
+                case 'a-experience':
+                case 'b-education':
+                case 'c-projects':
+                    iterator += 1;
+                    return <div className="page-break" id={key} key={iterator}>
+                                <CvStandartContainer 
+                                    userInfo={this.props.userInfo}
+                                    type={key}
+                                />
+                            </div>
+                    break;
+                case 'e-certification':
+                case 'd-courses':
+                    iterator += 1;
+                    return <div className="page-break" id={key} key={iterator}>
+                                <CvCertificationContainer 
+                                    userInfo={this.props.userInfo}
+                                    type={key}
+                                />
+                            </div>
+                    break;
+                default:
+                    break;
+            }
+        })
+    }
+
+    renderRightComponents(){
+        var iterator = 30;
+        return _.map(this.props.cv.cvData, (comp, key) => {
+            switch(key){
+                case 'f-technologies':
+                    iterator += 1;
+                    return <div className="page-break" id={key} key={iterator}>
+                                <CvTechnologiesContainer 
+                                    userInfo={this.props.userInfo}
+                                    type={key}
+                                />
+                            </div>
+                    break;
+                case 'g-expertise':
+                case 'h-languages':
+                    iterator += 1;
+                    return <div className="page-break" id={key} key={iterator}>
+                                <CvInputRangeInputContainer 
+                                    userInfo={this.props.userInfo}
+                                    type={key}
+                                />
+                            </div>
+                    break;
+                case 'i-strengths':
+                case 'j-proud':
+                case 'k-motivation':
+                case 'l-awards':
+                case 'm-achievments':
+                    iterator += 1;
+                    return <div className="page-break" id={key} key={iterator}>
+                                <CvShortContainer 
+                                    userInfo={this.props.userInfo}
+                                    type={key}
+                                />
+                            </div>
+                    break;
+                default:
+                    break;
+            }
+        })
     }
     
     render(){
-        const data = this.props.cv.cvData.titles;
         return(
             <div className="CVconainerWrapper">
                 <div className="componentWarpper">
@@ -33,45 +101,45 @@ class CV extends React.Component{
                     <Container>
                         <Row>
                             <Col xs="7">
-                                <div className="page-break" id="experience">
+                                {/* <div className="page-break" id="experience">
                                     <CvStandartContainer 
                                         userInfo={this.props.userInfo}
                                         type='experience'
                                     />
-                                </div>
+                                </div> */}
 
-                                <div className="page-break" id="education">
+                                {/* <div className="page-break" id="education">
                                     <CvStandartContainer 
                                         userInfo={this.props.userInfo}
                                         type='education'
                                     />
-                                </div>
+                                </div> */}
 
-                                <div className="page-break" id="projects">
+                                {/* <div className="page-break" id="projects">
                                     <CvStandartContainer 
                                         userInfo={this.props.userInfo}
                                         type='projects'
                                     />
-                                </div>
+                                </div> */}
 
-                                <div className="page-break" id="certification">
+                                {/* <div className="page-break" id="certification">
                                     <CvCertificationContainer 
                                         userInfo={this.props.userInfo}
                                         type='certification'
                                     />
-                                </div>
+                                </div> */}
 
-                                <div className="page-break" id="courses">
+                                {/* <div className="page-break" id="courses">
                                     <CvCertificationContainer 
                                         userInfo={this.props.userInfo}
                                         type='courses'
                                     />
-                                </div>
-
+                                </div> */}
+                                {this.renderLeftComponents()}
                             </Col>
                             
                             <Col xs="5">
-                                <div className="page-break" id="languages">
+                                {/* <div className="page-break" id="languages">
                                     <CvInputRangeInputContainer 
                                         userInfo={this.props.userInfo}
                                         type='languages'
@@ -125,8 +193,8 @@ class CV extends React.Component{
                                         userInfo={this.props.userInfo}
                                         type='motivation'
                                     />
-                                </div>
-                                
+                                </div> */}
+                                {this.renderRightComponents()}
                             </Col>
                         </Row>
                     </Container>

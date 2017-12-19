@@ -19,11 +19,11 @@ export default class CvShortComponent extends React.Component{
 
         this.pushData = this.pushData.bind(this);
         this.deleteExperience = this.deleteExperience.bind(this);
-        this.showOptions = this.showOptions.bind(this);
         this.showInnerPopOverOptions = this.showInnerPopOverOptions.bind(this);
         this.addNewComp = this.addNewComp.bind(this);
-        this.hideOptions = this.hideOptions.bind(this);
         this.showIcons = this.showIcons.bind(this);
+        this.setWrapperRef = this.setWrapperRef.bind(this);           
+        this.handleClickOutside = this.handleClickOutside.bind(this);
     }
 
     pushData(e){
@@ -42,20 +42,20 @@ export default class CvShortComponent extends React.Component{
     addNewComp(){
         var data = {};
         switch(this.props.type){
-            case 'proud':
-                data = {...registrationData.proud['-KyQi5jtW3WhaV9kdqNW']};
+            case 'j-proud':
+                data = {...registrationData['j-proud']['-KyQi5jtW3WhaV9kdqNW']};
                 break;
-            case 'strengths':
-                data = {...registrationData.strengths['-KyQi5jtW3WhaV9kdqNW']};
+            case 'i-strengths':
+                data = {...registrationData['i-strengths']['-KyQi5jtW3WhaV9kdqNW']};
                 break;
-            case 'awards':
-                data = {...registrationData.awards['-KyQi5jtW3WhaV9kdqNW']};
+            case 'l-awards':
+                data = {...registrationData['l-awards']['-KyQi5jtW3WhaV9kdqNW']};
                 break;
-            case 'achievments':
-                data = {...registrationData.achievments['-KyQi5jtA2WhaV9kdqNW']};
+            case 'm-achievments':
+                data = {...registrationData['m-achievments']['-KyQi5jtA2WhaV9kdqNW']};
                 break;
-            case 'motivation':
-                data = {...registrationData.motivation['-KyQy1jtWdWhqV9kdqNW']};
+            case 'k-motivation':
+                data = {...registrationData['k-motivation']['-KyQy1jtWdWhqV9kdqNW']};
                 break;
             default:
                 break;
@@ -64,19 +64,31 @@ export default class CvShortComponent extends React.Component{
         this.props.pushData(this.props.userInfo.userUid, this.props.type, data)
     }
 
-    showOptions(e){
-        this.setState({
-            buttonClass: 'active-cv-state'
-        })
+    componentDidMount() {
+        document.addEventListener('mousedown', this.handleClickOutside);
     }
 
-    hideOptions(e){
-        this.setState({
-            buttonClass: 'hidden',
-            chooceIconButton: 'hidden',
-            innerComponentOptions: 'hidden',
-            icons: 'hidden'
-        })
+    componentWillUnmount() {
+        document.removeEventListener('mousedown', this.handleClickOutside);
+    }
+
+    setWrapperRef(node) {
+        this.wrapperRef = node;
+    }
+
+    handleClickOutside(event) {
+        if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
+            this.setState({
+                buttonClass: 'hidden',
+                chooceIconButton: 'hidden',
+                innerComponentOptions: 'hidden',
+                icons: 'hidden'
+            })
+        } else{
+            this.setState({
+                buttonClass: 'active-cv-state',
+            })
+        }
     }
 
     showInnerPopOverOptions(){
@@ -110,8 +122,7 @@ export default class CvShortComponent extends React.Component{
         return(
             <div 
                 className="experienceWarpper" 
-                onMouseEnter={this.showOptions} 
-                onMouseLeave={this.hideOptions}
+                ref={this.setWrapperRef}
             >
                 <Paper 
                     zDepth={1}

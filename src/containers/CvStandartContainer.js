@@ -19,9 +19,9 @@ class CvStandartContainer extends React.Component{
         }
 
         this.updateTitle = this.updateTitle.bind(this);
-        this.hideOptions = this.hideOptions.bind(this);
-        this.showOptions = this.showOptions.bind(this);
         this.addNewComp = this.addNewComp.bind(this);
+        this.setWrapperRef = this.setWrapperRef.bind(this);           
+        this.handleClickOutside = this.handleClickOutside.bind(this);
     }
     
     renderComponents(){
@@ -41,68 +41,81 @@ class CvStandartContainer extends React.Component{
         let key = e.target.id;
         this.props.setComponentData(this.props.userInfo.userUid, 'titles', key, data);
     }
-    
-    showOptions(e){
-        this.setState({
-            buttonClass: 'active-cv-state',
-        })
-    }
-
-    hideOptions(e){
-        this.setState({
-            buttonClass: 'hidden',
-        })
-    }
 
     addNewComp(){
         var data = {};
         switch(this.props.type){
-            case 'experience':
-                data = {...registrationData.experience['-KyQi5jtW3WhuV8kdqNW']};
+            case 'a-experience':
+                data = {...registrationData['a-experience']['-KyQi5jtW3WhuV8kdqNW']};
                 break;
-            case 'projects':
-                data = {...registrationData.projects['-KyQi5jtW3WhoV9kdqNZ']};
+            case 'c-projects':
+                data = {...registrationData['c-projects']['-KyQi5jtW3WhoV9kdqNZ']};
                 break;
-            case 'education':
-                data = {...registrationData.education['-KyQa2jtW3KhoV9kdqNZ']};
+            case 'b-education':
+                data = {...registrationData['b-education']['-KyQa2jtW3KhoV9kdqNZ']};
                 break;
             default:
                 break;
         }
         this.props.pushData(this.props.userInfo.userUid, this.props.type, data)
     }
+
+    componentDidMount() {
+        document.addEventListener('mousedown', this.handleClickOutside);
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener('mousedown', this.handleClickOutside);
+    }
+
+    setWrapperRef(node) {
+        this.wrapperRef = node;
+    }
+
+    handleClickOutside(event) {
+        if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
+            this.setState({
+                buttonClass: 'hidden',
+            })
+        } else{
+            this.setState({
+                buttonClass: 'active-cv-state',
+            })
+        }
+    }
         
     render(){
         const data = this.props.cv.cvData.titles;
         return(
-            <div onMouseLeave={this.hideOptions}>
-                <Paper 
-                    zDepth={1}
-                    className={`${this.state.buttonClass} componentOptionsPopOverTitle`}
-                >
-                    <span onClick={this.deleteExperience}>
-                        <FontAwesomeCvPage font="trash" />
-                    </span>
-                    <span onClick={this.addNewComp}>
-                        <FontAwesomeCvPage font="plus" />
-                    </span>
-                </Paper>
-                <div>
-                    <CvTextarea 
-                        type="text"
-                        name={data[this.props.type]}
-                        placeholder="Title"
-                        onBlur={this.updateTitle}
-                        onFocus={this.showOptions}
-                        className="textarea-component-title"
-                        id={this.props.type}
-                        styles={
-                            {
-                                color: this.props.cv.cvData.styles['main-color'],
-                                fontFamily: this.props.cv.cvData.styles['font-family']
+            <div>
+                <div ref={this.setWrapperRef}>
+                    <Paper 
+                        zDepth={1}
+                        className={`${this.state.buttonClass} componentOptionsPopOverTitle`}
+                    >
+                        <span onClick={this.deleteExperience}>
+                            <FontAwesomeCvPage font="trash" />
+                        </span>
+                        <span onClick={this.addNewComp}>
+                            <FontAwesomeCvPage font="plus" />
+                        </span>
+                    </Paper>
+                    <div>
+                        <CvTextarea 
+                            type="text"
+                            name={data[this.props.type]}
+                            placeholder="Title"
+                            onBlur={this.updateTitle}
+                            className="textarea-component-title"
+                            id={this.props.type}
+                            styles={
+                                {
+                                    color: this.props.cv.cvData.styles['main-color'],
+                                    fontFamily: this.props.cv.cvData.styles['font-family']
+                                }
                             }
-                        }
-                    />
+                        />
+                    </div>
                 </div>
                 {this.renderComponents()}
             </div>

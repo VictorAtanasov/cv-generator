@@ -17,10 +17,10 @@ export default class CvCertificationComponent extends React.Component{
 
         this.pushData = this.pushData.bind(this);
         this.deleteExperience = this.deleteExperience.bind(this);
-        this.showOptions = this.showOptions.bind(this);
         this.addNewComp = this.addNewComp.bind(this);
-        this.hideOptions = this.hideOptions.bind(this);
         this.showInnerPopOverOptions = this.showInnerPopOverOptions.bind(this);
+        this.setWrapperRef = this.setWrapperRef.bind(this);           
+        this.handleClickOutside = this.handleClickOutside.bind(this);
     }
 
     pushData(e){
@@ -39,11 +39,11 @@ export default class CvCertificationComponent extends React.Component{
     addNewComp(){
         var data = {};
         switch(this.props.type){
-            case 'certification':
-                data = {...registrationData.certification['-KyQi5jtW3WhaV9kdqNA']};
+            case 'e-certification':
+                data = {...registrationData['e-certification']['-KyQi5jtW3WhaV9kdqNA']};
                 break;
-            case 'courses':
-                data = {...registrationData.courses['-KyQi5jtW3WhaV9kdqNA']};
+            case 'd-courses':
+                data = {...registrationData['d-courses']['-KyQi5jtW3WhaV9kdqNA']};
                 break;
             default:
                 break;
@@ -52,17 +52,29 @@ export default class CvCertificationComponent extends React.Component{
         this.props.pushData(this.props.userInfo.userUid, this.props.type, data)
     }
 
-    showOptions(e){
-        this.setState({
-            buttonClass: 'active-cv-state'
-        })
+    componentDidMount() {
+        document.addEventListener('mousedown', this.handleClickOutside);
     }
 
-    hideOptions(e){
-        this.setState({
-            buttonClass: 'hidden',
-            innerComponentOptions: 'hidden'
-        })
+    componentWillUnmount() {
+        document.removeEventListener('mousedown', this.handleClickOutside);
+    }
+
+    setWrapperRef(node) {
+        this.wrapperRef = node;
+    }
+
+    handleClickOutside(event) {
+        if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
+            this.setState({
+                buttonClass: 'hidden',
+                innerComponentOptions: 'hidden'
+            })
+        } else{
+            this.setState({
+                buttonClass: 'active-cv-state',
+            })
+        }
     }
 
     showInnerPopOverOptions(){
@@ -82,8 +94,7 @@ export default class CvCertificationComponent extends React.Component{
         return(
             <div 
                 className="experienceWarpper" 
-                onMouseEnter={this.showOptions} 
-                onMouseLeave={this.hideOptions}
+                ref={this.setWrapperRef}
             >
                 <Paper 
                     zDepth={1}

@@ -22,10 +22,10 @@ export default class CvInputRangeComponent extends React.Component{
         this.pushValue = this.pushValue.bind(this);
         this.deleteComponent = this.deleteComponent.bind(this);
         this.addNewRange = this.addNewRange.bind(this);
-        this.showOptions = this.showOptions.bind(this);
-        this.hideOptions = this.hideOptions.bind(this);
         this.onRangeChange = this.onRangeChange.bind(this);
         this.showInnerPopOverOptions = this.showInnerPopOverOptions.bind(this);
+        this.setWrapperRef = this.setWrapperRef.bind(this);           
+        this.handleClickOutside = this.handleClickOutside.bind(this);
     }
 
     pushData(e){
@@ -45,11 +45,11 @@ export default class CvInputRangeComponent extends React.Component{
         let userUid = this.props.userInfo.userUid;
         var data = {};
         switch(this.props.type){
-            case 'languages':
-                data = {...registrationData.languages['-KiXi1jgW3koeV2erqNA']};
+            case 'h-languages':
+                data = {...registrationData['h-languages']['-KiXi1jgW3koeV2erqNA']};
                 break;
-            case 'expertise':
-                data = {...registrationData.expertise['-KiQi5jtW3koeV2erqNA']};
+            case 'g-expertise':
+                data = {...registrationData['g-expertise']['-KiQi5jtW3koeV2erqNA']};
                 break;
             default:
                 break;
@@ -62,17 +62,29 @@ export default class CvInputRangeComponent extends React.Component{
         this.props.deleteComponent(userUid, this.props.type, this.props.id)
     }
 
-    showOptions(e){
-        this.setState({
-            buttonClass: 'active-cv-state'
-        })
+    componentDidMount() {
+        document.addEventListener('mousedown', this.handleClickOutside);
     }
 
-    hideOptions(e){
-        this.setState({
-            buttonClass: 'hidden',
-            innerComponentOptions: 'hidden'
-        })
+    componentWillUnmount() {
+        document.removeEventListener('mousedown', this.handleClickOutside);
+    }
+
+    setWrapperRef(node) {
+        this.wrapperRef = node;
+    }
+
+    handleClickOutside(event) {
+        if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
+            this.setState({
+                buttonClass: 'hidden',
+                innerComponentOptions: 'hidden'
+            })
+        } else{
+            this.setState({
+                buttonClass: 'active-cv-state',
+            })
+        }
     }
 
     onRangeChange(event, range){
@@ -104,8 +116,7 @@ export default class CvInputRangeComponent extends React.Component{
         return(
             <div 
                 className="experienceWarpper input-range-component"
-                onMouseEnter={this.showOptions}
-                onMouseLeave={this.hideOptions}
+                ref={this.setWrapperRef}
             >
                 <Paper 
                     zDepth={1}

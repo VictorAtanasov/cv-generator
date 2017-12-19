@@ -16,9 +16,9 @@ export default class CvHeader extends React.Component{
         }
 
         this.pushData = this.pushData.bind(this);
-        this.showPopOver = this.showPopOver.bind(this);
-        this.hidePopOver = this.hidePopOver.bind(this);
         this.showInnerPopOverOptions = this.showInnerPopOverOptions.bind(this);
+        this.setWrapperRef = this.setWrapperRef.bind(this);           
+        this.handleClickOutside = this.handleClickOutside.bind(this);
     }
 
     pushData(e){
@@ -28,10 +28,29 @@ export default class CvHeader extends React.Component{
         this.props.setData(userUid, key, data)
     }
 
-    showPopOver(){
-        this.setState({
-            componentOptions: 'active-cv-state'
-        })
+    componentDidMount() {
+        document.addEventListener('mousedown', this.handleClickOutside);
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener('mousedown', this.handleClickOutside);
+    }
+
+    setWrapperRef(node) {
+        this.wrapperRef = node;
+    }
+
+    handleClickOutside(event) {
+        if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
+            this.setState({
+                componentOptions: 'hidden',
+                innerComponentOptions: 'hidden'
+            })
+        } else{
+            this.setState({
+                componentOptions: 'active-cv-state',
+            })
+        }
     }
 
     hidePopOver(){
@@ -57,8 +76,7 @@ export default class CvHeader extends React.Component{
         return(
             <div 
                 className="cv-header-wrapper"
-                onMouseEnter={this.showPopOver}
-                onMouseLeave={this.hidePopOver}
+                ref={this.setWrapperRef}
             >
                 <div className="headerPopOverWrapper">
                     <Paper 

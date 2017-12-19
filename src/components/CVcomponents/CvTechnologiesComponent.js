@@ -18,11 +18,11 @@ export default class CvTechnologiesComponent extends React.Component{
         this.renderTechnologies = this.renderTechnologies.bind(this);
         this.deleteComponent = this.deleteComponent.bind(this);
         this.addNewComp = this.addNewComp.bind(this);
-        this.hideOptions = this.hideOptions.bind(this);
-        this.showOptions = this.showOptions.bind(this);
         this.addTechnology = this.addTechnology.bind(this);
         this.pushData = this.pushData.bind(this);
         this.showInnerPopOverOptions = this.showInnerPopOverOptions.bind(this);
+        this.setWrapperRef = this.setWrapperRef.bind(this);           
+        this.handleClickOutside = this.handleClickOutside.bind(this);
     }
 
     addTechnology(){
@@ -68,18 +68,30 @@ export default class CvTechnologiesComponent extends React.Component{
         this.props.pushData(this.props.userInfo.userUid, this.props.type, data)
     }
 
-    showOptions(e){
-        this.setState({
-            buttonClass: 'active-cv-state'
-        })
+    componentDidMount() {
+        document.addEventListener('mousedown', this.handleClickOutside);
     }
 
-    hideOptions(e){
-        this.setState({
-            buttonClass: 'hidden',
-            chooceIconButton: 'hidden',
-            innerComponentOptions: 'hidden',
-        })
+    componentWillUnmount() {
+        document.removeEventListener('mousedown', this.handleClickOutside);
+    }
+
+    setWrapperRef(node) {
+        this.wrapperRef = node;
+    }
+
+    handleClickOutside(event) {
+        if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
+            this.setState({
+                buttonClass: 'hidden',
+                chooceIconButton: 'hidden',
+                innerComponentOptions: 'hidden',
+            })
+        } else{
+            this.setState({
+                buttonClass: 'active-cv-state',
+            })
+        }
     }
 
     pushData(e){
@@ -107,8 +119,7 @@ export default class CvTechnologiesComponent extends React.Component{
         return(
             <div 
                 className="experienceWarpper" 
-                onMouseEnter={this.showOptions} 
-                onMouseLeave={this.hideOptions}
+                ref={this.setWrapperRef}
             >
                     <Paper 
                         zDepth={1}

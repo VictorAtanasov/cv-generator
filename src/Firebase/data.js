@@ -1,22 +1,22 @@
 const cvData = {
     image: '',
     titles: {
-        achievment : 'Achievments',
-        awards : 'Awards',
-        certification : 'Certification',
-        courses : 'Courses',
-        education : 'Education',
-        experience : 'Experience',
-        languages : 'Languages',
-        motivation : 'Motivation',
-        projects : 'Projects',
-        proud : 'Proud',
-        strengths : 'Strengths',
-        summary : 'Summary',
-        technologies : 'Technologies',
-        expertise: 'Expertise'
+        'm-achievments': 'Achievments',
+        'l-awards': 'Awards',
+        'e-certification': 'Certificates',
+        'd-courses': 'Courses',
+        'b-education': 'Education',
+        'a-experience': 'Experience',
+        'g-expertise': 'expertise',
+        'h-languages': 'Languages',
+        'k-motivation': 'Motivation',
+        'c-projects': 'Projects',
+        'j-proud': 'Proud',
+        'i-strengths': 'Strengths',
+        'summary': 'Summary',
+        'f-technologies': 'Technologies'
     },
-    experience: {
+    'a-experience': {
         '-KyQi5jtW3WhuV8kdqNW': {
             company: 'company',
             description: 'description',
@@ -38,7 +38,7 @@ const cvData = {
             }
         }
     },
-    projects: {
+    'c-projects': {
         '-KyQi5jtW3WhoV9kdqNZ': {
             company: 'company',
             description: 'description',
@@ -61,7 +61,7 @@ const cvData = {
             }
         }
     },
-    education: {
+    'b-education': {
         '-KyQa2jtW3KhoV9kdqNZ': {
             company: 'School or University',
             description: 'Description',
@@ -84,7 +84,7 @@ const cvData = {
             }
         }
     },
-    proud: {
+    'j-proud': {
         '-KyQi5jtW3WhaV9kdqNW': {
             font: 'grav',
             achievment: 'What are you most proud of?',
@@ -95,7 +95,7 @@ const cvData = {
             },
         }
     },
-    strengths: {
+    'i-strengths': {
         '-KyQi5jtW3WhaV9kdqNW': {
             font: 'grav',
             achievment: 'Strength',
@@ -106,7 +106,7 @@ const cvData = {
             },
         }
     },
-    awards: {
+    'l-awards': {
         '-KyQi5jtW3WhaV9kdqNW': {
             font: 'grav',
             achievment: 'Award Name',
@@ -117,7 +117,7 @@ const cvData = {
             },
         }
     },
-    motivation: {
+    'k-motivation': {
         '-KyQy1jtWdWhqV9kdqNW': {
             font: 'grav',
             achievment: 'Motivation Title',
@@ -128,7 +128,7 @@ const cvData = {
             },
         }
     },
-    achievments: {
+    'm-achievments': {
         '-KyQi5jtA2WhaV9kdqNW': {
             font: 'grav',
             achievment: 'What are you most proud of?',
@@ -139,7 +139,7 @@ const cvData = {
             },
         }
     },
-    certification: {
+    'e-certification': {
         '-KyQi5jtW3WhaV9kdqNA': {
             certificate: 'Name of the certificate',
             organization: 'Organization',
@@ -151,7 +151,7 @@ const cvData = {
             }
         }
     },
-    courses: {
+    'd-courses': {
         '-KyQi5jtW3WhaV9kdqNA': {
             certificate: 'Name of the course',
             organization: 'Organization',
@@ -163,12 +163,12 @@ const cvData = {
             }
         }
     },
-    summary: {
+    'summary': {
         '-KiQi5jtW3WheV2kdqNA': {
             summary: 'What is the one thing you want someone to remember after reading your resume?' 
         }
     },
-    technologies: {
+    'f-technologies': {
         '-KiQi5jtW3WheV2kdqNA': {
             title:{
                 'group-title': 'group-title'
@@ -183,7 +183,7 @@ const cvData = {
             }
         }
     },
-    expertise: {
+    'g-expertise': {
         '-KiQi5jtW3koeV2erqNA': {
             title: 'expertise-title',
             range: '10',
@@ -193,7 +193,7 @@ const cvData = {
             }
         }
     },
-    languages: {
+    'h-languages': {
         '-KiXi1jgW3koeV2erqNA': {
             title: 'expertise-title',
             range: '10',

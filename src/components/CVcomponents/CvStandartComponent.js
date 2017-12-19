@@ -22,11 +22,11 @@ export default class CvStandartComponent extends React.Component{
         this.setAchievmentData = this.setAchievmentData.bind(this);
         this.deleteExperience = this.deleteExperience.bind(this);
         this.addNewComp = this.addNewComp.bind(this);
-        this.hideOptions = this.hideOptions.bind(this);
-        this.showOptions = this.showOptions.bind(this);
         this.companyAreaClassName = this.companyAreaClassName.bind(this);
         this.addAchievment = this.addAchievment.bind(this);
         this.showInnerPopOverOptions = this.showInnerPopOverOptions.bind(this);
+        this.setWrapperRef = this.setWrapperRef.bind(this);           
+        this.handleClickOutside = this.handleClickOutside.bind(this);
     }
 
     pushData(e){
@@ -98,33 +98,19 @@ export default class CvStandartComponent extends React.Component{
     addNewComp(){
         var data = {};
         switch(this.props.type){
-            case 'experience':
-                data = {...registrationData.experience['-KyQi5jtW3WhuV8kdqNW']};
+            case 'a-experience':
+                data = {...registrationData['a-experience']['-KyQi5jtW3WhuV8kdqNW']};
                 break;
-            case 'projects':
-                data = {...registrationData.projects['-KyQi5jtW3WhoV9kdqNZ']};
+            case 'c-projects':
+                data = {...registrationData['c-projects']['-KyQi5jtW3WhoV9kdqNZ']};
                 break;
-            case 'education':
-                data = {...registrationData.education['-KyQa2jtW3KhoV9kdqNZ']};
+            case 'b-education':
+                data = {...registrationData['b-education']['-KyQa2jtW3KhoV9kdqNZ']};
                 break;
             default:
                 break;
         }
         this.props.pushData(this.props.userInfo.userUid, this.props.type, data)
-    }
-
-    showOptions(e){
-        this.setState({
-            buttonClass: 'active-cv-state',
-        })
-    }
-
-    hideOptions(e){
-        this.setState({
-            buttonClass: 'hidden',
-            chooceIconButton: 'hidden',
-            innerComponentOptions: 'hidden',
-        })
     }
 
     companyAreaClassName(){
@@ -147,13 +133,38 @@ export default class CvStandartComponent extends React.Component{
         }
     }
 
+    componentDidMount() {
+        document.addEventListener('mousedown', this.handleClickOutside);
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener('mousedown', this.handleClickOutside);
+    }
+
+    setWrapperRef(node) {
+        this.wrapperRef = node;
+    }
+
+    handleClickOutside(event) {
+        if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
+            this.setState({
+                buttonClass: 'hidden',
+                chooceIconButton: 'hidden',
+                innerComponentOptions: 'hidden',
+            })
+        } else{
+            this.setState({
+                buttonClass: 'active-cv-state',
+            })
+        }
+    }
+
     render(){
         const data = this.props.cv.cvData[this.props.type][this.props.id];
         return(
             <div 
                 className="experienceWarpper"
-                onMouseEnter={this.showOptions}
-                onMouseLeave={this.hideOptions}
+                ref={this.setWrapperRef}
             >
                 <Paper 
                     zDepth={1}
