@@ -40,27 +40,7 @@ export default class CvShortComponent extends React.Component{
     }
 
     addNewComp(){
-        var data = {};
-        switch(this.props.type){
-            case 'j-proud':
-                data = {...registrationData['j-proud']['-KyQi5jtW3WhaV9kdqNW']};
-                break;
-            case 'i-strengths':
-                data = {...registrationData['i-strengths']['-KyQi5jtW3WhaV9kdqNW']};
-                break;
-            case 'l-awards':
-                data = {...registrationData['l-awards']['-KyQi5jtW3WhaV9kdqNW']};
-                break;
-            case 'm-achievments':
-                data = {...registrationData['m-achievments']['-KyQi5jtA2WhaV9kdqNW']};
-                break;
-            case 'k-motivation':
-                data = {...registrationData['k-motivation']['-KyQy1jtWdWhqV9kdqNW']};
-                break;
-            default:
-                break;
-        }
-
+        var data = {...registrationData[this.props.type][Object.keys(registrationData[this.props.type])]}
         this.props.pushData(this.props.userInfo.userUid, this.props.type, data)
     }
 

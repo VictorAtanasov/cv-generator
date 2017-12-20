@@ -43,17 +43,7 @@ export default class CvInputRangeComponent extends React.Component{
 
     addNewRange(){
         let userUid = this.props.userInfo.userUid;
-        var data = {};
-        switch(this.props.type){
-            case 'h-languages':
-                data = {...registrationData['h-languages']['-KiXi1jgW3koeV2erqNA']};
-                break;
-            case 'g-expertise':
-                data = {...registrationData['g-expertise']['-KiQi5jtW3koeV2erqNA']};
-                break;
-            default:
-                break;
-        }
+        var data = {...registrationData[this.props.type][Object.keys(registrationData[this.props.type])]}
         this.props.pushData(userUid, this.props.type, data);
     }
 

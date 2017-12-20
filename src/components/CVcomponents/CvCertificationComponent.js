@@ -37,18 +37,7 @@ export default class CvCertificationComponent extends React.Component{
     }
 
     addNewComp(){
-        var data = {};
-        switch(this.props.type){
-            case 'e-certification':
-                data = {...registrationData['e-certification']['-KyQi5jtW3WhaV9kdqNA']};
-                break;
-            case 'd-courses':
-                data = {...registrationData['d-courses']['-KyQi5jtW3WhaV9kdqNA']};
-                break;
-            default:
-                break;
-        }
-
+        var data = {...registrationData[this.props.type][Object.keys(registrationData[this.props.type])]}
         this.props.pushData(this.props.userInfo.userUid, this.props.type, data)
     }
 

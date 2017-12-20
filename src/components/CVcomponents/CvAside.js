@@ -83,7 +83,7 @@ export default class CvAside extends React.Component{
             <div>
                 <AuthButton text="Add New Section" onClick={this.showComps} />
                 <div className="comps not-active">
-                    <CvSections cv={this.props.cv} />
+                    <CvSections {...this.props}/>
                 </div>
                 <AuthButton text="Change Colors" onClick={this.showColors} />
                 <div className="colors not-active" >

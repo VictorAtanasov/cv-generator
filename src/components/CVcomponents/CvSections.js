@@ -2,7 +2,8 @@ import React from 'react';
 import componentsData from '../../Firebase/data';
 import _ from 'lodash';
 import FontAwesomeCvPage from '../FontAwesomeCvPage';
-import AuthButton from '../AuthButton';
+import data from '../../Firebase/data';
+
 
 
 export default class CvSections extends React.Component{
@@ -10,14 +11,20 @@ export default class CvSections extends React.Component{
         super(props);
 
         this.renderComps = this.renderComps.bind(this);
+        this.addComp = this.addComp.bind(this);
+    }
 
+    addComp(ev){
+        let compData = {...data[ev.target.id][Object.keys(data[ev.target.id])]}
+        this.props.pushData(this.props.user, ev.target.id, compData)
     }
 
     renderComps(){
+        
         return _.map(componentsData.titles, (title, key) => {
             return  <div key={key}>
                         <FontAwesomeCvPage font={this.props.cv.cvData[key] ? 'star-o' : 'star'} />
-                        <span>{title}</span>
+                        <span onClick={this.addComp} id={key}>{title}</span>
                     </div>
         })
     }

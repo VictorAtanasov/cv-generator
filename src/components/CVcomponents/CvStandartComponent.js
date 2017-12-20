@@ -96,20 +96,7 @@ export default class CvStandartComponent extends React.Component{
     }
 
     addNewComp(){
-        var data = {};
-        switch(this.props.type){
-            case 'a-experience':
-                data = {...registrationData['a-experience']['-KyQi5jtW3WhuV8kdqNW']};
-                break;
-            case 'c-projects':
-                data = {...registrationData['c-projects']['-KyQi5jtW3WhoV9kdqNZ']};
-                break;
-            case 'b-education':
-                data = {...registrationData['b-education']['-KyQa2jtW3KhoV9kdqNZ']};
-                break;
-            default:
-                break;
-        }
+        var data = {...registrationData[this.props.type][Object.keys(registrationData[this.props.type])]}
         this.props.pushData(this.props.userInfo.userUid, this.props.type, data)
     }
 
