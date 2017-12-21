@@ -12,7 +12,7 @@ export default class CvInnerPopOver extends React.Component {
     }
 
     renderIcons(){
-        return _.map(this.props.cv.cvData[this.props.type][this.props.id].config, (option, key) => {
+        return _.map(this.props.cv.cvData[this.props.type].components[this.props.id].config, (option, key) => {
             return <Toggle
                         label={key}
                         key={key}

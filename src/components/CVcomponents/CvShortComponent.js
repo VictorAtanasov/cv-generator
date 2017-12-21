@@ -40,7 +40,7 @@ export default class CvShortComponent extends React.Component{
     }
 
     addNewComp(){
-        var data = {...registrationData[this.props.type][Object.keys(registrationData[this.props.type])]}
+        var data = {...registrationData[this.props.type].components[Object.keys(registrationData[this.props.type].components)]}
         this.props.pushData(this.props.userInfo.userUid, this.props.type, data)
     }
 
@@ -98,7 +98,7 @@ export default class CvShortComponent extends React.Component{
     }
 
     render(){
-        const data = this.props.cv.cvData[this.props.type][this.props.id];
+        const data = this.props.cv.cvData[this.props.type].components[this.props.id];
         return(
             <div 
                 className="experienceWarpper" 

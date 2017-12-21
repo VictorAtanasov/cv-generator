@@ -15,8 +15,11 @@ export default class CvSections extends React.Component{
     }
 
     addComp(ev){
-        let compData = {...data[ev.target.id][Object.keys(data[ev.target.id])]}
-        this.props.pushData(this.props.user, ev.target.id, compData)
+        let compData = {
+            components: data[ev.target.id].components,
+            title: data[ev.target.id].title
+        };
+        this.props.createSection(this.props.user, ev.target.id, compData)
     }
 
     renderComps(){

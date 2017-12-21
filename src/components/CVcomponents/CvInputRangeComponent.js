@@ -13,7 +13,7 @@ export default class CvInputRangeComponent extends React.Component{
         super(props);
 
         this.state = {
-            value: this.props.cv.cvData[this.props.type][this.props.id].range,
+            value: this.props.cv.cvData[this.props.type].components[this.props.id].range,
             buttonClass: 'hidden',
             innerComponentOptions: 'hidden',
         };
@@ -43,7 +43,7 @@ export default class CvInputRangeComponent extends React.Component{
 
     addNewRange(){
         let userUid = this.props.userInfo.userUid;
-        var data = {...registrationData[this.props.type][Object.keys(registrationData[this.props.type])]}
+        var data = {...registrationData[this.props.type].components[Object.keys(registrationData[this.props.type].components)]}
         this.props.pushData(userUid, this.props.type, data);
     }
 
@@ -96,7 +96,7 @@ export default class CvInputRangeComponent extends React.Component{
     }
 
     render(){
-        const data = this.props.cv.cvData[this.props.type][this.props.id];
+        const data = this.props.cv.cvData[this.props.type].components[this.props.id];
         const muiTheme = getMuiTheme({
             slider: {
               trackColor: this.props.cv.cvData.styles['secondary-color'],

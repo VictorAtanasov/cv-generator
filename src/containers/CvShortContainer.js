@@ -8,7 +8,7 @@ import _ from 'lodash';
 class CvShortContainer extends React.Component{
 
     renderComponents(){
-        return _.map(this.props.cv.cvData[this.props.type], (comp, key) => {
+        return _.map(this.props.cv.cvData[this.props.type].components, (comp, key) => {
             return <CvShortComponent 
                         {...this.props}
                         key={key}

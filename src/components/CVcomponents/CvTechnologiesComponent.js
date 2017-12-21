@@ -33,7 +33,7 @@ export default class CvTechnologiesComponent extends React.Component{
     }
 
     renderTechnologies(){
-        return _.map(this.props.cv.cvData[this.props.type][this.props.id].technologies, (technology, key) => {
+        return _.map(this.props.cv.cvData[this.props.type].components[this.props.id].technologies, (technology, key) => {
             return <CvTechnologiesTextarea 
                         name={technology.technology}
                         placeholder="Your Technology"
@@ -115,7 +115,7 @@ export default class CvTechnologiesComponent extends React.Component{
     }
 
     render(){
-        const data = this.props.cv.cvData[this.props.type][this.props.id];
+        const data = this.props.cv.cvData[this.props.type].components[this.props.id];
         return(
             <div 
                 className="experienceWarpper" 

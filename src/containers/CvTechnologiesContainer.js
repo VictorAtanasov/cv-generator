@@ -8,7 +8,7 @@ import _ from 'lodash';
 class CvTechnologiesContainer extends React.Component{
     
     renderComponents(){
-        return _.map(this.props.cv.cvData[this.props.type], (comp, key) => {
+        return _.map(this.props.cv.cvData[this.props.type].components, (comp, key) => {
             return <CvTechnologiesComponent
                         {...this.props}
                         userInfo={this.props.userInfo} 

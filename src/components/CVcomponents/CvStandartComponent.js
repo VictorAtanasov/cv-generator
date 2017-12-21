@@ -75,7 +75,7 @@ export default class CvStandartComponent extends React.Component{
     }
 
     renderAchievments(){
-        return _.map(this.props.cv.cvData[this.props.type][this.props.id].achievments, (achievment, key) => {
+        return _.map(this.props.cv.cvData[this.props.type].components[this.props.id].achievments, (achievment, key) => {
             return <CvAchievment 
                         type="text"
                         name={achievment.achievment}
@@ -96,7 +96,7 @@ export default class CvStandartComponent extends React.Component{
     }
 
     addNewComp(){
-        var data = {...registrationData[this.props.type][Object.keys(registrationData[this.props.type])]}
+        var data = {...registrationData[this.props.type].components[Object.keys(registrationData[this.props.type].components)]}
         this.props.pushData(this.props.userInfo.userUid, this.props.type, data)
     }
 
@@ -147,7 +147,7 @@ export default class CvStandartComponent extends React.Component{
     }
 
     render(){
-        const data = this.props.cv.cvData[this.props.type][this.props.id];
+        const data = this.props.cv.cvData[this.props.type].components[this.props.id];
         return(
             <div 
                 className="experienceWarpper"

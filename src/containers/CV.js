@@ -31,7 +31,7 @@ class CV extends React.Component{
                     iterator += 1;
                     return  <div className="page-break" id={key} key={iterator}>
                                 <CvTitles 
-                                    {...this.props}
+                                    userInfo={this.props.userInfo}
                                     type={key}
                                 />
                                 <CvStandartContainer 
@@ -45,7 +45,7 @@ class CV extends React.Component{
                     iterator += 1;
                     return <div className="page-break" id={key} key={iterator}>
                                 <CvTitles 
-                                    {...this.props}
+                                    userInfo={this.props.userInfo}
                                     type={key}
                                 />
                                 <CvCertificationContainer 
@@ -68,7 +68,7 @@ class CV extends React.Component{
                     iterator += 1;
                     return <div className="page-break" id={key} key={iterator}>
                                 <CvTitles 
-                                    {...this.props}
+                                    userInfo={this.props.userInfo}
                                     type={key}
                                 />
                                 <CvTechnologiesContainer 
@@ -82,7 +82,7 @@ class CV extends React.Component{
                     iterator += 1;
                     return <div className="page-break" id={key} key={iterator}>
                                 <CvTitles 
-                                    {...this.props}
+                                    userInfo={this.props.userInfo}
                                     type={key}
                                 />
                                 <CvInputRangeInputContainer 
@@ -99,7 +99,7 @@ class CV extends React.Component{
                     iterator += 1;
                     return <div className="page-break" id={key} key={iterator}>
                                 <CvTitles 
-                                    {...this.props}
+                                    userInfo={this.props.userInfo}
                                     type={key}
                                 />
                                 <CvShortContainer 
