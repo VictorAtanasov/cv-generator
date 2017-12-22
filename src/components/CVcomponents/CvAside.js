@@ -1,5 +1,6 @@
 import React from 'react';
-import AuthButton from '../AuthButton';
+import FlatButton from 'material-ui/FlatButton';
+//import AuthButton from '../AuthButton';
 import CvColorCircle from './CvColorCircle';
 import CvSections from './CvSections';
 
@@ -81,15 +82,36 @@ export default class CvAside extends React.Component{
     render(){
         return(
             <div>
-                <AuthButton text="Add New Section" onClick={this.showComps} />
+                <FlatButton 
+                    label="Add New Section" 
+                    onClick={this.showComps}
+                    fullWidth={true}
+                    backgroundColor="#fff"
+                    rippleColor="#54a7d3"
+                    hoverColor="#fff"
+                />
                 <div className="comps not-active">
                     <CvSections {...this.props}/>
                 </div>
-                <AuthButton text="Change Colors" onClick={this.showColors} />
+                <FlatButton 
+                    label="Change Colors" 
+                    onClick={this.showColors}
+                    fullWidth={true}
+                    backgroundColor="#fff"
+                    rippleColor="#54a7d3"
+                    hoverColor="#fff"
+                />
                 <div className="colors not-active" >
                     {this.renderCircles()}
                 </div>
-                <AuthButton text="Change Font" onClick={this.showFonts} />
+                <FlatButton 
+                    label="Change Font" 
+                    onClick={this.showFonts}
+                    fullWidth={true}
+                    backgroundColor="#fff"
+                    rippleColor="#54a7d3"
+                    hoverColor="#fff"
+                />
                 <div className="fonts not-active" >
                     <p 
                         id="'Lato', sans-serif"

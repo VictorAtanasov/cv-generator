@@ -456,7 +456,7 @@
 
 .aside {
   float: left;
-  padding: 5px 20px 20px 5px;
+  padding: 10px 5px 6px 5px;
   border: 1px solid rgba(255, 255, 255, 0.3);
   width: 220px;
   text-align: center;
@@ -467,14 +467,21 @@
   padding: 5px;
   text-align: center;
   max-height: 0;
-  overflow: hidden; }
+  overflow: hidden;
+  margin: 1px 0;
+  border-radius: 3px;
+  background-color: #fff; }
+
+.not-active {
+  padding: 0;
+  margin: 0 0 5px 0 !important; }
 
 .font {
   cursor: pointer;
   font-weight: 800;
   font-size: 19px; }
   .font:hover {
-    text-decoration: underline; }
+    color: #54a7d3; }
 
 .color {
   display: inline-block;
@@ -554,6 +561,34 @@
 
 .roboto {
   font-family: 'Roboto Slab', serif; }
+
+.comp-name-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  width: 80%;
+  margin: 0 auto;
+  padding: 10px 0;
+  border-bottom: 1px solid #e6e6e6; }
+
+.black {
+  color: #000000; }
+  .black:hover {
+    color: #54a7d3; }
+
+.grey {
+  color: #e6e6e6; }
+
+.comp-icon-blue {
+  color: #54a7d3; }
+  .comp-icon-blue:hover {
+    color: #54a7d3; }
+
+.comp-icon-grey {
+  color: #e6e6e6; }
+  .comp-icon-grey:hover {
+    color: #e6e6e6; }
 
 .active-cv-state {
   display: block;

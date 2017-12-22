@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as cvActions from '../actions/cvActions';
 import CvStandartComponent from '../components/CVcomponents/CvStandartComponent';
-import CvTitles from '../components/CVcomponents/CvTitles';
 import _ from 'lodash';
 
 class CvStandartContainer extends React.Component{
@@ -23,7 +22,6 @@ class CvStandartContainer extends React.Component{
     render(){
         return(
             <div>
-                {/* <CvTitles {...this.props} /> */}
                 {this.renderComponents()}
             </div>
         )

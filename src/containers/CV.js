@@ -118,7 +118,7 @@ class CV extends React.Component{
         return(
             <div className="CVconainerWrapper">
                 <div className="componentWarpper">
-                    {/* <CvHeader {...this.props} userInfo={this.props.userInfo} /> */}
+                    <CvHeader {...this.props} userInfo={this.props.userInfo} />
                     <Container>
                         <Row>
                             <Col xs="7">

@@ -7,7 +7,7 @@ const cvData = {
         'd-courses': 'Courses',
         'b-education': 'Education',
         'a-experience': 'Experience',
-        'g-expertise': 'expertise',
+        'g-expertise': 'Expertise',
         'h-languages': 'Languages',
         'k-motivation': 'Motivation',
         'c-projects': 'Projects',

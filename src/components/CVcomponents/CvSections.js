@@ -25,9 +25,19 @@ export default class CvSections extends React.Component{
     renderComps(){
         
         return _.map(componentsData.titles, (title, key) => {
-            return  <div key={key}>
-                        <FontAwesomeCvPage font={this.props.cv.cvData[key] ? 'star-o' : 'star'} />
-                        <span onClick={this.addComp} id={key}>{title}</span>
+            return  <div key={key} className="comp-name-wrapper">
+                        <span 
+                            onClick={this.addComp} 
+                            id={key}
+                            className={this.props.cv.cvData[key] ? 'grey' : 'black'}
+                        >
+                            {title}
+                        </span>
+                        <FontAwesomeCvPage 
+                            className="comps-icons"
+                            font={'plus-circle'} 
+                            className={this.props.cv.cvData[key] ? 'comp-icon-grey' : 'comp-icon-blue'}
+                        />
                     </div>
         })
     }

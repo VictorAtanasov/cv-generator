@@ -1,12 +1,11 @@
 import React from 'react';
-import CvTextarea from '../forms/CvTextarea';
 import FontAwesomeCvPage from '../FontAwesomeCvPage';
 import Paper from 'material-ui/Paper';
 import registrationData from '../../Firebase/data';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as cvActions from '../../actions/cvActions';
-
+import TextField from 'material-ui/TextField';
 
 class CvTitles extends React.Component{
     constructor(props){
@@ -14,6 +13,7 @@ class CvTitles extends React.Component{
 
         this.state = {
             buttonClass: 'hidden',
+            text: this.props.cv.cvData[this.props.type].title,
         }
 
         this.addNewComp = this.addNewComp.bind(this);
@@ -23,9 +23,14 @@ class CvTitles extends React.Component{
         this.deleteComp = this.deleteComp.bind(this);
     }
 
+    componentWillReceiveProps(nextProps){
+        this.setState({
+            text: nextProps.cv.cvData[nextProps.type].title
+        })
+    }
+
     updateTitle(e){
         let data = e.target.value;
-        let key = e.target.id;
         this.props.setComponentData(this.props.userInfo.userUid, this.props.type, 'title', data);
     }
 
@@ -63,7 +68,13 @@ class CvTitles extends React.Component{
     }
 
     render(){
-        const data = this.props.cv.cvData[this.props.type].title;
+        const style = {
+            border: 'none'
+        }
+    
+        const styleFocus = {
+            border: '1px solid #54a7d3'
+        }
         return(
             <div ref={this.setWrapperRef}>
                 <Paper 
@@ -78,14 +89,23 @@ class CvTitles extends React.Component{
                     </span>
                 </Paper>
                 <div>
-                    <CvTextarea 
-                        type="text"
-                        name={data}
-                        placeholder="Title"
-                        onBlur={this.updateTitle}
+                    <TextField
+                        hintText="Title" 
+                        multiLine={false}
+                        rows={1}
+                        rowsMax={1}
                         className="textarea-component-title"
-                        id={this.props.type}
-                        styles={
+                        id="textarea-component-title" 
+                        onBlur={this.updateTitle}
+                        onChange={
+                            (ev) => {
+                                this.setState({text: ev.target.value})
+                            }
+                        }
+                        value={this.state.text}
+                        underlineStyle={style}
+                        underlineFocusStyle={styleFocus}
+                        inputStyle={
                             {
                                 color: this.props.cv.cvData.styles['main-color'],
                                 fontFamily: this.props.cv.cvData.styles['font-family']
