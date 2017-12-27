@@ -1,1 +1,11 @@
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+# CV Monster is a Single Page Application for generating CVs in PDF.
+- Used Libraries
+  - React
+  - Redux
+  - Database - Firebase
+  - lodash
+  - material-ui
+  - SASS
+  - reactstrap 
+  - the project is bootstrapped with Create React App
+- Live Version URL - https://cv-generator-b95fc.firebaseapp.com/

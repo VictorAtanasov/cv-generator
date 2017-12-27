@@ -53,6 +53,7 @@ class CvPage extends React.Component{
                             style={style} 
                             zDepth={5} 
                             className="paper"
+                            id='divToPDF'
                         >
                             <div className="page" key="1">
                                 <CV userInfo={this.state} />

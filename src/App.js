@@ -10,6 +10,7 @@ import {Home} from './components/Home';
 import Header from './containers/Header';
 import Registration from './containers/registration';
 import CvPage from './containers/CvPage';
+import PublicCvPage from './containers/PublicCvPage';
 
 
 export default class App extends React.Component {
@@ -23,6 +24,7 @@ export default class App extends React.Component {
               <Route exact path='/' component={Home} />
               <Route path='/registration' component={Registration} />
               <Route path='/cv/:id' component={CvPage} />
+              <Route path='/public/cv/:id' component={PublicCvPage} />
             </Switch>
           </div>
         </BrowserRouter>
