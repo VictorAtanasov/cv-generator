@@ -2,7 +2,6 @@ import React from 'react';
 import FlatButton from 'material-ui/FlatButton';
 import CvColorCircle from './CvColorCircle';
 import CvSections from './CvSections';
-import {Link} from 'react-router-dom';
 
 export default class CvAside extends React.Component{
     constructor(props){
@@ -81,7 +80,7 @@ export default class CvAside extends React.Component{
     }
 
     printPage(){
-        console.log(42);
+        window.print();
     }
 
     render(){
@@ -182,16 +181,14 @@ export default class CvAside extends React.Component{
                         Roboto Slab
                     </p>
                 </div>
-                <Link to={`/public/cv/${this.props.user}`}>
-                    <FlatButton 
-                        label="Print CV" 
-                        onClick={this.printPage}
-                        fullWidth={true}
-                        backgroundColor="#fff"
-                        rippleColor="#54a7d3"
-                        hoverColor="#fff"
-                    />
-                </Link>
+                <FlatButton 
+                    label="Print CV" 
+                    onClick={this.printPage}
+                    fullWidth={true}
+                    backgroundColor="#fff"
+                    rippleColor="#54a7d3"
+                    hoverColor="#fff"
+                />
             </div>
         )
     }

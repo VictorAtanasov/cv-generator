@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as userActions from '../actions/userActions';
 import {FlatButton, RaisedButton, Popover, Menu, MenuItem} from 'material-ui';
+import logo from '../images/logo.png';
 
 class Header extends React.Component{
     constructor(props){
@@ -107,11 +108,11 @@ class Header extends React.Component{
         return(
             <div className="header-wrapper">
                 <div className="header">
-                    {/* <div className="header-logo">
+                    <div className="header-logo">
                         <Link to ="/">
                             <img src={logo} alt="deiba"/>
                         </Link>
-                    </div> */}
+                    </div>
                     <div className="header-menu-items-wrapper">
                         {this.ifRegUser()}
                     </div>

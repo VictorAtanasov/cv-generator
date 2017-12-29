@@ -68,6 +68,11 @@ class CvTitles extends React.Component{
     }
 
     render(){
+        const container = {
+            height: '65px',
+            lineHeight: '30px'
+        }
+
         const style = {
             border: 'none'
         }
@@ -91,9 +96,9 @@ class CvTitles extends React.Component{
                 <div>
                     <TextField
                         hintText="Title" 
-                        multiLine={false}
+                        multiLine={true}
                         rows={1}
-                        rowsMax={1}
+                        //rowsMax={2}
                         className="textarea-component-title"
                         id="textarea-component-title" 
                         onBlur={this.updateTitle}
@@ -108,9 +113,10 @@ class CvTitles extends React.Component{
                         inputStyle={
                             {
                                 color: this.props.cv.cvData.styles['main-color'],
-                                fontFamily: this.props.cv.cvData.styles['font-family']
+                                fontFamily: this.props.cv.cvData.styles['font-family'],
                             }
                         }
+                        style={container}
                     />
                 </div>
             </div>

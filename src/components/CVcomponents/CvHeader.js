@@ -129,7 +129,7 @@ export default class CvHeader extends React.Component{
                         id="role"
                     />
                 </div>
-                <div>
+                <div className="header-additional-info">
                     <div className={this.props.cv.cvData.headerConfig.phone === true ? "cv-header-input-wrapper" : "hidden"}>
                         <FontAwesomeCvPage font="phone" color={{color: this.props.cv.cvData.styles['secondary-color']}} />
                         <CvTextarea 

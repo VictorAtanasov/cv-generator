@@ -313,7 +313,7 @@
   resize: none;
   border: none;
   font-size: 42px;
-  height: 50px;
+  height: 60px;
   font-weight: 600;
   width: 610px;
   max-width: 610px; }
@@ -326,7 +326,7 @@
   resize: none;
   border: none;
   font-size: 21px;
-  height: 40px;
+  height: 45px;
   font-weight: 600;
   width: 610px;
   max-width: 610px; }
@@ -365,6 +365,9 @@
     align-items: center;
     justify-content: center; }
 
+.header-additional-info {
+  width: 69%; }
+
 .textarea-component-title {
   overflow: hidden;
   resize: none;
@@ -374,6 +377,9 @@
   margin-top: 50px;
   width: 100% !important;
   border-bottom: 2px solid #000000; }
+
+#textarea-component-title {
+  height: 100% !important; }
 
 .cv-header-input {
   font-size: 15px !important; }
@@ -390,7 +396,8 @@
 
 .textarea-default {
   height: 40px !important;
-  margin-top: -8px !important; }
+  margin-top: -8px !important;
+  width: 100% !important; }
 
 .inline-textarea-icon-wrapper {
   display: inline-block; }
@@ -633,6 +640,8 @@ img {
     display: none !important; }
   .header-menu-items-wrapper {
     display: none !important; }
+  .header-logo {
+    display: none !important; }
   .container {
     max-width: 100% !important; }
   .paper {
@@ -645,11 +654,6 @@ img {
     page-break-inside: avoid; }
   .cv-page-wrapper {
     background: #fff; }
-  .paper:after {
-    content: "\ Generated with love by Victor Atanasov CV Generator";
-    color: black;
-    display: block;
-    height: 100%; }
   @page {
     size: auto;
     margin: 0mm; } }

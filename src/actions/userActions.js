@@ -1,6 +1,6 @@
 import { auth } from '../Firebase/Firebase';
 import { cvs } from '../Firebase/Firebase';
-import cvData from '../Firebase/data';
+import cvData from '../Firebase/regData';
 export const GET_USER = 'get_user';
 
 export function getUser(){

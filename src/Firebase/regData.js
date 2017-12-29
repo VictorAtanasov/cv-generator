@@ -1,20 +1,5 @@
-const cvData = {
+const regData = {
     image: '',
-    titles: {
-        'm-achievments': 'Achievments',
-        'l-awards': 'Awards',
-        'e-certification': 'Certificates',
-        'd-courses': 'Courses',
-        'b-education': 'Education',
-        'a-experience': 'Experience',
-        'g-expertise': 'Expertise',
-        'h-languages': 'Languages',
-        'k-motivation': 'Motivation',
-        'c-projects': 'Projects',
-        'j-proud': 'Proud',
-        'i-strengths': 'Strengths',
-        'f-technologies': 'Technologies'
-    },
     'a-experience': {
         components:{
             '-KyQi5jtW3WhuV8kdqNW': {
@@ -39,32 +24,6 @@ const cvData = {
             }
         },
         title: 'Experience'
-    },
-    'c-projects': {
-        components: {
-            '-KyQi5jtW3WhoV9kdqNZ': {
-                company: 'company',
-                description: 'description',
-                title: 'title',
-                date: 'Date period',
-                location: 'location',
-                link: 'link',
-                linkAreaClass: 'hidden',
-                achievments: {
-                    '-KyQi5jtW4WhoV9kdqNZ': {
-                        achievment: 'achievment'
-                    }
-                },
-                config: {
-                    date: true,
-                    description: true,
-                    link: true,
-                    location: true,
-                    bullets: true
-                }
-            }
-        },
-        title: 'Projects'
     },
     'b-education': {
         components:{
@@ -92,20 +51,6 @@ const cvData = {
         },
         title: 'Education'
     },
-    'j-proud': {
-        components: {
-            '-KyQi5jtW3WhaV9kdqNW': {
-                font: 'grav',
-                achievment: 'What are you most proud of?',
-                description: 'Why are you proud of this achievment?',
-                config: {
-                    icon: true,
-                    description: true,
-                },
-            }
-        },
-        title: 'Proud'
-    },
     'i-strengths': {
         components:{
             '-KyQi5jtW3WhaV9kdqNW': {
@@ -119,34 +64,6 @@ const cvData = {
             }
         },
         title: 'Strengths'
-    },
-    'l-awards': {
-        components: {
-            '-KyQi5jtW3WhaV9kdqNW': {
-                font: 'grav',
-                achievment: 'Award Name',
-                description: 'Award description',
-                config: {
-                    icon: true,
-                    description: true,
-                },
-            }
-        },
-        title: 'Awards'
-    },
-    'k-motivation': {
-        components: {
-            '-KyQy1jtWdWhqV9kdqNW': {
-                font: 'grav',
-                achievment: 'Motivation Title',
-                description: 'Motivation description',
-                config: {
-                    icon: true,
-                    description: true,
-                },
-            }
-        },
-        title: 'Motivation'
     },
     'm-achievments': {
         components: {
@@ -250,4 +167,4 @@ const cvData = {
     }
 }
 
-export default cvData
+export default regData
