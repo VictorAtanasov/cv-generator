@@ -5,6 +5,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 //Components
 import {Home} from './components/Home';
+import {Footer} from './components/Footer';
 
 //Containers
 import Header from './containers/Header';
@@ -24,6 +25,7 @@ export default class App extends React.Component {
               <Route path='/registration' component={Registration} />
               <Route path='/cv/:id' component={CvPage} />
             </Switch>
+            <Footer />
           </div>
         </BrowserRouter>
       </MuiThemeProvider>
