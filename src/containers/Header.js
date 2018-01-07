@@ -73,6 +73,7 @@ class Header extends React.Component{
                             </Link>                        
                         <div>
                             <RaisedButton
+                                className="menu-btn"
                                 onClick={this.handleTouchTap}
                                 label={this.props.user.displayName ? this.props.user.displayName : 'Hello'}
                             />
