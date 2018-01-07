@@ -48,7 +48,6 @@ class Header extends React.Component{
     handleSignOut(e){
         this.props.logOut()
             .then(() =>{
-                console.log('success');
                 window.location.href = '/';
             })
             .catch((err) =>{
@@ -65,7 +64,12 @@ class Header extends React.Component{
                 return(
                     <div className="header-menu-items">
                             <Link to="/">
-                                <FlatButton label="Home" hoverColor="white"/>
+                                <FlatButton 
+                                    label="Home" 
+                                    hoverColor="none"
+                                    rippleColor="none"
+                                    className="header-home-btn"
+                                />
                             </Link>                        
                         <div>
                             <RaisedButton
@@ -93,7 +97,12 @@ class Header extends React.Component{
                 return(
                     <div className="header-menu-items">
                         <Link to="/">
-                            <FlatButton label="Home" hoverColor="white"/>
+                            <FlatButton 
+                                label="Home" 
+                                hoverColor="none"
+                                rippleColor="none"
+                                className="header-home-btn"
+                            />
                         </Link>
                         <Link to="/registration">
                             <RaisedButton label="Registration" style={style} />

@@ -63,10 +63,10 @@ class CvPage extends React.Component{
                 )
             } else{
                 return(
-                    <div>
-                        <p>
+                    <div className="msg-wrapper">
+                        <h2>
                             Log in or register first!
-                        </p>
+                        </h2>
                     </div>
                 )
             }
