@@ -30,7 +30,7 @@ class CvPage extends React.Component{
                 </div>
             )
         }else{
-            if(!(this.props.user.loading) && this.props.user.email){
+            if(!(this.props.user.loading) && this.props.user.uid){
                 const style = {
                     height: 'auto',
                     width: '940px',

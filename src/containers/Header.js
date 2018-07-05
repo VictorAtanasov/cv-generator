@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import { Redirect } from 'react-router'
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as userActions from '../actions/userActions';
@@ -13,12 +14,14 @@ class Header extends React.Component{
         this.state = {
           dropdownOpen: false,
           open: false,
+          redirect: false
         };
 
         this.ifRegUser = this.ifRegUser.bind(this);
         this.handleSignOut = this.handleSignOut.bind(this);
         this.handleTouchTap = this.handleTouchTap.bind(this);
         this.handleRequestClose = this.handleRequestClose.bind(this);
+        this.anonymousLogIn = this.anonymousLogIn.bind(this);
     }
 
     handleTouchTap = (event) => {
@@ -55,12 +58,22 @@ class Header extends React.Component{
             })
     }
 
+    anonymousLogIn(){
+        this.props.anonymous()
+            .then((user) => {
+                this.setState({
+                    userUid: user.uid,
+                    redirect: true
+                })
+            })
+    }
+
     ifRegUser(){
         const style = {
             margin: 12
         };
         if(!this.props.user.loading){
-            if(this.props.user.email){
+            if(this.props.user.uid){
                 return(
                     <div className="header-menu-items">
                             <Link to="/">
@@ -108,6 +121,7 @@ class Header extends React.Component{
                         <Link to="/registration">
                             <RaisedButton label="Registration" style={style} />
                         </Link>
+                        <RaisedButton label="Demo" style={style} onClick={this.anonymousLogIn}  />
                     </div>
                 )
             }
@@ -115,12 +129,15 @@ class Header extends React.Component{
     }
 
     render(){
+        if (this.state.redirect) {
+            return <Redirect to={`/cv/${this.state.userUid}`} />
+        }
         return(
             <div className="header-wrapper">
                 <div className="header">
                     <div className="header-logo">
                         <Link to ="/">
-                            <img src={logo} alt="deiba"/>
+                            <img src={logo} alt="logo"/>
                         </Link>
                     </div>
                     <div className="header-menu-items-wrapper">

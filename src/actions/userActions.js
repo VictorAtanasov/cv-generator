@@ -14,6 +14,20 @@ export function getUser(){
     }
 }
 
+export function anonymous(){
+    return dispatch => {
+        return auth.signInAnonymously()
+            .then((user) => {
+                cvs.child(user.uid).set({
+                    email: '',
+                    name: '',
+                    cvData
+                })
+                return user
+            })
+    }
+}
+
 export function logIn(email, password){
     return dispatch => {
         return auth.signInWithEmailAndPassword(email, password)
