@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import { Redirect } from 'react-router'
+import { Redirect, withRouter } from 'react-router'
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as userActions from '../actions/userActions';
@@ -13,8 +13,7 @@ class Header extends React.Component{
         
         this.state = {
           dropdownOpen: false,
-          open: false,
-          redirect: false
+          open: false
         };
 
         this.ifRegUser = this.ifRegUser.bind(this);
@@ -45,13 +44,17 @@ class Header extends React.Component{
     };
 
     componentWillMount(){
-        this.props.getUser()
+        this.props.getUser();
+        this.setState({
+            dropdownOpen: false,
+            open: false
+        })
     }
 
     handleSignOut(e){
         this.props.logOut()
             .then(() =>{
-                window.location.href = '/';
+                this.props.history.replace('/');
             })
             .catch((err) =>{
                 console.log(err)
@@ -62,9 +65,9 @@ class Header extends React.Component{
         this.props.anonymous()
             .then((user) => {
                 this.setState({
-                    userUid: user.uid,
-                    redirect: true
+                    userUid: user.uid
                 })
+                this.props.history.push(`/cv/${user.uid}`);
             })
     }
 
@@ -129,9 +132,6 @@ class Header extends React.Component{
     }
 
     render(){
-        if (this.state.redirect) {
-            return <Redirect to={`/cv/${this.state.userUid}`} />
-        }
         return(
             <div className="header-wrapper">
                 <div className="header">
@@ -160,4 +160,4 @@ function mapDispatchToProps(dispatch){
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header))
