@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import { Redirect, withRouter } from 'react-router'
+import { withRouter } from 'react-router'
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as userActions from '../actions/userActions';
@@ -45,10 +45,6 @@ class Header extends React.Component{
 
     componentWillMount(){
         this.props.getUser();
-        this.setState({
-            dropdownOpen: false,
-            open: false
-        })
     }
 
     handleSignOut(e){
@@ -65,10 +61,19 @@ class Header extends React.Component{
         this.props.anonymous()
             .then((user) => {
                 this.setState({
-                    userUid: user.uid
-                })
+                    userUid: user.uid,
+                    open: false,
+                });
                 this.props.history.push(`/cv/${user.uid}`);
             })
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState.open === true && this.state.open === true) {
+            this.setState({
+                open: false
+            })
+        }
     }
 
     ifRegUser(){
